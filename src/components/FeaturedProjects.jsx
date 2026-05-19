@@ -13,12 +13,12 @@ const FeaturedProjects = () => {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
-          { img: "/images/fashion.png", category: "Ecommerce", title: "Fashion Ecommerce Store" },
-          { img: "/images/restaurant.png", category: "Restaurant", title: "Restaurant Website" },
-          { img: "/images/realestate.png", category: "Real Estate", title: "Luxury Real Estate" },
-          { img: "/images/beauty.png", category: "Shopify Store", title: "Shopify Beauty Brand" },
-          { img: "/images/saas.png", category: "SaaS Platform", title: "SaaS Analytics Dashboard" },
-          { img: "/images/consulting.png", category: "Consulting", title: "Business Consulting" }
+          { img: "/images/fashion.webp", category: "Ecommerce", title: "Fashion Ecommerce Store" },
+          { img: "/images/restaurant.webp", category: "Restaurant", title: "Restaurant Website" },
+          { img: "/images/realestate.webp", category: "Real Estate", title: "Luxury Real Estate" },
+          { img: "/images/beauty.webp", category: "Shopify Store", title: "Shopify Beauty Brand" },
+          { img: "/images/saas.webp", category: "SaaS Platform", title: "SaaS Analytics Dashboard" },
+          { img: "/images/consulting.webp", category: "Consulting", title: "Business Consulting" }
         ].map((project, idx) => (
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { delay: idx * 0.1 } } }} key={idx} className="group cursor-pointer">
             <div className="glass-card overflow-hidden rounded-xl mb-4 relative aspect-square border-gray-200">

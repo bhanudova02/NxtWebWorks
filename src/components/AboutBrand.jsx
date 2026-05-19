@@ -19,7 +19,7 @@ const AboutBrand = () => {
     <section className="py-24 md:py-32 container mx-auto px-6 md:px-12">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="relative rounded-2xl overflow-hidden glass-card p-2 border-gray-200 glow-effect">
-          <img src="/images/workspace.png" alt="Developer Workspace" className="w-full h-[400px] object-cover rounded-xl" />
+          <img src="/images/workspace.webp" alt="Developer Workspace" className="w-full h-[400px] object-cover rounded-xl" />
         </motion.div>
         
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>

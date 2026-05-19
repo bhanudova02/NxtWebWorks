@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-200 ${isScrolled ? 'bg-white/95 backdrop-blur-xl py-4 shadow-sm' : 'bg-white/70 backdrop-blur-md py-6'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <a href="#" className="text-2xl font-black tracking-tighter flex items-center gap-2">
-            <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
+            <img src="/src/assets/logo.webp" alt="Logo" className="w-8 h-8 object-contain" />
             <span className="text-gray-900">NXTWEB<span className="text-brand-blue">WORKS</span></span>
           </a>
 

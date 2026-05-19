@@ -49,7 +49,7 @@ const Hero = () => {
                 <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
               </div>
               <div className="relative overflow-hidden bg-white aspect-[4/3] w-full">
-                 <img src="/images/hero4.png" alt="Digital Agency Website Mockup" className="w-full h-full object-cover object-top" />
+                 <img src="/images/hero4.webp" alt="Digital Agency Website Mockup" className="w-full h-full object-cover object-top" />
               </div>
             </div>
           </div>
