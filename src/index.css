@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #2563eb;
+  --color-brand-purple: #4f46e5;
+  --color-dark-bg: #ffffff;
+  --color-dark-card: #f8fafc;
+  --color-glass: rgba(255, 255, 255, 0.9);
+  --color-glass-border: rgba(0, 0, 0, 0.05);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white shadow-sm border border-gray-100 rounded-2xl;
+  }
+  .glow-effect {
+    box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.2);
+  }
+  .glow-effect-purple {
+    box-shadow: 0 10px 40px -10px rgba(79, 70, 229, 0.2);
+  }
+  .text-gradient {
+    @apply text-brand-blue;
+  }
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+  }
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+}
