@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2 max-w-sm">
             <a href="#" className="text-2xl font-black tracking-tighter flex items-center gap-2 mb-6">
-              <img src="/src/assets/logo.webp" alt="Logo" className="w-8 h-8 object-contain" />
+              <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
               <span className="text-gray-900">NXTWEB<span className="text-brand-blue">WORKS</span></span>
             </a>
             <p className="text-gray-600 leading-relaxed mb-8">
