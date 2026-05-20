@@ -8,6 +8,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
+import ScheduleCall from './components/ScheduleCall';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -29,6 +30,7 @@ function App() {
       <Process />
       <Testimonials />
       <Pricing />
+      <ScheduleCall />
       <Contact />
       <Footer />
       <WhatsAppButton />

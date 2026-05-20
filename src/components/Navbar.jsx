@@ -30,8 +30,8 @@ const Navbar = () => {
                 {item}
               </a>
             ))}
-            <a href="#contact" className="px-6 py-2.5 bg-brand-blue text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300">
-              Book Free Call
+            <a href="#schedule" className="px-6 py-2.5 bg-brand-blue text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300">
+              Schedule a Call
             </a>
           </div>
 
@@ -49,8 +49,8 @@ const Navbar = () => {
                 {item}
               </a>
             ))}
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3 text-center bg-brand-blue text-white font-semibold rounded-full shadow-md">
-              Book Free Call
+            <a href="#schedule" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3 text-center bg-brand-blue text-white font-semibold rounded-full shadow-md">
+              Schedule a Call
             </a>
           </div>
         )}
