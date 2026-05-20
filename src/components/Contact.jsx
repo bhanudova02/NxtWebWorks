@@ -13,7 +13,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     // Replace these with your actual EmailJS credentials
-    emailjs.sendForm('service_kfdst3w', 'template_hki1y3q', form.current, {
+    emailjs.sendForm('service_qlpu0ug', 'template_hki1y3q', form.current, {
       publicKey: 'jpBG9_OUYcD3I9dEr',
     })
       .then((result) => {
