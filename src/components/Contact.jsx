@@ -17,14 +17,14 @@ const Contact = () => {
       publicKey: 'jpBG9_OUYcD3I9dEr',
     })
       .then((result) => {
-          console.log(result.text);
-          setSubmitStatus('success');
-          form.current.reset();
-          setIsSubmitting(false);
+        console.log(result.text);
+        setSubmitStatus('success');
+        form.current.reset();
+        setIsSubmitting(false);
       }, (error) => {
-          console.log(error.text);
-          setSubmitStatus('error');
-          setIsSubmitting(false);
+        console.log(error.text);
+        setSubmitStatus('error');
+        setIsSubmitting(false);
       });
   };
 
@@ -35,7 +35,7 @@ const Contact = () => {
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Let's start a <span className="text-brand-blue">conversation</span></h2>
             <p className="text-lg text-gray-600 mb-12 max-w-md">Fill out the form and our team will get back to you within 24 hours to discuss your project.</p>
-            
+
             <div className="flex flex-col gap-8">
               <div className="flex items-start gap-4">
                 <div className="p-4 bg-white rounded-xl border border-gray-200 text-brand-blue">
@@ -66,7 +66,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="glass-card p-8 md:p-10 border-gray-200 bg-white">
             <form ref={form} className="flex flex-col gap-6" onSubmit={sendEmail}>
               <div className="grid md:grid-cols-2 gap-6">
@@ -100,8 +100,8 @@ const Contact = () => {
       {submitStatus === 'success' && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-all duration-300">
           <div className="bg-white rounded-2xl p-8 max-w-sm w-full relative shadow-2xl flex flex-col items-center text-center" style={{ animation: 'fade-in-up 0.4s ease-out forwards' }}>
-            <button 
-              onClick={() => setSubmitStatus(null)} 
+            <button
+              onClick={() => setSubmitStatus(null)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors p-1"
             >
               <X size={20} />
@@ -113,7 +113,7 @@ const Contact = () => {
             <p className="text-gray-600 leading-relaxed">
               Thank you for reaching out! We will contact you within 24 hours.
             </p>
-            <button 
+            <button
               onClick={() => setSubmitStatus(null)}
               className="mt-8 w-full py-3.5 bg-brand-blue text-white font-bold rounded-xl hover:bg-gray-800 transition-all duration-300"
             >
