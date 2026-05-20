@@ -41,15 +41,9 @@ const Hero = () => {
         {/* Hero Visual Mockup */}
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
           <div className="relative z-10 glass-card p-2 glow-effect-purple">
-            <div className="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 relative">
-              {/* Fake Browser Header */}
-              <div className="h-8 bg-gray-200 flex items-center px-4 gap-2 border-b border-gray-100">
-                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-              </div>
-              <div className="relative overflow-hidden bg-white aspect-[4/3] w-full">
-                 <img src="/images/hero4.webp" alt="Digital Agency Website Mockup" className="w-full h-full object-cover object-top" />
+            <div className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 relative shadow-2xl">
+              <div className="relative overflow-hidden bg-white aspect-square sm:aspect-[4/3] w-full">
+                 <img src="/images/hero-new.png" alt="Digital Agency Website Mockup" className="w-full h-full object-cover object-center" />
               </div>
             </div>
           </div>
