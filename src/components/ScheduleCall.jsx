@@ -14,7 +14,16 @@ const ScheduleCall = () => {
           </p>
         </div>
 
-        <div className="glass-card bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl" style={{ height: '700px' }}>
+        <div className="glass-card bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl relative" style={{ height: '700px' }}>
+          <style dangerouslySetInnerHTML={{__html: `
+            .calendly-spinner {
+              position: absolute !important;
+              top: 50% !important;
+              left: 50% !important;
+              transform: translate(-50%, -50%) !important;
+              z-index: 10 !important;
+            }
+          `}} />
           <InlineWidget
             url="https://calendly.com/teamnxtwebworks/30min"
             styles={{ height: '100%', width: '100%' }}
