@@ -36,25 +36,43 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden text-gray-600" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <button className="md:hidden text-gray-600" onClick={() => setMobileMenuOpen(true)}>
+            <Menu size={28} />
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-200 p-6 flex flex-col gap-6 shadow-2xl">
+      </nav>
+
+      {/* Mobile Menu Backdrop */}
+      {mobileMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu Drawer */}
+      <div className={`md:hidden fixed top-0 right-0 h-full w-[280px] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="p-6 flex flex-col h-full">
+          <div className="flex justify-end mb-8">
+            <button className="text-gray-500 hover:text-gray-900 bg-gray-50 p-2 rounded-full" onClick={() => setMobileMenuOpen(false)}>
+              <X size={24} />
+            </button>
+          </div>
+          <div className="flex flex-col gap-6">
             {['Home', 'Services', 'Projects', 'Testimonials', 'Contact'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-gray-600">
+              <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="text-xl font-medium text-gray-800 hover:text-brand-blue transition-colors">
                 {item}
               </a>
             ))}
-            <a href="#schedule" onClick={() => setMobileMenuOpen(false)} className="px-6 py-3 text-center bg-brand-blue text-white font-semibold rounded-full shadow-md">
+          </div>
+          <div className="mt-auto mb-4">
+            <a href="#schedule" onClick={() => setMobileMenuOpen(false)} className="block w-full py-4 text-center bg-brand-blue text-white font-bold rounded-xl shadow-lg shadow-brand-blue/30 hover:bg-gray-800 transition-all">
               Schedule a Call
             </a>
           </div>
-        )}
-      </nav>
+        </div>
+      </div>
     </>
   );
 };

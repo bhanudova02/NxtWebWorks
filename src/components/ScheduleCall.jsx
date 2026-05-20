@@ -13,10 +13,10 @@ const ScheduleCall = () => {
             Choose a time that works best for you. We'll discuss your project requirements, goals, and how we can help your brand grow.
           </p>
         </div>
-        
+
         <div className="glass-card bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl" style={{ height: '700px' }}>
-          <InlineWidget 
-            url="https://calendly.com/team-nxtwebworks/30min" 
+          <InlineWidget
+            url="https://calendly.com/teamnxtwebworks/30min"
             styles={{ height: '100%', width: '100%' }}
             pageSettings={{
               backgroundColor: 'ffffff',
