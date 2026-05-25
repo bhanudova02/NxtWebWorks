@@ -72,15 +72,15 @@ const Contact = () => {
           </div>
 
           <div className="flex-1">
-            <form ref={form} onSubmit={sendEmail} className="bg-[#1E293B] p-8 rounded-2xl border border-[#334155]">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <form ref={form} onSubmit={sendEmail} className="bg-[#1E293B] p-8 rounded-lg border border-[#334155]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block text-sm font-medium text-[#CBD5E1] mb-2">First Name</label>
                   <input
                     type="text"
                     name="user_name"
                     required
-                    className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                    className="w-full bg-[#0F172A] border border-[#334155] rounded-md px-4 py-3 text-base text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
                     placeholder="John"
                   />
                 </div>
@@ -89,35 +89,35 @@ const Contact = () => {
                   <input
                     type="tel"
                     name="phone_number"
-                    className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                    className="w-full bg-[#0F172A] border border-[#334155] rounded-md px-4 py-3 text-base text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
                     placeholder="+91 98765 43210"
                   />
                 </div>
               </div>
-              <div className="mb-6">
+              <div className="mb-4">
                 <label className="block text-sm font-medium text-[#CBD5E1] mb-2">Work Email</label>
                 <input
                   type="email"
                   name="user_email"
                   required
-                  className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                  className="w-full bg-[#0F172A] border border-[#334155] rounded-md px-4 py-3 text-base text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
                   placeholder="john@company.com"
                 />
               </div>
-              <div className="mb-6">
+              <div className="mb-5">
                 <label className="block text-sm font-medium text-[#CBD5E1] mb-2">Project Details</label>
                 <textarea
                   name="message"
                   required
-                  rows={4}
-                  className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                  rows={3}
+                  className="w-full bg-[#0F172A] border border-[#334155] rounded-md px-4 py-3 text-base text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
                   placeholder="Tell us about your requirements..."
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={"w-full bg-white text-[#0F172A] font-medium rounded-lg px-4 py-3 transition-colors " + (isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100")}
+                className={"w-full bg-white text-[#0F172A] text-base font-medium rounded-md px-4 py-3 transition-colors " + (isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100")}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
