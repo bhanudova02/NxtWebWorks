@@ -1,35 +1,71 @@
-import { motion } from 'framer-motion';
-import { Monitor, ShoppingCart, Database, Code, PenTool, Layout, Zap, Headphones } from 'lucide-react';
+import { Layers, ShoppingBag, LayoutGrid, Code2, Database, Briefcase } from 'lucide-react';
+
+const services = [
+  {
+    title: 'Headless E-commerce',
+    description: 'Blazing fast storefronts using Next.js, Tailwind CSS, and the Shopify Storefront API.',
+    icon: ShoppingBag,
+  },
+  {
+    title: 'Custom SaaS Platforms',
+    description: 'Subscription-based software products built on a robust MERN stack architecture.',
+    icon: Layers,
+  },
+  {
+    title: 'Shopify Theme Customization',
+    description: 'Transforming ordinary themes into highly interactive stores using Shopify Liquid & JS.',
+    icon: LayoutGrid,
+  },
+  {
+    title: 'Full-Stack Web Applications',
+    description: 'Scalable and secure web apps using React, Node.js, Express, and MongoDB.',
+    icon: Code2,
+  },
+  {
+    title: 'Shopify Private Apps',
+    description: 'Custom Node.js and REST API integrations to handle specific e-commerce business logic.',
+    icon: Briefcase,
+  },
+  {
+    title: 'Advanced Admin Dashboards',
+    description: 'Internal business tools for managing complex data securely with modern React interfaces.',
+    icon: Database,
+  },
+];
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 md:py-32 bg-gray-50 border-y border-gray-100">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="services" className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Premium <span className="text-brand-blue">Services</span></h2>
-          <p className="text-lg text-gray-600">Comprehensive digital solutions tailored for ambitious brands and modern businesses.</p>
+          <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest mb-4">
+            Capabilities
+          </p>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] tracking-tight">
+            Comprehensive Technical Solutions
+          </h2>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { icon: Monitor, title: "Website Development", desc: "Custom, high-performance websites built with modern frameworks." },
-            { icon: ShoppingCart, title: "Shopify Development", desc: "High-converting ecommerce stores designed to maximize sales." },
-            { icon: Database, title: "Ecommerce Stores", desc: "Custom ecommerce platforms with seamless payment integrations." },
-            { icon: Code, title: "Fullstack Web Apps", desc: "Complex, scalable web applications with robust backend systems." },
-            { icon: PenTool, title: "UI/UX Design", desc: "User-centric interfaces that deliver exceptional digital experiences." },
-            { icon: Layout, title: "Website Redesign", desc: "Breathe new life into your existing website with a modern overhaul." },
-            { icon: Zap, title: "Speed Optimization", desc: "Lightning-fast load times to improve SEO and user retention." },
-            { icon: Headphones, title: "Maintenance & Support", desc: "Reliable ongoing support to keep your digital assets secure." }
-          ].map((service, idx) => (
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: idx * 0.1 } } }} key={idx} className="glass-card p-8 group hover:bg-gray-800/5 transition-all duration-300 cursor-pointer relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/0 to-brand-purple/0 group-hover:from-brand-blue/5 group-hover:to-brand-purple/5 transition-all duration-500"></div>
-              <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-brand-blue/30 transition-transform duration-300 relative z-10">
-                <service.icon className="text-gray-600 group-hover:text-brand-blue transition-colors" size={24} />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="group p-8 rounded-2xl bg-white border border-[#E2E8F0] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#CBD5E1] transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-lg bg-[#F1F5F9] text-[#3B82F6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 stroke-[1.5]" />
+                </div>
+                <h3 className="text-xl font-medium text-[#0F172A] mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-[#475569] leading-relaxed text-sm">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 relative z-10">{service.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed relative z-10">{service.desc}</p>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

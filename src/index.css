@@ -1,12 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #2563eb;
-  --color-brand-purple: #4f46e5;
-  --color-dark-bg: #ffffff;
-  --color-dark-card: #f8fafc;
-  --color-glass: rgba(255, 255, 255, 0.9);
-  --color-glass-border: rgba(0, 0, 0, 0.05);
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --color-rn-bg: #F3F4F6;
+  --color-rn-surface: #FFFFFF;
+  --color-rn-blue-soft: #E0E7FF;
+  --color-rn-blue: #3B82F6;
+  --color-rn-text: #1E293B;
+  --color-rn-text-muted: #475569;
+  --color-rn-border: #E2E8F0;
+  
+  --color-section-hero: #FAFAFA;
+  --color-section-trust: #EFF6FF;
+  --color-section-services: #F8FAFC;
+  --color-section-projects: #F5F3FF;
+  --color-section-why: #FAFAFA;
+  --color-section-process: #FEFCE8;
+  --color-section-cta: #0F172A;
 }
 
 @layer base {
@@ -14,31 +25,39 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-white text-gray-900 font-sans antialiased overflow-x-hidden;
+    @apply bg-white text-[#1E293B] font-sans antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight text-[#0F172A];
   }
 }
 
 @layer utilities {
-  .glass-card {
-    @apply bg-white shadow-sm border border-gray-100 rounded-2xl;
+  .bg-grid-pattern {
+    background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+    background-size: 24px 24px;
   }
-  .glow-effect {
-    box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.2);
+  .bg-mesh-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-  .glow-effect-purple {
-    box-shadow: 0 10px 40px -10px rgba(79, 70, 229, 0.2);
+  .text-balance {
+    text-wrap: balance;
   }
-  .text-gradient {
-    @apply text-brand-blue;
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
   }
-  .bg-gradient-radial {
-    background-image: radial-gradient(var(--tw-gradient-stops));
+  
+  /* Smooth reveals */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(calc(-50% - 1rem)); }
-  }
-  .animate-marquee {
-    animation: marquee 35s linear infinite;
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

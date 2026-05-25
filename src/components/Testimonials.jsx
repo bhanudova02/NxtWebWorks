@@ -1,60 +1,95 @@
-import { motion } from 'framer-motion';
-import { MessageSquare } from 'lucide-react';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
-
-const reviews = [
-  { name: "Priya Sharma", role: "Founder, StyleAura", text: "NXTWEBWORKS completely transformed our Shopify store. Our conversion rate doubled in the first month after launch. True professionals." },
-  { name: "Rahul Verma", role: "CEO, TechFlow SaaS", text: "The team delivered our marketing site ahead of schedule. The code quality is pristine, and the design is exactly the premium look we wanted." },
-  { name: "Arjun Reddy", role: "Owner, Prime Estate", text: "Working with them was a breeze. They understood our business needs and translated them into a stunning, fast-loading web experience." },
-  { name: "Neha Gupta", role: "Marketing Director, Bloom Beauty", text: "Their attention to detail is unmatched. The new UI/UX design they created for our beauty brand elevated our customer experience entirely." },
-  { name: "Vikram Singh", role: "CTO, NextGen Logistix", text: "We needed a highly scalable web app, and they delivered flawlessly. The performance optimization alone saved us thousands in hosting." },
-  { name: "Anita Desai", role: "Founder, Spice Route", text: "Our restaurant's new website perfectly captures our vibe. We've seen a 40% increase in online reservations since going live." },
-  { name: "Karthik Iyer", role: "Partner, Iyer Consulting", text: "Professional, communicative, and exceptionally skilled. They built a corporate site that instantly builds trust with our enterprise clients." }
+const testimonials = [
+  {
+    quote: "The team at NxtWebWorks delivered an exceptional enterprise application that transformed our internal operations. Their engineering standards are world-class.",
+    author: "Sarah Jenkins",
+    role: "CTO, Acumen Tech",
+  },
+  {
+    quote: "We needed a scalable architecture for our growing SaaS product. They provided a robust React/Node solution that handles our traffic effortlessly.",
+    author: "Marcus Chen",
+    role: "Founder, Nexus Platform",
+  },
+  {
+    quote: "Professional, communicative, and technically proficient. They are a rare agency that truly understands both business logic and deep technical architecture.",
+    author: "David Alroy",
+    role: "VP Engineering, Vertex Systems",
+  }
 ];
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 md:py-32 bg-gray-50 border-y border-gray-100 overflow-hidden relative">
-      <div className="container mx-auto px-6 md:px-12 mb-16">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Client <span className="text-brand-blue">Success Stories</span></h2>
-          <p className="text-lg text-gray-600">Don't just take our word for it. Hear what ambitious founders have to say.</p>
-        </motion.div>
-      </div>
-        
-      <div className="relative overflow-hidden flex w-full">
-        {/* Fading Edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
-        
-        <div className="flex gap-8 w-max animate-marquee py-4 px-4 md:px-8">
-          {[...reviews, ...reviews].map((review, idx) => (
-            <div key={idx} className="glass-card p-8 bg-white border-gray-200 hover:shadow-lg transition-shadow relative w-[320px] md:w-[420px] shrink-0 flex flex-col justify-between">
-              <div>
-                <div className="absolute top-8 right-8 opacity-10">
-                  <MessageSquare size={40} className="text-brand-blue" />
-                </div>
-                <div className="flex gap-1 text-brand-blue mb-6">
-                  {[1,2,3,4,5].map(star => <svg key={star} className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>)}
-                </div>
-                <p className="text-gray-600 italic mb-8 leading-relaxed">"{review.text}"</p>
-              </div>
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-blue/30">
-                  {review.name.charAt(0)}
-                </div>
-                <div>
-                  <h5 className="font-bold text-gray-900">{review.name}</h5>
-                  <p className="text-xs text-gray-600 font-medium uppercase tracking-wide">{review.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+    <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] mb-4 tracking-tight">
+            Client Feedback
+          </h2>
+          <p className="text-base md:text-lg text-[#475569] leading-relaxed">
+            Don't just take our word for it. Here's what engineering leaders have to say about our work.
+          </p>
         </div>
+
+      <div className="relative w-full overflow-hidden">
+        {/* Gradient Edges for smooth fading */}
+        <div className="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+          {/* First Set */}
+          <div className="flex gap-6 pr-6">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="w-[85vw] md:w-[450px] flex-shrink-0 whitespace-normal p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-[#F59E0B]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-[#1E293B] leading-relaxed mb-6">
+                  "{testimonial.quote}"
+                </p>
+                <div>
+                  <p className="font-medium text-[#0F172A]">{testimonial.author}</p>
+                  <p className="text-sm text-[#475569]">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Second Set (Duplicate for infinite scroll) */}
+          <div className="flex gap-6 pr-6" aria-hidden="true">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="w-[85vw] md:w-[450px] flex-shrink-0 whitespace-normal p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-[#F59E0B]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-[#1E293B] leading-relaxed mb-6">
+                  "{testimonial.quote}"
+                </p>
+                <div>
+                  <p className="font-medium text-[#0F172A]">{testimonial.author}</p>
+                  <p className="text-sm text-[#475569]">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 35s linear infinite;
+        }
+      `}} />
       </div>
     </section>
   );

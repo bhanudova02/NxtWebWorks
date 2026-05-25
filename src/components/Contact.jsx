@@ -1,4 +1,4 @@
-import { Mail, Smartphone, MapPin, X, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, X, CheckCircle } from 'lucide-react';
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -12,94 +12,128 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Replace these with your actual EmailJS credentials
-    emailjs.sendForm('service_qlpu0ug', 'template_hki1y3q', form.current, {
-      publicKey: 'jpBG9_OUYcD3I9dEr',
-    })
+    const formData = new FormData(form.current);
+    const templateParams = {
+      user_name: formData.get('user_name'),
+      user_email: formData.get('user_email'),
+      phone_number: formData.get('phone_number'),
+      message: formData.get('message'),
+    };
+
+    emailjs.send('service_7lloynq', 'template_zj1dajq', templateParams, 'TaeFTpQKeEwOyWsqq')
       .then((result) => {
-        console.log(result.text);
+        console.log("EmailJS Success:", result.text);
         setSubmitStatus('success');
         form.current.reset();
         setIsSubmitting(false);
       }, (error) => {
-        console.log(error.text);
+        console.error("EmailJS Error:", error.text || error);
         setSubmitStatus('error');
         setIsSubmitting(false);
       });
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-gray-50/30 border-t border-gray-100">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Let's start a <span className="text-brand-blue">conversation</span></h2>
-            <p className="text-lg text-gray-600 mb-12 max-w-md">Fill out the form and our team will get back to you within 24 hours to discuss your project.</p>
+    <section id="contact" className="py-16 md:py-24 bg-[#0F172A] relative overflow-hidden scroll-mt-16">
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#1E293B] to-transparent pointer-events-none" />
 
-            <div className="flex flex-col gap-8">
-              <div className="flex items-start gap-4">
-                <div className="p-4 bg-white rounded-xl border border-gray-200 text-brand-blue">
-                  <Mail size={24} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16">
+
+          <div className="flex-1">
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-tight">
+              Get in Touch
+            </h2>
+            <p className="text-base md:text-lg text-[#94A3B8] leading-relaxed mb-10 max-w-md">
+              Have a specific project in mind? Send us a message and our team will get back to you shortly.
+            </p>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 text-[#E2E8F0]">
+                <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center text-[#38BDF8]">
+                  <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h5 className="text-gray-600 text-sm mb-1">Email Us</h5>
-                  <p className="text-gray-900 font-medium text-lg">hello@nxtwebworks.com</p>
+                  <p className="font-medium text-white">Email Us</p>
+                  <p className="text-[#94A3B8] text-sm">hello@nxtwebworks.com</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="p-4 bg-white rounded-xl border border-gray-200 text-brand-purple">
-                  <Smartphone size={24} />
+              <div className="flex items-center gap-4 text-[#E2E8F0]">
+                <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center text-[#38BDF8]">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h5 className="text-gray-600 text-sm mb-1">WhatsApp</h5>
-                  <p className="text-gray-900 font-medium text-lg">+91 76609 52680</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="p-4 bg-white rounded-xl border border-gray-200 text-brand-blue">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h5 className="text-gray-600 text-sm mb-1">Location</h5>
-                  <p className="text-gray-900 font-medium text-lg">Global Remote Agency</p>
+                  <p className="font-medium text-white">Location</p>
+                  <p className="text-[#94A3B8] text-sm">Global Remote</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="glass-card p-8 md:p-10 border-gray-200 bg-white">
-            <form ref={form} className="flex flex-col gap-6" onSubmit={sendEmail}>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm text-gray-600 font-medium">Full Name</label>
-                  <input type="text" name="user_name" required placeholder="John Doe" className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-brand-blue transition-colors" />
+          <div className="flex-1">
+            <form ref={form} onSubmit={sendEmail} className="bg-[#1E293B] p-8 rounded-2xl border border-[#334155]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-[#CBD5E1] mb-2">First Name</label>
+                  <input
+                    type="text"
+                    name="user_name"
+                    required
+                    className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                    placeholder="John"
+                  />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm text-gray-600 font-medium">Email Address</label>
-                  <input type="email" name="user_email" required placeholder="john@company.com" className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-brand-blue transition-colors" />
+                <div>
+                  <label className="block text-sm font-medium text-[#CBD5E1] mb-2">Phone / WhatsApp</label>
+                  <input
+                    type="tel"
+                    name="phone_number"
+                    className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                    placeholder="+91 98765 43210"
+                  />
                 </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-600 font-medium">Phone / WhatsApp</label>
-                <input type="tel" name="phone_number" placeholder="+91 98765 43210" className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-brand-blue transition-colors" />
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-[#CBD5E1] mb-2">Work Email</label>
+                <input
+                  type="email"
+                  name="user_email"
+                  required
+                  className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                  placeholder="john@company.com"
+                />
               </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-600 font-medium">Project Details</label>
-                <textarea name="message" required rows="4" placeholder="Tell us about your project, goals, and budget..." className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-brand-blue transition-colors resize-none"></textarea>
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-[#CBD5E1] mb-2">Project Details</label>
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  className="w-full bg-[#0F172A] border border-[#334155] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8] transition-colors"
+                  placeholder="Tell us about your requirements..."
+                />
               </div>
-              <button type="submit" disabled={isSubmitting} className={`w-full py-4 text-white font-bold rounded-xl mt-2 transition-all duration-300 ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-brand-blue hover:bg-gray-800 hover:glow-effect'}`}>
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={"w-full bg-white text-[#0F172A] font-medium rounded-lg px-4 py-3 transition-colors " + (isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100")}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
-              {submitStatus === 'error' && <p className="text-red-500 text-sm font-medium mt-2 text-center">Failed to send message. Please try again.</p>}
+              {submitStatus === 'error' && (
+                <p className="text-red-400 text-sm font-medium mt-3 text-center">Failed to send message. Please try again.</p>
+              )}
             </form>
           </div>
+
         </div>
       </div>
 
       {/* Success Modal */}
       {submitStatus === 'success' && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-all duration-300">
-          <div className="bg-white rounded-2xl p-8 max-w-sm w-full relative shadow-2xl flex flex-col items-center text-center" style={{ animation: 'fade-in-up 0.4s ease-out forwards' }}>
+          <div className="bg-white rounded-2xl p-8 max-w-sm w-full relative shadow-2xl flex flex-col items-center text-center animate-in fade-in zoom-in duration-300">
             <button
               onClick={() => setSubmitStatus(null)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors p-1"
@@ -115,7 +149,7 @@ const Contact = () => {
             </p>
             <button
               onClick={() => setSubmitStatus(null)}
-              className="mt-8 w-full py-3.5 bg-brand-blue text-white font-bold rounded-xl hover:bg-gray-800 transition-all duration-300"
+              className="mt-8 w-full py-3.5 bg-[#0F172A] text-white font-bold rounded-xl hover:bg-[#1E293B] transition-all duration-300"
             >
               Close
             </button>

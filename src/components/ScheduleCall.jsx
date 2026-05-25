@@ -1,20 +1,19 @@
-import React from 'react';
 import { InlineWidget } from 'react-calendly';
 
 const ScheduleCall = () => {
   return (
-    <section id="schedule" className="py-24 md:py-32 bg-white border-t border-gray-100">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="schedule" className="py-16 md:py-24 bg-[#FAFAFA] border-b border-[#E2E8F0] scroll-mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Book a <span className="text-brand-blue">Free Discovery Call</span>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] mb-4 tracking-tight">
+            Book a Discovery Call
           </h2>
-          <p className="text-lg text-gray-600">
-            Choose a time that works best for you. We'll discuss your project requirements, goals, and how we can help your brand grow.
+          <p className="text-base md:text-lg text-[#475569] leading-relaxed">
+            Choose a time that works best for you. Let's discuss your engineering needs and how we can collaborate.
           </p>
         </div>
 
-        <div className="glass-card bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl relative" style={{ height: '700px' }}>
+        <div className="max-w-5xl mx-auto bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative" style={{ height: '700px' }}>
           <style dangerouslySetInnerHTML={{__html: `
             .calendly-spinner {
               position: absolute !important;
@@ -32,7 +31,7 @@ const ScheduleCall = () => {
               hideEventTypeDetails: false,
               hideLandingPageDetails: false,
               primaryColor: '3b82f6',
-              textColor: '111827'
+              textColor: '0F172A'
             }}
           />
         </div>
