@@ -1,83 +1,163 @@
-import { ShieldCheck, Zap, BarChart } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Cpu, Globe, Server, ShieldCheck, Zap } from 'lucide-react';
 
 const WhyChooseUs = () => {
-  return (
-    <section className="py-16 md:py-24 bg-white border-b border-[#E2E8F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
-          <div className="sticky top-24">
-            <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest mb-4">
-              The NxtWebWorks Advantage
-            </p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] mb-6 tracking-tight leading-snug">
-              We don't just write code, we engineer scalable business solutions.
-            </h2>
-            <p className="text-base md:text-lg text-[#475569] leading-relaxed mb-8">
-              We don't just build websites; we engineer digital products that solve complex business problems. Our approach combines modern framework capabilities with robust engineering principles.
-            </p>
-            
-            <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="mt-1 w-10 h-10 rounded-full bg-[#EFF6FF] flex items-center justify-center text-[#3B82F6] flex-shrink-0">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-[#0F172A] mb-2">Modern Tech Stack</h3>
-                  <p className="text-[#475569] leading-relaxed">
-                    Utilizing React, Next.js, and Node.js to ensure your application is fast, scalable, and maintainable.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="mt-1 w-10 h-10 rounded-full bg-[#FEFCE8] flex items-center justify-center text-[#EAB308] flex-shrink-0">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-[#0F172A] mb-2">Enterprise Security</h3>
-                  <p className="text-[#475569] leading-relaxed">
-                    Implementing best-in-class security measures, authentication systems, and data protection protocols.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+  const features = [
+    {
+      number: '01',
+      title: 'Modern Tech Stack',
+      description: 'We build with React, Next.js, and Node.js to ensure your application is fast, responsive, and easy to maintain.',
+      badge: 'Performance',
+      icon: Zap,
+    },
+    {
+      number: '02',
+      title: 'Enterprise Security',
+      description: 'We implement TLS 1.3 encryption, secure cookie validation, and custom JWT authorization scopes to protect your data.',
+      badge: 'Security',
+      icon: ShieldCheck,
+    },
+    {
+      number: '03',
+      title: 'Modular Code Quality',
+      description: 'We follow clean code principles and decoupled architecture patterns, allowing database and API changes without code rewrites.',
+      badge: 'Scalability',
+      icon: Cpu,
+    }
+  ];
 
-          <div className="flex-1 w-full relative">
-            {/* Modular Structure Placeholder */}
-            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm overflow-hidden p-6 relative z-10">
-              <div className="flex justify-between items-center mb-8 pb-6 border-b border-[#E2E8F0]">
-                <div>
-                  <div className="h-5 w-32 bg-gray-200 rounded mb-2" />
-                  <div className="h-3 w-48 bg-gray-100 rounded" />
-                </div>
-                <div className="flex gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#EFF6FF] text-[#3B82F6] flex items-center justify-center"><BarChart className="w-4 h-4" /></div>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded bg-gray-100 flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="h-4 w-1/3 bg-gray-200 rounded mb-2" />
-                      <div className="h-2 w-full bg-gray-100 rounded overflow-hidden">
-                        <div className="h-full bg-[#3B82F6] rounded" style={{ width: `${80 - i * 15}%` }} />
+  return (
+    <section className="py-20 md:py-28 bg-white border-b border-[#E2E8F0] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#EFF6FF] rounded-full blur-3xl opacity-50 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-5 space-y-8">
+            <div>
+              <span className="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+                <Cpu size={12} className="animate-pulse" />
+                <span>The Advantage</span>
+              </span>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight leading-tight mb-4">
+                Engineered for Performance and Security
+              </h2>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                We combine modern framework capabilities with robust engineering principles to deliver software that scales.
+              </p>
+            </div>
+
+            <div className="space-y-6 pt-4">
+              {features.map((feat) => {
+                const Icon = feat.icon;
+                return (
+                  <div key={feat.number} className="flex gap-4 group">
+                    <span className="text-sm font-bold text-gray-300 group-hover:text-blue-500 transition-colors pt-1">
+                      {feat.number}
+                    </span>
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-base font-bold text-gray-900">
+                          {feat.title}
+                        </h3>
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-gray-50 border border-gray-100 text-gray-400">
+                          {feat.badge}
+                        </span>
                       </div>
-                    </div>
-                    <div className="w-16 text-right">
-                      <div className="h-4 w-full bg-gray-200 rounded" />
+                      <p className="text-xs text-gray-400 leading-relaxed">
+                        {feat.description}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
-            
-            {/* Decorative background element */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#3B82F6]/5 to-[#4F46E5]/5 rounded-3xl -z-10 transform rotate-2" />
           </div>
 
+          <div className="lg:col-span-7 relative w-full">
+            <div className="bg-[#FCFDFE] rounded-2xl border border-slate-200/70 p-4 md:p-6 shadow-[0_12px_40px_rgba(15,23,42,0.05)] relative z-10 overflow-hidden">
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-200/80">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                  <div className="ml-3 px-3 py-1 rounded bg-white border border-slate-200/80 text-[9px] font-mono text-gray-400 w-36 truncate shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]">
+                    api.nxtwebworks.com/v1
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-[9px] font-bold font-mono text-green-600 bg-green-50 px-2 py-0.5 rounded-md">
+                    OPERATIONAL
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                <div className="md:col-span-4 space-y-3 font-mono text-[9px] text-gray-400 bg-white border border-slate-200/70 p-3.5 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
+                  <div className="text-[10px] font-bold text-gray-700 pb-1.5 border-b border-slate-100 flex items-center gap-1.5">
+                    <Globe size={11} className="text-blue-500" /> Global Nodes
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span>US-East</span>
+                      <span className="text-green-600 font-bold">12ms</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span>EU-Central</span>
+                      <span className="text-green-600 font-bold">18ms</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span>AP-South</span>
+                      <span className="text-green-600 font-bold">22ms</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-8 space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
+                      <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Edge Latency</span>
+                      <div className="flex items-baseline gap-1 mt-1">
+                        <span className="text-2xl font-bold text-gray-900">14</span>
+                        <span className="text-[10px] text-gray-400 font-mono">ms</span>
+                      </div>
+                    </div>
+                    <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
+                      <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Security SLA</span>
+                      <div className="flex items-baseline gap-1 mt-1">
+                        <span className="text-2xl font-bold text-gray-900">A+</span>
+                        <span className="text-[9px] font-bold text-green-600 font-mono">Verified</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] space-y-3 font-mono text-[9px] text-gray-400">
+                    <div className="flex justify-between items-center text-gray-700">
+                      <span className="font-bold flex items-center gap-1.5">
+                        <Server size={11} className="text-blue-500" /> Server Throughput
+                      </span>
+                      <span className="text-blue-600 font-bold">99.9% Uptime</span>
+                    </div>
+                    <div className="flex items-end gap-1.5 h-10 mt-1">
+                      {[35, 50, 40, 75, 25, 30, 45, 60, 80].map((val, i) => (
+                        <div key={i} className="flex-1 flex flex-col justify-end h-full">
+                          <motion.div
+                            initial={{ height: 0 }}
+                            animate={{ height: `${val}%` }}
+                            className={`w-full rounded-t-sm ${i === 8 ? 'bg-blue-500' : 'bg-gray-200 hover:bg-blue-200 transition-colors'}`}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/4 to-indigo-500/4 rounded-3xl -z-10 transform rotate-1 pointer-events-none" />
+          </div>
         </div>
       </div>
     </section>
