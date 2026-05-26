@@ -1,103 +1,377 @@
 import { useRef, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowUpRight, X, Globe, Eye, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
   {
     title: 'Fintech Analytics Platform',
     category: 'SaaS / Data Viz',
     placeholderType: 'analytics',
+    description: 'A high-performance transaction dashboard containing real-time asset charts, currency converter modules, and ledger streams.',
+    liveUrl: 'https://fintech-analytics.nxtwebworks.com',
+    slides: ['analytics_dashboard', 'analytics_transactions', 'analytics_settings']
   },
   {
     title: 'Enterprise CRM System',
     category: 'Internal Tools',
     placeholderType: 'crm',
+    description: 'An internal lead pipeline management console designed for automated operational logging and lead status updates.',
+    // No liveUrl
+    slides: ['crm_pipeline', 'crm_contacts', 'crm_activities']
   },
   {
     title: 'Global E-commerce Store',
     category: 'Headless Commerce',
     placeholderType: 'ecommerce',
+    description: 'Headless Shopify implementation with customized collection views, responsive filter components, and checkout hooks.',
+    liveUrl: 'https://shop.nxtwebworks.com',
+    slides: ['ecommerce_storefront', 'ecommerce_cart', 'ecommerce_checkout']
   },
   {
     title: 'Healthcare Portal',
     category: 'Web Application',
     placeholderType: 'app',
+    description: 'A HIPAA-compliant patient communication portal providing clinical appointment logs and prescription updates.',
+    // No liveUrl
+    slides: ['app_dashboard', 'app_calendar', 'app_prescriptions']
   },
   {
     title: 'Logistics Dashboard',
     category: 'Admin Panel',
     placeholderType: 'dashboard',
+    description: 'Fleet location management interface featuring real-time geographic markers and inventory alerts.',
+    liveUrl: 'https://logistics-admin.nxtwebworks.com',
+    slides: ['dashboard_overview', 'dashboard_inventory', 'dashboard_metrics']
   },
 ];
 
-const PlaceholderVisual = ({ type }) => {
+// Shared placeholder component representing different screens (images)
+const SlideVisual = ({ type }) => {
   switch (type) {
-    case 'analytics':
+    // Fintech Analytics Slides
+    case 'analytics_dashboard':
       return (
-        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-6 gap-4">
-          <div className="flex justify-between items-center mb-2">
-            <div className="h-4 w-32 bg-gray-200 rounded" />
-            <div className="h-6 w-20 bg-gray-200 rounded-full" />
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-6 gap-4 font-mono text-[10px] text-gray-500">
+          <div className="flex justify-between items-center pb-2 border-b border-gray-200">
+            <span className="font-bold text-gray-800">Analytics Overview</span>
+            <span className="text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Active</span>
           </div>
           <div className="flex gap-4">
-            <div className="h-24 flex-1 bg-white border border-gray-100 rounded-lg shadow-sm" />
-            <div className="h-24 flex-1 bg-white border border-gray-100 rounded-lg shadow-sm" />
+            <div className="h-16 flex-1 bg-white border border-gray-150 rounded p-2 shadow-sm">
+              <p className="text-[8px] text-gray-400">Total Assets</p>
+              <h4 className="text-sm font-bold text-gray-800 mt-1">$482,910</h4>
+            </div>
+            <div className="h-16 flex-1 bg-white border border-gray-150 rounded p-2 shadow-sm">
+              <p className="text-[8px] text-gray-400">Net Volume</p>
+              <h4 className="text-sm font-bold text-gray-800 mt-1">$24,912</h4>
+            </div>
           </div>
-          <div className="flex-1 bg-white border border-gray-100 rounded-lg shadow-sm flex items-end p-4 gap-2">
-            {[40, 70, 45, 90, 65, 80, 55].map((h, i) => (
-              <div key={i} className="flex-1 bg-blue-100 rounded-t-sm" style={{ height: `${h}%` }} />
+          <div className="flex-1 bg-white border border-gray-150 rounded p-3 shadow-sm flex items-end gap-1.5">
+            {[40, 60, 45, 80, 50, 70, 95].map((h, i) => (
+              <div key={i} className="flex-1 bg-blue-500 rounded-t-sm" style={{ height: `${h}%` }} />
             ))}
           </div>
         </div>
       );
-    case 'crm':
+    case 'analytics_transactions':
       return (
-        <div className="w-full h-full bg-[#FAFAFA] flex p-4 gap-4">
-          <div className="w-16 flex flex-col gap-3 border-r border-gray-200 pr-4">
-            <div className="w-8 h-8 rounded bg-gray-200 mb-4" />
-            <div className="w-8 h-8 rounded bg-gray-100" />
-            <div className="w-8 h-8 rounded bg-gray-100" />
-          </div>
-          <div className="flex-1 flex flex-col gap-3">
-            <div className="h-8 w-48 bg-gray-200 rounded mb-2" />
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-12 w-full bg-white border border-gray-100 rounded flex items-center px-4 gap-4 shadow-sm">
-                <div className="w-6 h-6 rounded-full bg-gray-200" />
-                <div className="h-3 w-32 bg-gray-200 rounded" />
-                <div className="ml-auto h-3 w-16 bg-gray-100 rounded" />
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Recent Transactions</h4>
+          <div className="space-y-2 flex-grow overflow-y-auto">
+            {[
+              { to: "Apex Ltd", desc: "API Retainer", amt: "+$4,800", date: "May 25", col: "text-green-600" },
+              { to: "Stripe Inc", desc: "Payout fee", amt: "-$12.50", date: "May 24", col: "text-gray-600" },
+              { to: "Vertex Co", desc: "CRM build", amt: "+$8,500", date: "May 22", col: "text-green-600" }
+            ].map((t, i) => (
+              <div key={i} className="flex justify-between bg-white border border-gray-150 p-2.5 rounded shadow-sm">
+                <div>
+                  <p className="font-bold text-gray-800">{t.to}</p>
+                  <p className="text-[8px] text-gray-400">{t.desc}</p>
+                </div>
+                <div className="text-right">
+                  <p className={`font-bold ${t.col}`}>{t.amt}</p>
+                  <p className="text-[8px] text-gray-400">{t.date}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       );
-    case 'ecommerce':
+    case 'analytics_settings':
       return (
-        <div className="w-full h-full bg-[#FAFAFA] flex flex-col">
-          <div className="h-12 border-b border-gray-200 flex items-center px-6 justify-between bg-white">
-            <div className="h-4 w-24 bg-gray-200 rounded" />
-            <div className="flex gap-3">
-              <div className="h-4 w-12 bg-gray-100 rounded" />
-              <div className="h-4 w-12 bg-gray-100 rounded" />
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-6 gap-4 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">API Configurations</h4>
+          <div className="space-y-3">
+            <div>
+              <p className="text-[9px] text-gray-400 mb-1">Live Endpoint URL</p>
+              <div className="p-2 bg-white border border-gray-150 rounded shadow-sm text-gray-600 truncate">https://api.nxtwebworks.com/v1</div>
             </div>
-          </div>
-          <div className="p-6 grid grid-cols-2 gap-4 flex-1">
-            <div className="bg-gray-100 rounded-lg h-full" />
-            <div className="flex flex-col gap-4 justify-center pl-4">
-              <div className="h-6 w-3/4 bg-gray-200 rounded" />
-              <div className="h-4 w-1/4 bg-gray-200 rounded" />
-              <div className="h-20 w-full bg-gray-100 rounded mt-4" />
-              <div className="h-10 w-full bg-blue-500 rounded mt-2" />
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <p className="text-[9px] text-gray-400 mb-1">Stripe Sync</p>
+                <span className="bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 rounded-md font-semibold text-[9px] inline-block">connected</span>
+              </div>
+              <div className="flex-1">
+                <p className="text-[9px] text-gray-400 mb-1">Webhook Status</p>
+                <span className="bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-md font-semibold text-[9px] inline-block">operational</span>
+              </div>
             </div>
           </div>
         </div>
       );
+
+    // CRM System Slides
+    case 'crm_pipeline':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">CRM Lead Pipeline</h4>
+          <div className="grid grid-cols-3 gap-2 flex-grow">
+            {[
+              { title: "Inbox", leads: ["Lead A", "Lead B"], count: 2, bg: "bg-blue-50/50" },
+              { title: "Scoping", leads: ["Lead C"], count: 1, bg: "bg-purple-50/50" },
+              { title: "Contract", leads: ["Lead D"], count: 1, bg: "bg-green-50/50" }
+            ].map((col, i) => (
+              <div key={i} className={`p-2 rounded-lg border border-gray-150 ${col.bg} flex flex-col gap-2`}>
+                <span className="text-[9px] font-bold text-gray-700 border-b border-gray-200 pb-1">{col.title} ({col.count})</span>
+                {col.leads.map((l, idx) => (
+                  <div key={idx} className="bg-white p-2 rounded border border-gray-100 shadow-sm text-[8px] font-bold">{l}</div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case 'crm_contacts':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Customer Contacts</h4>
+          <div className="space-y-2 flex-grow overflow-y-auto">
+            {[
+              { name: "John Doe", company: "Apex Ltd", email: "john@apex.com" },
+              { name: "Sarah Smith", company: "Vertex Co", email: "sarah@vertex.co" },
+              { name: "Mike Johnson", company: "Nextgen LLC", email: "mike@nextgen.com" }
+            ].map((c, i) => (
+              <div key={i} className="flex justify-between bg-white border border-gray-150 p-2.5 rounded shadow-sm">
+                <div>
+                  <p className="font-bold text-gray-800">{c.name}</p>
+                  <p className="text-[8px] text-gray-400">{c.company}</p>
+                </div>
+                <p className="text-blue-600 text-[8px] self-center">{c.email}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case 'crm_activities':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Activity Log</h4>
+          <div className="space-y-2 flex-grow overflow-y-auto">
+            {[
+              { log: "Contract document sent to Apex Ltd", time: "2 hrs ago" },
+              { log: "Discovery video call completed with Vertex Co", time: "1 day ago" },
+              { log: "New specs lead inquiry received from Nextgen LLC", time: "2 days ago" }
+            ].map((act, i) => (
+              <div key={i} className="bg-white border border-gray-150 p-2.5 rounded shadow-sm">
+                <p className="text-gray-700 leading-normal">{act.log}</p>
+                <p className="text-[8px] text-gray-400 mt-1 font-bold">{act.time}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+
+    // E-commerce Slides
+    case 'ecommerce_storefront':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col font-mono text-[10px] text-gray-500">
+          <div className="h-10 border-b border-gray-200 bg-white flex items-center px-4 justify-between">
+            <span className="font-bold text-gray-800">NXTSHOP</span>
+            <div className="flex gap-2 text-[8px] text-gray-400">
+              <span>Catalog</span>
+              <span>Account</span>
+            </div>
+          </div>
+          <div className="p-4 grid grid-cols-2 gap-4 flex-grow">
+            {[
+              { title: "Developer Theme v1", price: "$49.00" },
+              { title: "Tailwind UI Bundle", price: "$99.00" }
+            ].map((p, i) => (
+              <div key={i} className="bg-white border border-gray-150 rounded-lg p-3 shadow-sm flex flex-col justify-between">
+                <div className="aspect-[4/3] bg-gray-100 rounded mb-2" />
+                <div>
+                  <h4 className="font-bold text-gray-800 text-[9px]">{p.title}</h4>
+                  <p className="text-blue-600 font-bold mt-1 text-[8px]">{p.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case 'ecommerce_cart':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col font-mono text-[10px] text-gray-500">
+          <div className="h-10 border-b border-gray-200 bg-white flex items-center px-4 justify-between">
+            <span className="font-bold text-gray-800">My Cart (1)</span>
+          </div>
+          <div className="p-5 flex-grow flex flex-col justify-between">
+            <div className="flex gap-3 bg-white border border-gray-150 p-3 rounded-lg shadow-sm">
+              <div className="w-10 h-10 bg-gray-100 rounded" />
+              <div>
+                <h4 className="font-bold text-gray-800">Developer Theme v1</h4>
+                <p className="text-gray-400 mt-1">Quantity: 1</p>
+              </div>
+              <span className="ml-auto font-bold text-gray-800 text-xs">$49.00</span>
+            </div>
+            <div className="border-t border-gray-200 pt-3">
+              <div className="flex justify-between font-bold text-gray-800 mb-3 text-xs">
+                <span>Subtotal</span>
+                <span>$49.00</span>
+              </div>
+              <button className="w-full bg-[#0F172A] py-2 rounded-lg text-white font-semibold text-[10px]">Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+      );
+    case 'ecommerce_checkout':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Checkout Security</h4>
+          <div className="space-y-3 mt-2">
+            <div className="p-3 bg-white border border-gray-150 rounded-lg shadow-sm space-y-2">
+              <div className="h-3 w-1/3 bg-gray-200 rounded" />
+              <div className="h-3 w-full bg-gray-100 rounded" />
+              <div className="h-3 w-3/4 bg-gray-100 rounded" />
+            </div>
+            <div className="bg-emerald-50 border border-emerald-100 p-3 rounded-lg text-emerald-800 flex gap-2">
+              <CheckCircle size={14} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+              <p className="text-[8px] leading-relaxed">Stripe API connection verified. Payments are encrypted.</p>
+            </div>
+          </div>
+        </div>
+      );
+
+    // Healthcare Portal Slides
+    case 'app_dashboard':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <div className="flex justify-between items-center pb-2 border-b border-gray-200">
+            <span className="font-bold text-gray-800">Patient Directory</span>
+            <span className="text-[8px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded">Secure</span>
+          </div>
+          <div className="space-y-2 flex-grow overflow-y-auto">
+            {[
+              { id: "P-4821", name: "David Miller", status: "Admitted", col: "bg-blue-500" },
+              { id: "P-4822", name: "Emma Wilson", status: "Discharged", col: "bg-gray-400" }
+            ].map((p, i) => (
+              <div key={i} className="flex justify-between bg-white border border-gray-150 p-2.5 rounded shadow-sm">
+                <div>
+                  <p className="font-bold text-gray-800">{p.name}</p>
+                  <p className="text-[8px] text-gray-400">ID: {p.id}</p>
+                </div>
+                <span className="self-center text-[9px] font-semibold text-gray-600 flex items-center gap-1.5">
+                  <div className={`w-1.5 h-1.5 rounded-full ${p.col}`} />
+                  {p.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case 'app_calendar':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Provider Calendar</h4>
+          <div className="grid grid-cols-7 gap-1 flex-grow">
+            {[...Array(28)].map((_, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded p-1 flex flex-col justify-between h-9">
+                <span className="text-[7px] text-gray-400">{i + 1}</span>
+                {i === 12 && <div className="w-full h-1 bg-blue-500 rounded-sm" />}
+                {i === 15 && <div className="w-full h-1 bg-purple-500 rounded-sm" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case 'app_prescriptions':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Pharmacy Logs</h4>
+          <div className="space-y-2 flex-grow overflow-y-auto">
+            {[
+              { rx: "Amoxicillin 500mg", qty: "30 Caps", doctor: "Dr. Adams" },
+              { rx: "Lisinopril 10mg", qty: "90 Tabs", doctor: "Dr. Carter" }
+            ].map((p, i) => (
+              <div key={i} className="bg-white border border-gray-150 p-2.5 rounded shadow-sm flex justify-between">
+                <div>
+                  <p className="font-bold text-gray-800">{p.rx}</p>
+                  <p className="text-[8px] text-gray-400">Auth: {p.doctor}</p>
+                </div>
+                <p className="text-[8px] text-gray-400 self-center font-bold">Qty: {p.qty}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+
+    // Logistics Dashboard Slides
+    case 'dashboard_overview':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-[#E2E8F0]">Fleet Status</h4>
+          <div className="grid grid-cols-2 gap-3 flex-grow">
+            <div className="bg-white border border-gray-150 rounded-lg p-3 shadow-sm flex flex-col justify-between">
+              <span className="text-[8px] text-gray-400 font-bold">Active Fleet</span>
+              <h4 className="text-lg font-bold text-gray-800">42 / 48</h4>
+            </div>
+            <div className="bg-white border border-gray-150 rounded-lg p-3 shadow-sm flex flex-col justify-between">
+              <span className="text-[8px] text-gray-400 font-bold">On Route</span>
+              <h4 className="text-lg font-bold text-gray-800">36 Vehicles</h4>
+            </div>
+          </div>
+        </div>
+      );
+    case 'dashboard_inventory':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Shipment Logs</h4>
+          <div className="space-y-2 flex-grow overflow-y-auto">
+            {[
+              { id: "S-9281", route: "New York to Boston", status: "Transit" },
+              { id: "S-9282", route: "Chicago to Houston", status: "Delivered" }
+            ].map((s, i) => (
+              <div key={i} className="bg-white border border-gray-150 p-2.5 rounded shadow-sm flex justify-between">
+                <div>
+                  <p className="font-bold text-gray-800">{s.route}</p>
+                  <p className="text-[8px] text-gray-400">ID: {s.id}</p>
+                </div>
+                <span className="self-center text-[8px] font-bold bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{s.status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case 'dashboard_metrics':
+      return (
+        <div className="w-full h-full bg-[#FAFAFA] flex flex-col p-5 gap-3 font-mono text-[10px] text-gray-500">
+          <h4 className="font-bold text-gray-800 pb-2 border-b border-gray-200">Transit Milestones</h4>
+          <div className="space-y-3">
+            <div className="h-10 bg-white border border-gray-150 rounded-lg flex items-center px-3 justify-between">
+              <span>Fuel Economy</span>
+              <span className="font-bold text-gray-800">8.2 km/L</span>
+            </div>
+            <div className="h-10 bg-white border border-gray-150 rounded-lg flex items-center px-3 justify-between">
+              <span>On-time Rate</span>
+              <span className="font-bold text-green-600">98.4%</span>
+            </div>
+          </div>
+        </div>
+      );
+
     default:
       return (
-        <div className="w-full h-full bg-[#FAFAFA] p-6 flex flex-col gap-4">
-          <div className="h-40 w-full bg-gray-100 rounded-lg" />
-          <div className="grid grid-cols-3 gap-4 flex-1">
-            <div className="bg-gray-100 rounded-lg" />
-            <div className="bg-gray-100 rounded-lg col-span-2" />
-          </div>
+        <div className="w-full h-full bg-[#FAFAFA] p-6 flex flex-col justify-center items-center text-gray-400 font-mono text-[10px]">
+          <span>Mockup visual empty</span>
         </div>
       );
   }
@@ -110,6 +384,10 @@ const FeaturedProjects = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  
+  // State for handling the modal/popup details
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [activeSlideIdx, setActiveSlideIdx] = useState(0);
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -134,6 +412,8 @@ const FeaturedProjects = () => {
   };
 
   const handleMouseDown = (e) => {
+    // Only drag on left click and not on a button click
+    if (e.button !== 0 || e.target.closest('button') || e.target.closest('a')) return;
     setIsDragging(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
@@ -149,13 +429,6 @@ const FeaturedProjects = () => {
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
-    
-    // Safety check: if mouse button is released outside window/element
-    if (e.buttons !== 1) {
-      setIsDragging(false);
-      return;
-    }
-    
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
     const walk = (x - startX) * 1.5;
@@ -163,20 +436,25 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-[#F5F3FF] border-b border-[#E2E8F0] overflow-hidden">
+    <section id="projects" className="py-16 md:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div className="mb-12">
           <div className="max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] mb-4 tracking-tight">
-              Featured Work
+            <span className="inline-block py-1 px-3.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+              Featured Builds
+            </span>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] tracking-tight mb-3">
+              Technical Case Studies
             </h2>
-            <p className="text-base md:text-lg text-[#475569] leading-relaxed">
-              A selection of our recent enterprise platforms and web applications.
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Explore our recent custom platforms, dashboards, and integrations.
             </p>
           </div>
         </div>
 
         <div>
+          {/* Scroll List container */}
           <div 
             ref={scrollRef}
             onScroll={checkScroll}
@@ -190,25 +468,31 @@ const FeaturedProjects = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="w-[75vw] sm:w-[60vw] md:w-[45vw] lg:w-[38%] flex-shrink-0 snap-start group cursor-pointer"
+                onClick={() => {
+                  if (!isDragging) {
+                    setSelectedProject(project);
+                    setActiveSlideIdx(0);
+                  }
+                }}
+                className="w-[78vw] sm:w-[60vw] md:w-[45vw] lg:w-[38%] flex-shrink-0 snap-start group cursor-pointer"
               >
-                <div className="h-[280px] sm:h-[320px] md:h-auto md:aspect-[16/10] bg-white rounded-sm border border-[#E2E8F0] overflow-hidden mb-6 relative shadow-sm transition-all duration-500 group-hover:shadow-md">
-                  <PlaceholderVisual type={project.placeholderType} />
-                  <div className="absolute inset-0 bg-[#0F172A]/[0.02] group-hover:bg-transparent transition-colors duration-500" />
+                <div className="h-[280px] sm:h-[320px] md:h-auto md:aspect-[16/10] bg-white rounded-xl border border-[#E2E8F0] overflow-hidden mb-6 relative shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200">
+                  <SlideVisual type={project.slides[0]} />
+                  <div className="absolute inset-0 bg-black/[0.01] hover:bg-transparent transition-colors duration-300" />
                 </div>
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-[10px] md:text-xs font-medium text-[#4F46E5] uppercase tracking-wider mb-1 md:mb-2">
+                    <p className="text-[10px] md:text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">
                       {project.category}
                     </p>
-                    <h3 className="text-base md:text-xl font-medium text-[#0F172A] group-hover:text-[#4F46E5] transition-colors">
+                    <h3 className="text-base md:text-lg font-semibold text-[#0F172A] group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2 md:px-3 py-1.5 rounded-md border border-[#E2E8F0] text-xs font-semibold text-[#475569] group-hover:bg-[#4F46E5] group-hover:text-white group-hover:border-[#4F46E5] transition-all duration-300 mr-2 mt-1">
-                    <span className="hidden md:inline">View Info</span>
-                    <ArrowUpRight className="w-4 h-4 md:w-3.5 md:h-3.5" />
-                  </div>
+                  <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-xs font-semibold text-[#475569] group-hover:bg-[#0F172A] group-hover:text-white group-hover:border-[#0F172A] transition-all duration-300 mr-2 mt-1 cursor-pointer">
+                    <span>View Info</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -218,7 +502,7 @@ const FeaturedProjects = () => {
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
-              className={`w-10 h-10 rounded-md border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${
+              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${
                 canScrollLeft 
                   ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer' 
                   : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
@@ -229,7 +513,7 @@ const FeaturedProjects = () => {
             <button
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
-              className={`w-10 h-10 rounded-md border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${
+              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${
                 canScrollRight 
                   ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer' 
                   : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
@@ -240,6 +524,96 @@ const FeaturedProjects = () => {
           </div>
         </div>
       </div>
+
+      {/* Case Study Details Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-white rounded-2xl border border-[#E2E8F0] shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto flex flex-col outline-none relative"
+            >
+              {/* Modal Header */}
+              <div className="flex justify-between items-center p-6 border-b border-[#E2E8F0]">
+                <div>
+                  <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">{selectedProject.category}</span>
+                  <h3 className="text-xl font-semibold text-[#0F172A] mt-1">{selectedProject.title}</h3>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="w-8 h-8 rounded-full border border-[#E2E8F0] bg-white flex items-center justify-center text-gray-400 hover:text-gray-900 transition-colors shadow-sm cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6 space-y-6 flex-grow">
+                {/* Visual Slide Viewer Area */}
+                <div className="space-y-4">
+                  <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-[#E2E8F0] rounded-xl overflow-hidden shadow-inner bg-[#FCFCFD]">
+                    <SlideVisual type={selectedProject.slides[activeSlideIdx]} />
+                  </div>
+                  
+                  {/* Slider Pagination Controls */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-gray-400 font-mono">
+                      Image {activeSlideIdx + 1} of {selectedProject.slides.length}
+                    </span>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setActiveSlideIdx(prev => Math.max(0, prev - 1))}
+                        disabled={activeSlideIdx === 0}
+                        className="w-8 h-8 rounded-lg border border-[#E2E8F0] bg-white flex items-center justify-center text-gray-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors cursor-pointer"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft size={16} />
+                      </button>
+                      <button
+                        onClick={() => setActiveSlideIdx(prev => Math.min(selectedProject.slides.length - 1, prev + 1))}
+                        disabled={activeSlideIdx === selectedProject.slides.length - 1}
+                        className="w-8 h-8 rounded-lg border border-[#E2E8F0] bg-white flex items-center justify-center text-gray-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors cursor-pointer"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Description and Action Info */}
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5">Project Overview</h4>
+                    <p className="text-sm text-[#475569] leading-relaxed">{selectedProject.description}</p>
+                  </div>
+
+                  {/* Live URL Button (Only shown if liveUrl exists) */}
+                  {selectedProject.liveUrl && (
+                    <div className="pt-2 flex justify-start">
+                      <a 
+                        href={selectedProject.liveUrl}
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0F172A] hover:bg-[#1E293B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                      >
+                        <Globe size={13} />
+                        <span>Visit Live Platform</span>
+                        <ArrowUpRight size={13} />
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <style dangerouslySetInnerHTML={{__html: `
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
