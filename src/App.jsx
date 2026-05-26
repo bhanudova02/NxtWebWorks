@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Projects from './pages/Projects';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 
@@ -36,9 +37,10 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow pt-16">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
           </Routes>

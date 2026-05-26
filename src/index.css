@@ -23,6 +23,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
   }
   body {
     @apply bg-white text-[#1E293B] font-sans antialiased overflow-x-hidden;

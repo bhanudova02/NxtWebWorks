@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Home, Info, Phone, Calendar } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowRight, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo brand link */}
@@ -27,18 +28,66 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-[#0F172A] transition-colors">
-              <Home size={14} className="text-gray-400 stroke-[1.5]" />
+          <div className="hidden md:flex items-center space-x-8">
+            <Link 
+              to="/" 
+              className={`relative py-1.5 text-sm font-medium transition-colors ${
+                pathname === '/' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+              }`}
+            >
               <span>Home</span>
+              {pathname === '/' && (
+                <motion.div 
+                  layoutId="activeNavUnderline" 
+                  className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                />
+              )}
             </Link>
-            <Link to="/about" className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-[#0F172A] transition-colors">
-              <Info size={14} className="text-gray-400 stroke-[1.5]" />
+            <Link 
+              to="/projects" 
+              className={`relative py-1.5 text-sm font-medium transition-colors ${
+                pathname === '/projects' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+              }`}
+            >
+              <span>Projects</span>
+              {pathname === '/projects' && (
+                <motion.div 
+                  layoutId="activeNavUnderline" 
+                  className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                />
+              )}
+            </Link>
+            <Link 
+              to="/about" 
+              className={`relative py-1.5 text-sm font-medium transition-colors ${
+                pathname === '/about' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+              }`}
+            >
               <span>About Us</span>
+              {pathname === '/about' && (
+                <motion.div 
+                  layoutId="activeNavUnderline" 
+                  className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                />
+              )}
             </Link>
-            <Link to="/contact" className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-[#0F172A] transition-colors">
-              <Phone size={14} className="text-gray-400 stroke-[1.5]" />
+            <Link 
+              to="/contact" 
+              className={`relative py-1.5 text-sm font-medium transition-colors ${
+                pathname === '/contact' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+              }`}
+            >
               <span>Contact Us</span>
+              {pathname === '/contact' && (
+                <motion.div 
+                  layoutId="activeNavUnderline" 
+                  className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                />
+              )}
             </Link>
           </div>
 
@@ -103,16 +152,21 @@ const Navbar = () => {
                   </div>
 
                   {/* Vertical menu navigation links */}
-                  <nav className="flex flex-col gap-3">
+                  <nav className="flex flex-col gap-3 mt-5">
                     <Link 
                       to="/" 
                       onClick={closeMenu} 
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
-                      <div className="flex items-center gap-3">
-                        <Home size={18} className="text-gray-400 stroke-[1.5]" />
-                        <span>Home</span>
-                      </div>
+                      <span>Home</span>
+                      <ArrowRight size={14} className="text-gray-300" />
+                    </Link>
+                    <Link 
+                      to="/projects" 
+                      onClick={closeMenu} 
+                      className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
+                    >
+                      <span>Projects</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
                     <Link 
@@ -120,10 +174,7 @@ const Navbar = () => {
                       onClick={closeMenu} 
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
-                      <div className="flex items-center gap-3">
-                        <Info size={18} className="text-gray-400 stroke-[1.5]" />
-                        <span>About Us</span>
-                      </div>
+                      <span>About Us</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
                     <Link 
@@ -131,10 +182,7 @@ const Navbar = () => {
                       onClick={closeMenu} 
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
-                      <div className="flex items-center gap-3">
-                        <Phone size={18} className="text-gray-400 stroke-[1.5]" />
-                        <span>Contact Us</span>
-                      </div>
+                      <span>Contact Us</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
                   </nav>
