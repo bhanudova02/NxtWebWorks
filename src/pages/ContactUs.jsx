@@ -1,20 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InlineWidget } from 'react-calendly';
-import { 
-  Mail, 
-  MessageSquare, 
-  Send, 
-  CheckCircle, 
-  X, 
-  ChevronDown, 
-  Sparkles, 
-  ShieldCheck, 
+import {
+  Mail,
+  MessageSquare,
+  ChevronDown,
   ArrowRight,
   Calendar,
   Activity,
   Globe
 } from 'lucide-react';
+import Contact from '../components/Contact';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -62,55 +58,8 @@ const faqs = [
   }
 ];
 
-const projectTypes = [
-  "SaaS Platform",
-  "Shopify Store",
-  "Custom CRM",
-  "Enterprise App",
-  "API Integration"
-];
-
 const ContactUs = () => {
-  const form = useRef();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
-  const [selectedProjectType, setSelectedProjectType] = useState("SaaS Platform");
-
-  const sendEmail = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    const formData = new FormData(e.target);
-    formData.append("access_key", "22dfa523-d43d-4085-ba8a-6c980b4d7e64");
-    formData.append("subject", "NxtWebWorks Client Message");
-    formData.append("from_name", "NxtWebWorks Portal");
-    
-    const message = formData.get('message');
-    formData.set('message', `[Project Type: ${selectedProjectType}] \n\n` + message);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-      const data = await response.json();
-      
-      if (data.success) {
-        setSubmitStatus('success');
-        if (form.current) form.current.reset();
-      } else {
-        console.error("Web3Forms Error:", data);
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error("Fetch Error:", error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -118,7 +67,7 @@ const ContactUs = () => {
 
   return (
     <div className="bg-white min-h-screen text-[#1E293B] antialiased">
-      
+
       {/* 1. CONTACT HERO SECTION */}
       <section className="relative pt-16 md:pt-20 pb-16 bg-gradient-to-tr from-[#FAFAFA] via-[#FCFCFD] to-[#EFF6FF] border-b border-[#E2E8F0] overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
@@ -126,8 +75,8 @@ const ContactUs = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <motion.div 
+
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
@@ -137,14 +86,14 @@ const ContactUs = () => {
                 <Activity size={12} className="text-blue-500 animate-pulse" />
                 <span>Connect With Us</span>
               </motion.div>
-              <motion.h1 
+              <motion.h1
                 variants={fadeInUp}
                 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0F172A] tracking-tight leading-[1.12]"
               >
                 Let's construct <br />
                 the <span className="text-blue-600">next standard</span>.
               </motion.h1>
-              <motion.p 
+              <motion.p
                 variants={fadeInUp}
                 className="text-sm md:text-base text-[#475569] max-w-xl mx-auto lg:mx-0 leading-relaxed text-balance"
               >
@@ -161,7 +110,7 @@ const ContactUs = () => {
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/5 to-sky-500/5 rounded-2xl blur-lg opacity-85 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-              
+
               <div className="relative z-10 w-full space-y-4">
                 <div className="flex items-center gap-3 p-3 rounded-xl border border-[#E2E8F0] bg-[#FAFAFA] shadow-sm">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -224,11 +173,11 @@ const ContactUs = () => {
                 title: "Submit Scope Spec",
                 detail: "Online Form",
                 sub: "Check options below",
-                link: "#form-section",
+                link: "#contact",
                 bg: "bg-amber-50/50 text-amber-600 border-amber-100"
               }
             ].map((opt, idx) => (
-              <a 
+              <a
                 href={opt.link}
                 key={idx}
                 className="bg-[#FAFAFA] border border-[#E2E8F0] p-6 rounded-xl hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col gap-4 group"
@@ -247,205 +196,10 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* 3. CONTACT FORM SECTION */}
-      <section id="form-section" className="py-20 bg-[#FAFAFA] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
-            {/* Form Container */}
-            <div className="lg:col-span-7 bg-white p-8 rounded-2xl border border-[#E2E8F0] shadow-sm">
-              <h2 className="text-lg font-semibold text-[#0F172A] mb-2 tracking-tight">Project Spec Inquiry</h2>
-              <p className="text-xs text-gray-400 mb-6">Select your project type and enter details below.</p>
-
-              {/* Dynamic Project Type Selector Pill System */}
-              <div className="mb-6">
-                <label className="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-2">Project Category</label>
-                <div className="flex flex-wrap gap-2">
-                  {projectTypes.map((type) => {
-                    const isSelected = selectedProjectType === type;
-                    return (
-                      <button
-                        type="button"
-                        key={type}
-                        onClick={() => setSelectedProjectType(type)}
-                        className={`py-1.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 cursor-pointer ${
-                          isSelected 
-                            ? 'bg-[#0F172A] text-white border-[#0F172A]' 
-                            : 'bg-white text-gray-600 border-[#E2E8F0] hover:bg-[#FAFAFA]'
-                        }`}
-                      >
-                        {type}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <form ref={form} onSubmit={sendEmail} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">First Name</label>
-                    <input
-                      type="text"
-                      name="user_name"
-                      required
-                      placeholder="e.g. John"
-                      className="w-full bg-[#FCFCFD] border border-[#E2E8F0] rounded-lg px-4 py-2.5 text-sm text-[#0F172A] placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors shadow-inner"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">Phone / WhatsApp</label>
-                    <input
-                      type="tel"
-                      name="phone_number"
-                      placeholder="e.g. +91 98765 43210"
-                      className="w-full bg-[#FCFCFD] border border-[#E2E8F0] rounded-lg px-4 py-2.5 text-sm text-[#0F172A] placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors shadow-inner"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">Work Email</label>
-                  <input
-                    type="email"
-                    name="user_email"
-                    required
-                    placeholder="e.g. john@company.com"
-                    className="w-full bg-[#FCFCFD] border border-[#E2E8F0] rounded-lg px-4 py-2.5 text-sm text-[#0F172A] placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors shadow-inner"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">Project Details</label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={4}
-                    placeholder="Describe your project expectations, stack framework details, or timelines..."
-                    className="w-full bg-[#FCFCFD] border border-[#E2E8F0] rounded-lg px-4 py-2.5 text-sm text-[#0F172A] placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors shadow-inner resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold rounded-lg px-5 py-3 text-sm transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                >
-                  {isSubmitting ? "Submitting Spec..." : (
-                    <>
-                      Submit Project Spec <Send size={12} />
-                    </>
-                  )}
-                </button>
-
-                {submitStatus === 'error' && (
-                  <p className="text-red-500 text-xs font-semibold mt-3 text-center">
-                    Submission failed. Check network and try again.
-                  </p>
-                )}
-              </form>
-            </div>
-
-            {/* Sidebar Guidelines & Social Info Card */}
-            <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
-              <div className="bg-white border border-[#E2E8F0] p-6 rounded-2xl shadow-sm space-y-5">
-                <div className="flex items-center gap-2 pb-4 border-b border-[#E2E8F0]">
-                  <Sparkles size={16} className="text-blue-500" />
-                  <h3 className="font-semibold text-sm text-[#0F172A]">Connect & Onboarding</h3>
-                </div>
-                
-                {/* Social Networks Row using clean custom SVGs */}
-                <div className="pb-3 border-b border-[#F1F5F9]">
-                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Connect Channels</h4>
-                  <div className="flex gap-2.5">
-                    <a 
-                      href="mailto:hello@nxtwebworks.com"
-                      className="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-[#FCFCFD] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
-                      aria-label="Email"
-                    >
-                      <Mail size={15} />
-                    </a>
-                    <a 
-                      href="https://wa.me/919876543210" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-[#FCFCFD] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
-                      aria-label="WhatsApp"
-                    >
-                      <MessageSquare size={15} />
-                    </a>
-                    <a 
-                      href="https://instagram.com/nxtwebworks" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-[#FCFCFD] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
-                      aria-label="Instagram"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fillRule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" clipRule="evenodd" />
-                      </svg>
-                    </a>
-                    <a 
-                      href="https://x.com/nxtwebworks" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-[#FCFCFD] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
-                      aria-label="X"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                      </svg>
-                    </a>
-                    <a 
-                      href="https://linkedin.com/company/nxtwebworks" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-[#FCFCFD] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
-                      aria-label="LinkedIn"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="space-y-4 pt-1">
-                  {[
-                    {
-                      step: "01",
-                      title: "Discovery Meeting",
-                      desc: "We discuss interface requirements and target timelines."
-                    },
-                    {
-                      step: "02",
-                      title: "Blueprint Scoping",
-                      desc: "You receive a document proposal covering pricing specs."
-                    }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex gap-3">
-                      <span className="text-[10px] font-bold text-blue-500 font-mono mt-0.5">{item.step}</span>
-                      <div>
-                        <h4 className="font-semibold text-xs text-[#0F172A] mb-0.5">{item.title}</h4>
-                        <p className="text-[10px] text-gray-500 leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Data Compliance Privacy Card */}
-              <div className="bg-[#EFF6FF] border border-[#DBEAFE] p-5 rounded-2xl flex gap-3.5 items-start">
-                <ShieldCheck size={18} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                <p className="text-[10px] text-blue-700 leading-relaxed">
-                  Specifications kept strictly confidential. NDA files signed prior to scoping details.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* 3. CONTACT FORM COMPONENT SECTION */}
+      <div>
+        <Contact />
+      </div>
 
       {/* 4. CALENDLY / BOOKING SECTION */}
       <section id="schedule" className="py-20 bg-white border-b border-[#E2E8F0] scroll-mt-16">
@@ -477,7 +231,8 @@ const ContactUs = () => {
             </div>
 
             <div className="flex-1 relative bg-white">
-              <style dangerouslySetInnerHTML={{__html: `
+              <style dangerouslySetInnerHTML={{
+                __html: `
                 .calendly-spinner {
                   position: absolute !important;
                   top: 50% !important;
@@ -521,7 +276,7 @@ const ContactUs = () => {
             {faqs.map((faq, index) => {
               const isOpen = activeFaq === index;
               return (
-                <div 
+                <div
                   key={index}
                   className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden shadow-sm transition-colors duration-300"
                 >
@@ -530,9 +285,9 @@ const ContactUs = () => {
                     className="w-full flex items-center justify-between p-5 text-left font-semibold text-sm md:text-base text-[#0F172A] hover:bg-[#FCFCFD] transition-colors"
                   >
                     <span>{faq.q}</span>
-                    <ChevronDown 
-                      size={16} 
-                      className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-500' : ''}`} 
+                    <ChevronDown
+                      size={16}
+                      className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-500' : ''}`}
                     />
                   </button>
                   <AnimatePresence initial={false}>
@@ -565,8 +320,8 @@ const ContactUs = () => {
             Complete our scoping form to outline your project specs with our engineering leads.
           </p>
           <div>
-            <a 
-              href="#form-section" 
+            <a
+              href="#contact"
               className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group"
             >
               Fill out Project Inquiry form <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -574,33 +329,6 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-
-      {/* Success Modal */}
-      {submitStatus === 'success' && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-all duration-300">
-          <div className="bg-white rounded-2xl p-8 max-w-sm w-full relative shadow-2xl flex flex-col items-center text-center animate-in fade-in zoom-in duration-300">
-            <button
-              onClick={() => setSubmitStatus(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors p-1"
-            >
-              <X size={20} />
-            </button>
-            <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mb-5 border border-emerald-100">
-              <CheckCircle size={32} />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Thank You!</h3>
-            <p className="text-gray-600 leading-relaxed text-sm">
-              We received your inquiry details. Our team will get back to you within 24 hours.
-            </p>
-            <button
-              onClick={() => setSubmitStatus(null)}
-              className="mt-8 w-full py-3 bg-[#0F172A] text-white font-semibold rounded-lg hover:bg-[#1E293B] transition-all duration-300 text-sm"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
 
     </div>
   );

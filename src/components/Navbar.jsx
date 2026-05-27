@@ -65,7 +65,7 @@ const Navbar = () => {
                 pathname === '/about' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
               }`}
             >
-              <span>About Us</span>
+              <span>About</span>
               {pathname === '/about' && (
                 <motion.div 
                   layoutId="activeNavUnderline" 
