@@ -281,7 +281,7 @@ const Projects = () => {
         <div className="bg-[#0F172A] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xl text-center">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Let's Build Something Exceptional</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Let's Build Something Exceptional</h2>
             <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
               Have a custom lead platform, API integration, or enterprise dashboard requirement? We deliver production-ready systems tailored to your needs.
             </p>
