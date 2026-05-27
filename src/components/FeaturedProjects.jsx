@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowUpRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowUpRight, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
 import { SlideVisual } from './SlideVisual';
