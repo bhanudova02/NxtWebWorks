@@ -147,9 +147,9 @@ const ContactUs = () => {
               {
                 icon: Mail,
                 title: "Email Us",
-                detail: "hello@nxtwebworks.com",
+                detail: "teamnxtwebworks@gmail.com",
                 sub: "Response within 24 hours",
-                link: "mailto:hello@nxtwebworks.com",
+                link: "mailto:teamnxtwebworks@gmail.com",
                 bg: "bg-blue-50/50 text-blue-600 border-blue-100"
               },
               {
@@ -200,6 +200,59 @@ const ContactUs = () => {
       <div>
         <Contact />
       </div>
+      {/* 5. FAQ / QUICK ANSWERS */}
+      <section className="py-20 bg-[#FAFAFA] border-b border-[#E2E8F0]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
+              Support Guide
+            </span>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] tracking-tight mt-2 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-sm text-gray-500">
+              Clear information covering timelines, stack guidelines, and remote workflows.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = activeFaq === index;
+              return (
+                <div
+                  key={index}
+                  className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden shadow-sm transition-colors duration-300"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full flex items-center justify-between p-5 text-left font-semibold text-sm md:text-base text-[#0F172A] hover:bg-[#FCFCFD] transition-colors"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      size={16}
+                      className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-500' : ''}`}
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                      >
+                        <div className="p-5 pt-0 border-t border-[#F1F5F9] text-xs md:text-sm text-[#475569] leading-relaxed bg-[#FCFCFD]">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* 4. CALENDLY / BOOKING SECTION */}
       <section id="schedule" className="py-20 bg-white border-b border-[#E2E8F0] scroll-mt-16">
@@ -257,59 +310,6 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* 5. FAQ / QUICK ANSWERS */}
-      <section className="py-20 bg-[#FAFAFA] border-b border-[#E2E8F0]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
-              Support Guide
-            </span>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] tracking-tight mt-2 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-sm text-gray-500">
-              Clear information covering timelines, stack guidelines, and remote workflows.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => {
-              const isOpen = activeFaq === index;
-              return (
-                <div
-                  key={index}
-                  className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden shadow-sm transition-colors duration-300"
-                >
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-5 text-left font-semibold text-sm md:text-base text-[#0F172A] hover:bg-[#FCFCFD] transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      size={16}
-                      className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-500' : ''}`}
-                    />
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
-                      >
-                        <div className="p-5 pt-0 border-t border-[#F1F5F9] text-xs md:text-sm text-[#475569] leading-relaxed bg-[#FCFCFD]">
-                          {faq.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* 6. FINAL CTA / FOOTER TRANSITION */}
       <section className="py-16 bg-[#0F172A] relative overflow-hidden text-white">

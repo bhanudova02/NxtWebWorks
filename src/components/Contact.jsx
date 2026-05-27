@@ -90,7 +90,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Us</p>
-                  <p className="text-sm font-semibold text-[#1E293B]">dovabhanu6@gmail.com</p>
+                  <p className="text-sm font-semibold text-[#1E293B]">teamnxtwebworks@gmail.com</p>
                 </div>
               </div>
 

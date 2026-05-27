@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo brand link */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" onClick={closeMenu} className="text-[#0F172A] font-bold text-xl tracking-tight">
@@ -29,61 +29,57 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className={`relative py-1.5 text-sm font-medium transition-colors ${
-                pathname === '/' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
-              }`}
+            <Link
+              to="/"
+              className={`relative py-1.5 text-sm font-medium transition-colors ${pathname === '/' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+                }`}
             >
               <span>Home</span>
               {pathname === '/' && (
-                <motion.div 
-                  layoutId="activeNavUnderline" 
+                <motion.div
+                  layoutId="activeNavUnderline"
                   className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
                   transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 />
               )}
             </Link>
-            <Link 
-              to="/projects" 
-              className={`relative py-1.5 text-sm font-medium transition-colors ${
-                pathname === '/projects' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
-              }`}
+            <Link
+              to="/projects"
+              className={`relative py-1.5 text-sm font-medium transition-colors ${pathname === '/projects' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+                }`}
             >
               <span>Projects</span>
               {pathname === '/projects' && (
-                <motion.div 
-                  layoutId="activeNavUnderline" 
+                <motion.div
+                  layoutId="activeNavUnderline"
                   className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
                   transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 />
               )}
             </Link>
-            <Link 
-              to="/about" 
-              className={`relative py-1.5 text-sm font-medium transition-colors ${
-                pathname === '/about' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
-              }`}
+            <Link
+              to="/about"
+              className={`relative py-1.5 text-sm font-medium transition-colors ${pathname === '/about' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+                }`}
             >
               <span>About</span>
               {pathname === '/about' && (
-                <motion.div 
-                  layoutId="activeNavUnderline" 
+                <motion.div
+                  layoutId="activeNavUnderline"
                   className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
                   transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 />
               )}
             </Link>
-            <Link 
-              to="/contact" 
-              className={`relative py-1.5 text-sm font-medium transition-colors ${
-                pathname === '/contact' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
-              }`}
+            <Link
+              to="/contact"
+              className={`relative py-1.5 text-sm font-medium transition-colors ${pathname === '/contact' ? 'text-[#0F172A]' : 'text-gray-500 hover:text-[#0F172A]'
+                }`}
             >
-              <span>Contact Us</span>
+              <span>Contact</span>
               {pathname === '/contact' && (
-                <motion.div 
-                  layoutId="activeNavUnderline" 
+                <motion.div
+                  layoutId="activeNavUnderline"
                   className="absolute -bottom-1 left-0 w-4 h-[2px] bg-[#0F172A]"
                   transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 />
@@ -153,53 +149,53 @@ const Navbar = () => {
 
                   {/* Vertical menu navigation links */}
                   <nav className="flex flex-col gap-3 mt-5">
-                    <Link 
-                      to="/" 
-                      onClick={closeMenu} 
+                    <Link
+                      to="/"
+                      onClick={closeMenu}
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
                       <span>Home</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
-                    <Link 
-                      to="/projects" 
-                      onClick={closeMenu} 
+                    <Link
+                      to="/projects"
+                      onClick={closeMenu}
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
                       <span>Projects</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
-                    <Link 
-                      to="/about" 
-                      onClick={closeMenu} 
+                    <Link
+                      to="/about"
+                      onClick={closeMenu}
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
-                      <span>About Us</span>
+                      <span>About</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
-                    <Link 
-                      to="/contact" 
-                      onClick={closeMenu} 
+                    <Link
+                      to="/contact"
+                      onClick={closeMenu}
                       className="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2.5 px-3 rounded-lg hover:bg-gray-50 flex items-center justify-between"
                     >
-                      <span>Contact Us</span>
+                      <span>Contact</span>
                       <ArrowRight size={14} className="text-gray-300" />
                     </Link>
                   </nav>
                 </div>
 
                 {/* Call button Action at bottom */}
-              <div className="pt-6 border-t border-gray-100 space-y-4">
-                <a
-                  href="/#schedule"
-                  onClick={closeMenu}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm transition-colors shadow-md"
-                >
-                  <Calendar size={16} className="stroke-[1.5]" />
-                  <span>Book discovery call</span>
-                  <ArrowRight size={14} />
-                </a>
-              </div>
+                <div className="pt-6 border-t border-gray-100 space-y-4">
+                  <a
+                    href="/#schedule"
+                    onClick={closeMenu}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm transition-colors shadow-md"
+                  >
+                    <Calendar size={16} className="stroke-[1.5]" />
+                    <span>Book discovery call</span>
+                    <ArrowRight size={14} />
+                  </a>
+                </div>
               </motion.div>
             </>
           )}

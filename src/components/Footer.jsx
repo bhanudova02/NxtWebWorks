@@ -10,9 +10,12 @@ const Footer = () => {
             <Link to="/" className="text-white font-bold text-xl tracking-tight mb-4 inline-block hover:opacity-90 transition-opacity">
               NXTWEBWORKS
             </Link>
-            <p className="text-[#94A3B8] text-sm leading-relaxed mb-6">
+            <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
               Engineering premium software solutions and enterprise applications for modern businesses.
             </p>
+            <a href="mailto:teamnxtwebworks@gmail.com" className="text-white hover:text-blue-400 text-sm font-medium transition-colors">
+              teamnxtwebworks@gmail.com
+            </a>
           </div>
           
           <div>
