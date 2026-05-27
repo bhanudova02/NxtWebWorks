@@ -280,16 +280,18 @@ const Projects = () => {
       <section className="max-w-6xl mx-auto px-4 mt-20">
         <div className="bg-[#0F172A] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xl text-center">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Let's Build Something Exceptional</h2>
-          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Have a custom lead platform, API integration, or enterprise dashboard requirement? We deliver production-ready systems tailored to your needs.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white hover:bg-gray-50 text-[#0F172A] font-semibold text-sm transition-colors shadow-md"
-          >
-            <span>Start a Project</span>
-          </a>
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Let's Build Something Exceptional</h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+              Have a custom lead platform, API integration, or enterprise dashboard requirement? We deliver production-ready systems tailored to your needs.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white hover:bg-gray-50 text-[#0F172A] font-semibold text-sm transition-colors shadow-md"
+            >
+              <span>Start a Project</span>
+            </a>
+          </div>
         </div>
       </section>
 
