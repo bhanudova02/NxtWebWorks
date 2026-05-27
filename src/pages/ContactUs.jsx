@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { InlineWidget } from 'react-calendly';
 import { 
   Mail, 
@@ -78,30 +77,39 @@ const ContactUs = () => {
   const [activeFaq, setActiveFaq] = useState(null);
   const [selectedProjectType, setSelectedProjectType] = useState("SaaS Platform");
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const formData = new FormData(form.current);
-    const templateParams = {
-      user_name: formData.get('user_name'),
-      user_email: formData.get('user_email'),
-      phone_number: formData.get('phone_number'),
-      message: `[Project Type: ${selectedProjectType}] \n\n` + formData.get('message'),
-    };
+    const formData = new FormData(e.target);
+    formData.append("access_key", "22dfa523-d43d-4085-ba8a-6c980b4d7e64");
+    formData.append("subject", "NxtWebWorks Client Message");
+    formData.append("from_name", "NxtWebWorks Portal");
+    
+    const message = formData.get('message');
+    formData.set('message', `[Project Type: ${selectedProjectType}] \n\n` + message);
 
-    emailjs.send('service_7lloynq', 'template_zj1dajq', templateParams, 'TaeFTpQKeEwOyWsqq')
-      .then((result) => {
-        console.log("EmailJS Success:", result.text);
-        setSubmitStatus('success');
-        form.current.reset();
-        setIsSubmitting(false);
-      }, (error) => {
-        console.error("EmailJS Error:", error.text || error);
-        setSubmitStatus('error');
-        setIsSubmitting(false);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
       });
+      const data = await response.json();
+      
+      if (data.success) {
+        setSubmitStatus('success');
+        if (form.current) form.current.reset();
+      } else {
+        console.error("Web3Forms Error:", data);
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const toggleFaq = (index) => {
