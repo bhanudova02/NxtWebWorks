@@ -2,6 +2,16 @@ import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
 export const SlideVisual = ({ type }) => {
+  if (type && (type.startsWith('/') || type.includes('.') || type.startsWith('http'))) {
+    return (
+      <img 
+        src={type} 
+        alt="Project Screenshot" 
+        className="w-full h-full object-cover object-top"
+      />
+    );
+  }
+
   switch (type) {
     // Fintech Analytics Slides
     case 'analytics_dashboard':

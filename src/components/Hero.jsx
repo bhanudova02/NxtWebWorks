@@ -38,47 +38,47 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Abstract Loading Composition / Software Skeleton Placeholder */}
+        {/* Responsive Hero Banners */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20 mx-auto max-w-5xl relative"
+          className="mt-16 md:mt-20 mx-auto max-w-5xl relative"
         >
-          <div className="rounded-xl border border-[#E2E8F0] bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden aspect-[16/9] sm:aspect-[21/9] flex flex-col">
-            {/* Top Bar Skeleton */}
+          {/* Desktop Browser View */}
+          <div className="hidden sm:flex rounded-xl border border-[#E2E8F0] bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden aspect-[16/9] flex-col">
+            {/* Top Bar Navigation UI */}
             <div className="h-10 border-b border-[#E2E8F0] bg-[#F8FAFC] flex items-center px-4 gap-2">
-              <div className="w-3 h-3 rounded-full bg-gray-200" />
-              <div className="w-3 h-3 rounded-full bg-gray-200" />
-              <div className="w-3 h-3 rounded-full bg-gray-200" />
-              <div className="ml-4 w-48 h-4 rounded bg-gray-200" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+              <div className="ml-4 w-60 h-5 rounded bg-white border border-[#E2E8F0] text-[9px] font-mono text-gray-400 flex items-center px-3 shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]">
+                nxtwebworks.com/dashboard/analytics
+              </div>
             </div>
-            {/* Content Skeleton */}
-            <div className="flex-1 p-6 flex gap-6 bg-white">
-              {/* Sidebar */}
-              <div className="w-48 hidden sm:flex flex-col gap-4">
-                <div className="h-4 w-full rounded bg-gray-100" />
-                <div className="h-4 w-3/4 rounded bg-gray-100" />
-                <div className="h-4 w-5/6 rounded bg-gray-100" />
-                <div className="h-4 w-full rounded bg-gray-100" />
-                <div className="h-4 w-2/3 rounded bg-gray-100" />
-              </div>
-              {/* Main Area */}
-              <div className="flex-1 flex flex-col gap-6">
-                <div className="flex gap-4">
-                  <div className="h-24 flex-1 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]" />
-                  <div className="h-24 flex-1 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]" />
-                  <div className="h-24 flex-1 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]" />
-                </div>
-                <div className="flex-1 rounded-lg bg-[#FAFAFA] border border-[#E2E8F0] flex items-center justify-center relative overflow-hidden">
-                   {/* Abstract graphic */}
-                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 flex items-end justify-between gap-2 opacity-20">
-                     {[...Array(12)].map((_, i) => (
-                       <div key={i} className="w-full bg-[#3B82F6] rounded-t-sm" style={{ height: `${20 + (i * 7) % 80}%` }} />
-                     ))}
-                   </div>
-                </div>
-              </div>
+            {/* Desktop Dashboard Screenshot */}
+            <div className="flex-1 overflow-hidden relative bg-gray-50">
+              <img 
+                src="/HeroSectionDesktop.jpeg" 
+                alt="NxtWebWorks Platform Desktop Dashboard" 
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+
+          {/* Mobile Phone Mockup View */}
+          <div className="block sm:hidden max-w-[280px] mx-auto rounded-[32px] border-8 border-[#0F172A] bg-[#0F172A] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] overflow-hidden aspect-[9/16] relative">
+            {/* Phone Notch/Speaker */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-[#0F172A] rounded-b-2xl z-20 flex justify-center items-center">
+              <div className="w-10 h-1 rounded-full bg-gray-700/80 mb-1" />
+            </div>
+            {/* Mobile Dashboard Screenshot */}
+            <div className="w-full h-full rounded-[24px] overflow-hidden bg-gray-50">
+              <img 
+                src="/HeroSectionMobile.jpeg" 
+                alt="NxtWebWorks Platform Mobile App" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </motion.div>

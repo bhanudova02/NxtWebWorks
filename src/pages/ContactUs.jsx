@@ -101,37 +101,47 @@ const ContactUs = () => {
               </motion.p>
             </motion.div>
 
-            {/* Interactive Socket Status Widget Mockup */}
+            {/* Interactive Socket Status Widget Mockup with Image Support */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="lg:col-span-5 relative w-full aspect-[4/3] bg-white border border-[#E2E8F0] rounded-2xl shadow-sm p-6 overflow-hidden flex items-center justify-center group"
+              className="lg:col-span-5 relative w-full aspect-[4/3] bg-white border border-[#E2E8F0] rounded-2xl shadow-sm p-1 overflow-hidden flex items-center justify-center group"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/5 to-sky-500/5 rounded-2xl blur-lg opacity-85 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-
-              <div className="relative z-10 w-full space-y-4">
-                <div className="flex items-center gap-3 p-3 rounded-xl border border-[#E2E8F0] bg-[#FAFAFA] shadow-sm">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[10px] font-mono font-bold text-gray-600">websocket_client: online</span>
-                  <div className="ml-auto flex items-center gap-1">
-                    <span className="text-[9px] text-gray-400 font-mono">ping: 12ms</span>
-                  </div>
-                </div>
-
-                <div className="border border-[#E2E8F0] rounded-xl bg-white p-4 space-y-3 shadow-sm">
-                  <div className="flex justify-between items-center text-[10px] text-gray-400">
-                    <span className="font-mono">inquiry_stream</span>
-                    <span>active</span>
-                  </div>
-                  <div className="h-2 w-full bg-gray-100 rounded overflow-hidden">
-                    <div className="h-full bg-blue-500 w-4/5 rounded animate-pulse" />
-                  </div>
-                  <p className="text-[10px] text-gray-500 leading-relaxed font-mono">
-                    &gt; Listening for payload specs...
-                  </p>
-                </div>
+              <div className="w-full h-full rounded-xl overflow-hidden bg-gray-50 relative flex items-center justify-center">
+                <img 
+                  src="/ContactHero.jpeg" 
+                  alt="NxtWebWorks Client Collaboration and Tech Scoping Hub" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentNode.innerHTML = `
+                      <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/5 to-sky-500/5 rounded-2xl blur-lg opacity-85 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+                      <div class="relative z-10 w-full p-6 space-y-4 text-left">
+                        <div class="flex items-center gap-3 p-3 rounded-xl border border-[#E2E8F0] bg-[#FAFAFA] shadow-sm">
+                          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                          <span class="text-[10px] font-mono font-bold text-gray-600">websocket_client: online</span>
+                          <div class="ml-auto flex items-center gap-1 font-mono">
+                            <span class="text-[9px] text-gray-400">ping: 12ms</span>
+                          </div>
+                        </div>
+                        <div class="border border-[#E2E8F0] rounded-xl bg-white p-4 space-y-3 shadow-sm">
+                          <div class="flex justify-between items-center text-[10px] text-gray-400 font-mono">
+                            <span>inquiry_stream</span>
+                            <span>active</span>
+                          </div>
+                          <div class="h-2 w-full bg-gray-100 rounded overflow-hidden">
+                            <div class="h-full bg-blue-500 w-4/5 rounded animate-pulse"></div>
+                          </div>
+                          <p class="text-[10px] text-gray-500 leading-relaxed font-mono">
+                            &gt; Listening for payload specs...
+                          </p>
+                        </div>
+                      </div>
+                    `;
+                  }}
+                />
               </div>
             </motion.div>
 

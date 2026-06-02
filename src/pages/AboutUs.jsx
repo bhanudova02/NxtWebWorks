@@ -88,16 +88,15 @@ const AboutUs = () => {
           </motion.div>
 
           {/* Premium Vercel-Style Dev Workspace Mockup */}
+          {/* Responsive About Hero Workspace Banners */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             className="max-w-5xl mx-auto relative group"
           >
-            {/* Glowing borders shadow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl blur-lg opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="relative rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_32px_64px_-24px_rgba(0,0,0,0.06)] overflow-hidden aspect-[16/9] sm:aspect-[21/9] flex flex-col">
+            {/* Desktop Browser Mockup View */}
+            <div className="hidden sm:flex rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_32px_64px_-24px_rgba(0,0,0,0.06)] overflow-hidden aspect-[16/9] flex-col">
               {/* Browser control header */}
               <div className="h-12 border-b border-[#E2E8F0] bg-[#FAFAFA] flex items-center px-5 justify-between">
                 <div className="flex gap-2">
@@ -107,70 +106,48 @@ const AboutUs = () => {
                 </div>
                 <div className="flex items-center gap-1.5 px-4 py-1.5 bg-white border border-[#E2E8F0] rounded-lg text-[10px] text-gray-500 font-mono w-72 justify-center shadow-sm">
                   <Lock size={10} className="text-gray-400" />
-                  <span>nxtwebworks.com/src/core/router.ts</span>
+                  <span>nxtwebworks.com/about/workspace</span>
                 </div>
                 <div className="w-12 h-6" />
               </div>
+              <div className="flex-1 overflow-hidden relative bg-gray-50">
+                <img 
+                  src="/AboutHeroDesktop.jpeg" 
+                  alt="NxtWebWorks Creative Agency Workspace" 
+                  className="w-full h-full object-cover object-center"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentNode.innerHTML = `
+                      <div class="w-full h-full bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-white flex flex-col justify-center items-center font-sans p-8">
+                        <p class="text-sm font-semibold text-gray-600">NxtWebWorks Development Studio</p>
+                        <p class="text-[10px] text-gray-400 mt-1">Upload /AboutHeroDesktop.jpeg to replace this placeholder</p>
+                      </div>
+                    `;
+                  }}
+                />
+              </div>
+            </div>
 
-              {/* Dev Studio Workspace */}
-              <div className="flex-grow flex bg-white font-sans text-xs">
-                {/* Sidebar Navigation */}
-                <div className="w-56 border-r border-[#E2E8F0] p-4 flex flex-col gap-5 hidden sm:flex bg-[#FAFAFA]">
-                  <div>
-                    <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Project Explorer</h3>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-blue-600 font-medium bg-blue-50/50 py-1.5 px-2.5 rounded-md">
-                        <FileCode size={13} />
-                        <span>CoreEngine.ts</span>
+            {/* Mobile Phone Mockup View */}
+            <div className="block sm:hidden max-w-[280px] mx-auto rounded-[32px] border-8 border-[#0F172A] bg-[#0F172A] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] overflow-hidden aspect-[9/16] relative">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-[#0F172A] rounded-b-2xl z-20 flex justify-center items-center">
+                <div className="w-10 h-1 rounded-full bg-gray-700/80 mb-1" />
+              </div>
+              <div className="w-full h-full rounded-[24px] overflow-hidden bg-gray-50">
+                <img 
+                  src="/AboutHeroMobile.jpeg" 
+                  alt="NxtWebWorks Mobile Agency Showcase" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentNode.innerHTML = `
+                      <div class="w-full h-full bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-white flex flex-col justify-center items-center font-sans p-6 text-center">
+                        <p class="text-xs font-semibold text-gray-500">Mobile Agency View</p>
+                        <p class="text-[9px] text-gray-400 mt-1">Upload /AboutHeroMobile.jpeg</p>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-500 py-1.5 px-2.5 hover:text-gray-900 transition-colors">
-                        <FileCode size={13} />
-                        <span>Database.sql</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-gray-500 py-1.5 px-2.5 hover:text-gray-900 transition-colors">
-                        <FileCode size={13} />
-                        <span>UI_Components.tsx</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Main Interactive Screen */}
-                <div className="flex-grow p-6 flex flex-col justify-between bg-gradient-to-r from-white to-[#F8FAFC]">
-                  <div className="flex justify-between items-start gap-4">
-                    <div className="space-y-1.5">
-                      <div className="h-5 w-32 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-3 w-48 bg-gray-100 rounded" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[10px] font-mono text-gray-400">production_v3_ready</span>
-                    </div>
-                  </div>
-
-                  {/* Flow representation inside preview */}
-                  <div className="relative p-5 border border-[#E2E8F0] rounded-xl bg-white shadow-sm flex flex-col sm:flex-row items-center gap-6 justify-between overflow-hidden">
-                    <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-indigo-50/20 to-transparent pointer-events-none" />
-                    <div className="flex items-center gap-4">
-                      <div className="p-2.5 rounded-lg bg-indigo-50 text-indigo-600 border border-indigo-100">
-                        <GitBranch size={16} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 text-sm">Automated Pipeline</h4>
-                        <p className="text-[10px] text-gray-500 mt-0.5">Continuous verification logic active</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="flex -space-x-2">
-                        <div className="w-6 h-6 rounded-full bg-gray-200 border-2 border-white" />
-                        <div className="w-6 h-6 rounded-full bg-gray-300 border-2 border-white" />
-                        <div className="w-6 h-6 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-[8px] font-bold text-blue-600">+4</div>
-                      </div>
-                      <span className="h-6 w-px bg-gray-200" />
-                      <span className="text-[10px] font-mono font-semibold bg-emerald-50 text-emerald-600 py-1 px-2.5 border border-emerald-100 rounded-md">Deploy OK</span>
-                    </div>
-                  </div>
-                </div>
+                    `;
+                  }}
+                />
               </div>
             </div>
           </motion.div>
@@ -213,37 +190,48 @@ const AboutUs = () => {
               </motion.div>
             </motion.div>
 
-            {/* Split Visual Timeline Dashboard Mockup */}
+            {/* Split Visual Timeline Dashboard Mockup with Image support */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 p-1 bg-white border border-[#E2E8F0] rounded-2xl shadow-sm overflow-hidden"
+              className="lg:col-span-6 rounded-2xl border border-[#E2E8F0] bg-white p-1 shadow-sm overflow-hidden"
             >
-              <div className="bg-[#FCFCFD] p-8 rounded-xl space-y-6">
-                <div className="flex justify-between items-center pb-4 border-b border-[#E2E8F0]">
-                  <span className="text-xs font-bold text-gray-700">Project Delivery Stages</span>
-                  <span className="text-[10px] bg-blue-50 text-blue-600 border border-blue-100 font-semibold px-2 py-0.5 rounded">Vercel Standard</span>
-                </div>
-                
-                <div className="space-y-6 relative pl-4 border-l border-blue-100">
-                  <div className="relative">
-                    <div className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-blue-50" />
-                    <h4 className="text-xs font-semibold text-[#0F172A]">01 / UI Layout Review</h4>
-                    <p className="text-[11px] text-gray-500 mt-1">Establishing custom wireframes, interactive flows, and responsive layouts.</p>
-                  </div>
-                  <div className="relative">
-                    <div className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-amber-500 ring-4 ring-amber-50" />
-                    <h4 className="text-xs font-semibold text-[#0F172A]">02 / Production Dev Phase</h4>
-                    <p className="text-[11px] text-gray-500 mt-1">Writing clean JSX structures, database API calls, and animations state-logic.</p>
-                  </div>
-                  <div className="relative">
-                    <div className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-50" />
-                    <h4 className="text-xs font-semibold text-[#0F172A]">03 / Edge Server Launch</h4>
-                    <p className="text-[11px] text-gray-500 mt-1">Hosting on Vercel Edge Server, executing Lighthouse performance audits.</p>
-                  </div>
-                </div>
+              <div className="aspect-[4/3] w-full rounded-xl overflow-hidden bg-gray-50 relative flex items-center justify-center">
+                <img 
+                  src="/AboutStory.jpeg" 
+                  alt="NxtWebWorks Project Planning and Collaborative Workflow" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentNode.innerHTML = `
+                      <div class="bg-[#FCFCFD] p-8 rounded-xl space-y-6 h-full flex flex-col justify-center text-left">
+                        <div class="flex justify-between items-center pb-4 border-b border-[#E2E8F0]">
+                          <span class="text-xs font-bold text-gray-700">Project Scoping Phases</span>
+                          <span class="text-[10px] bg-blue-50 text-blue-600 border border-blue-100 font-semibold px-2 py-0.5 rounded">NXT Standard</span>
+                        </div>
+                        <div class="space-y-6 relative pl-4 border-l border-blue-100">
+                          <div class="relative">
+                            <div class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-blue-50"></div>
+                            <h4 class="text-xs font-semibold text-[#0F172A]">01 / Layout Wireframing</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Establishing modern custom layouts, user flows, and brand styling systems.</p>
+                          </div>
+                          <div class="relative">
+                            <div class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-amber-500 ring-4 ring-amber-50"></div>
+                            <h4 class="text-xs font-semibold text-[#0F172A]">02 / Production Dev Phase</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Building clean, robust react frontends and standard REST/GraphQL APIs.</p>
+                          </div>
+                          <div class="relative">
+                            <div class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-50"></div>
+                            <h4 class="text-xs font-semibold text-[#0F172A]">03 / Automated Edge Launch</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Deploying to high-performance edge nodes with automated build checkouts.</p>
+                          </div>
+                        </div>
+                      </div>
+                    `;
+                  }}
+                />
               </div>
             </motion.div>
 
@@ -514,26 +502,35 @@ const AboutUs = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            {/* Visual Clean Architecture onion model */}
+            {/* Visual Clean Architecture onion model with Image Support */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 relative aspect-square w-full max-w-md mx-auto bg-[#FCFCFD] rounded-2xl border border-[#E2E8F0] flex items-center justify-center p-8 overflow-hidden shadow-sm"
+              className="lg:col-span-5 relative aspect-square w-full max-w-md mx-auto bg-white rounded-2xl border border-[#E2E8F0] p-1 overflow-hidden shadow-sm flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-              {/* Outer Layer */}
-              <div className="w-full h-full border border-dashed border-[#CBD5E1] rounded-full flex items-center justify-center relative p-12 animate-[spin_60s_linear_infinite]">
-                <span className="absolute top-2 text-[8px] font-mono font-bold text-gray-400">UI / API Layer</span>
-                {/* Mid Layer */}
-                <div className="w-full h-full border border-[#E2E8F0] bg-white rounded-full flex items-center justify-center relative p-10 shadow-inner">
-                  <span className="absolute top-2 text-[8px] font-mono font-bold text-gray-400">Controllers</span>
-                  {/* Core Inner Layer */}
-                  <div className="w-full h-full border border-blue-100 bg-blue-50/20 rounded-full flex items-center justify-center shadow-sm">
-                    <span className="text-[10px] font-mono font-bold text-blue-600">Core Entities</span>
-                  </div>
-                </div>
+              <div className="w-full h-full rounded-xl overflow-hidden bg-[#FCFCFD] relative flex items-center justify-center">
+                <img 
+                  src="/AboutPhilosophy.jpeg" 
+                  alt="NxtWebWorks Development Philosophy Architecture diagram" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentNode.innerHTML = `
+                      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+                      <div class="w-full h-full border border-dashed border-[#CBD5E1] rounded-full flex items-center justify-center relative p-12 animate-[spin_60s_linear_infinite]">
+                        <span class="absolute top-2 text-[8px] font-mono font-bold text-gray-400">UI / API Layer</span>
+                        <div class="w-full h-full border border-[#E2E8F0] bg-white rounded-full flex items-center justify-center relative p-10 shadow-inner">
+                          <span class="absolute top-2 text-[8px] font-mono font-bold text-gray-400 font-sans">Controllers</span>
+                          <div class="w-full h-full border border-blue-100 bg-blue-50/20 rounded-full flex items-center justify-center shadow-sm">
+                            <span class="text-[10px] font-mono font-bold text-blue-600 font-sans font-bold">Core Entities</span>
+                          </div>
+                        </div>
+                      </div>
+                    `;
+                  }}
+                />
               </div>
             </motion.div>
 

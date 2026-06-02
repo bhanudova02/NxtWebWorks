@@ -27,6 +27,8 @@ const WhyChooseUs = () => {
     }
   ];
 
+  const [imgError, setImgError] = React.useState(false);
+
   return (
     <section className="py-20 md:py-28 bg-white border-b border-[#E2E8F0] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
@@ -94,66 +96,77 @@ const WhyChooseUs = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                <div className="md:col-span-4 space-y-3 font-mono text-[9px] text-gray-400 bg-white border border-slate-200/70 p-3.5 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
-                  <div className="text-[10px] font-bold text-gray-700 pb-1.5 border-b border-slate-100 flex items-center gap-1.5">
-                    <Globe size={11} className="text-blue-500" /> Global Nodes
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span>US-East</span>
-                      <span className="text-green-600 font-bold">12ms</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span>EU-Central</span>
-                      <span className="text-green-600 font-bold">18ms</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span>AP-South</span>
-                      <span className="text-green-600 font-bold">22ms</span>
-                    </div>
-                  </div>
+              {!imgError ? (
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 border border-slate-200/40 relative">
+                  <img 
+                    src="/PerformanceSecurity.jpeg" 
+                    alt="NxtWebWorks Performance and Security Analytics Dashboard" 
+                    className="w-full h-full object-cover object-center" 
+                    onError={() => setImgError(true)}
+                  />
                 </div>
-
-                <div className="md:col-span-8 space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
-                      <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Edge Latency</span>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <span className="text-2xl font-bold text-gray-900">14</span>
-                        <span className="text-[10px] text-gray-400 font-mono">ms</span>
-                      </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                  <div className="md:col-span-4 space-y-3 font-mono text-[9px] text-gray-400 bg-white border border-slate-200/70 p-3.5 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
+                    <div className="text-[10px] font-bold text-gray-700 pb-1.5 border-b border-slate-100 flex items-center gap-1.5">
+                      <Globe size={11} className="text-blue-500" /> Global Nodes
                     </div>
-                    <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
-                      <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Security SLA</span>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <span className="text-2xl font-bold text-gray-900">A+</span>
-                        <span className="text-[9px] font-bold text-green-600 font-mono">Verified</span>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span>US-East</span>
+                        <span className="text-green-600 font-bold">12ms</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span>EU-Central</span>
+                        <span className="text-green-600 font-bold">18ms</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span>AP-South</span>
+                        <span className="text-green-600 font-bold">22ms</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] space-y-3 font-mono text-[9px] text-gray-400">
-                    <div className="flex justify-between items-center text-gray-700">
-                      <span className="font-bold flex items-center gap-1.5">
-                        <Server size={11} className="text-blue-500" /> Server Throughput
-                      </span>
-                      <span className="text-blue-600 font-bold">99.9% Uptime</span>
-                    </div>
-                    <div className="flex items-end gap-1.5 h-10 mt-1">
-                      {[35, 50, 40, 75, 25, 30, 45, 60, 80].map((val, i) => (
-                        <div key={i} className="flex-1 flex flex-col justify-end h-full">
-                          <motion.div
-                            initial={{ height: 0 }}
-                            animate={{ height: `${val}%` }}
-                            className={`w-full rounded-t-sm ${i === 8 ? 'bg-blue-500' : 'bg-gray-200 hover:bg-blue-200 transition-colors'}`}
-                          />
+                  <div className="md:col-span-8 space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
+                        <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Edge Latency</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                          <span className="text-2xl font-bold text-gray-900">14</span>
+                          <span className="text-[10px] text-gray-400 font-mono">ms</span>
                         </div>
-                      ))}
+                      </div>
+                      <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
+                        <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Security SLA</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                          <span className="text-2xl font-bold text-gray-900">A+</span>
+                          <span className="text-[9px] font-bold text-green-600 font-mono">Verified</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] space-y-3 font-mono text-[9px] text-gray-400">
+                      <div className="flex justify-between items-center text-gray-700">
+                        <span className="font-bold flex items-center gap-1.5">
+                          <Server size={11} className="text-blue-500" /> Server Throughput
+                        </span>
+                        <span className="text-blue-600 font-bold">99.9% Uptime</span>
+                      </div>
+                      <div className="flex items-end gap-1.5 h-10 mt-1">
+                        {[35, 50, 40, 75, 25, 30, 45, 60, 80].map((val, i) => (
+                          <div key={i} className="flex-1 flex flex-col justify-end h-full">
+                            <motion.div
+                              initial={{ height: 0 }}
+                              animate={{ height: `${val}%` }}
+                              className={`w-full rounded-t-sm ${i === 8 ? 'bg-blue-500' : 'bg-gray-200 hover:bg-blue-200 transition-colors'}`}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/4 to-indigo-500/4 rounded-3xl -z-10 transform rotate-1 pointer-events-none" />
