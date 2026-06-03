@@ -10,7 +10,7 @@ const Hero = () => {
           <div 
             data-aos="fade-right" 
             data-aos-duration="1000"
-            className="lg:col-span-6 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
+            className="lg:col-span-6 space-y-6 text-left flex flex-col items-start"
           >
             <span className="section-kicker">
               Websites, apps, Shopify
@@ -24,7 +24,7 @@ const Hero = () => {
               We build websites, full-stack apps, Shopify stores, and internal tools with simple UX and reliable code.
             </p>
             
-            <div className="flex flex-row items-center justify-center lg:justify-start gap-2 pt-2 w-full max-w-[280px] sm:max-w-sm lg:max-w-none">
+            <div className="flex flex-row items-center justify-start gap-2 pt-2 w-full max-w-[280px] sm:max-w-sm lg:max-w-none">
               <a 
                 href="#projects" 
                 className="premium-button flex-1 sm:flex-none text-center min-h-10 px-3 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm shadow-lg shadow-blue-500/10 hover:shadow-blue-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 gap-1"
