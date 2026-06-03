@@ -5,7 +5,6 @@ import FeaturedProjects from '../components/FeaturedProjects';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
 import Testimonials from '../components/Testimonials';
-import ScheduleCall from '../components/ScheduleCall';
 import Contact from '../components/Contact';
 
 const Home = () => {
@@ -18,7 +17,6 @@ const Home = () => {
       <WhyChooseUs />
       <Process />
       <Testimonials />
-      <ScheduleCall />
       <Contact />
     </>
   );

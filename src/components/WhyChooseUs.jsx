@@ -1,176 +1,99 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Cpu, Globe, Server, ShieldCheck, Zap } from 'lucide-react';
+import { ClipboardList, Layout, Code2, ArrowRight } from 'lucide-react';
+
+const reasons = [
+  {
+    title: 'Clear planning',
+    description: 'Features, timeline, and cost locked before coding starts.',
+    icon: ClipboardList,
+  },
+  {
+    title: 'Simple UI design',
+    description: 'Clean layouts that users read and understand instantly.',
+    icon: Layout,
+  },
+  {
+    title: 'Maintainable code',
+    description: 'Structured React, Node, and Shopify work for easy updates.',
+    icon: Code2,
+  },
+];
 
 const WhyChooseUs = () => {
-  const features = [
-    {
-      number: '01',
-      title: 'Modern Tech Stack',
-      description: 'We build with React, Next.js, and Node.js to ensure your application is fast, responsive, and easy to maintain.',
-      badge: 'Performance',
-      icon: Zap,
-    },
-    {
-      number: '02',
-      title: 'Enterprise Security',
-      description: 'We implement TLS 1.3 encryption, secure cookie validation, and custom JWT authorization scopes to protect your data.',
-      badge: 'Security',
-      icon: ShieldCheck,
-    },
-    {
-      number: '03',
-      title: 'Modular Code Quality',
-      description: 'We follow clean code principles and decoupled architecture patterns, allowing database and API changes without code rewrites.',
-      badge: 'Scalability',
-      icon: Cpu,
-    }
-  ];
-
-  const [imgError, setImgError] = React.useState(false);
-
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-[#E2E8F0] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#EFF6FF] rounded-full blur-3xl opacity-50 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-5 space-y-8">
-            <div>
-              <span className="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-                <Cpu size={12} className="animate-pulse" />
-                <span>The Advantage</span>
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight leading-tight mb-4">
-                Engineered for Performance and Security
+    <section className="border-b border-rn-border bg-rn-surface py-12 md:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          
+          {/* Left Column: Heading, Reasons and footer CTA */}
+          <div className="lg:col-span-6 space-y-6">
+            <div data-aos="fade-up">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Why work with us</p>
+              <div className="w-8 h-[2px] bg-blue-600 mt-2"></div>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl leading-tight">
+                Built calmly, with <span className="text-blue-600">useful</span> decisions.
               </h2>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                We combine modern framework capabilities with robust engineering principles to deliver software that scales.
+              <p className="mt-2 text-sm text-slate-500 leading-relaxed">
+                For businesses that need a working website, store, or app without confusing design noise.
               </p>
             </div>
 
-            <div className="space-y-6 pt-4">
-              {features.map((feat) => {
-                const Icon = feat.icon;
+            <div className="divide-y divide-slate-100">
+              {reasons.map((reason, index) => {
+                const Icon = reason.icon;
                 return (
-                  <div key={feat.number} className="flex gap-4 group">
-                    <span className="text-sm font-bold text-gray-300 group-hover:text-blue-500 transition-colors pt-1">
-                      {feat.number}
-                    </span>
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-base font-bold text-gray-900">
-                          {feat.title}
-                        </h3>
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-gray-50 border border-gray-100 text-gray-400">
-                          {feat.badge}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-400 leading-relaxed">
-                        {feat.description}
+                  <div
+                    key={reason.title}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                    className="flex gap-4 items-start py-3.5 first:pt-0 last:pb-0"
+                  >
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                      <Icon size={20} className="stroke-[1.8]" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-slate-900 tracking-tight">
+                        {reason.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+                        {reason.description}
                       </p>
                     </div>
                   </div>
                 );
               })}
             </div>
-          </div>
 
-          <div className="lg:col-span-7 relative w-full">
-            <div className="bg-[#FCFDFE] rounded-2xl border border-slate-200/70 p-4 md:p-6 shadow-[0_12px_40px_rgba(15,23,42,0.05)] relative z-10 overflow-hidden">
-              <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-200/80">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                  <div className="ml-3 px-3 py-1 rounded bg-white border border-slate-200/80 text-[9px] font-mono text-gray-400 w-36 truncate shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]">
-                    api.nxtwebworks.com/v1
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[9px] font-bold font-mono text-green-600 bg-green-50 px-2 py-0.5 rounded-md">
-                    OPERATIONAL
-                  </span>
-                </div>
+            {/* Bottom Banner / CTA */}
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="300"
+              className="flex items-center gap-3 pt-3.5 border-t border-slate-100"
+            >
+              <div className="flex h-7 w-7 flex-none items-center justify-center rounded-full border border-blue-600 text-blue-600">
+                <ArrowRight size={13} />
               </div>
-
-              {!imgError ? (
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 border border-slate-200/40 relative">
-                  <img 
-                    src="/PerformanceSecurity.jpeg" 
-                    alt="NxtWebWorks Performance and Security Analytics Dashboard" 
-                    className="w-full h-full object-cover object-center" 
-                    onError={() => setImgError(true)}
-                  />
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                  <div className="md:col-span-4 space-y-3 font-mono text-[9px] text-gray-400 bg-white border border-slate-200/70 p-3.5 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
-                    <div className="text-[10px] font-bold text-gray-700 pb-1.5 border-b border-slate-100 flex items-center gap-1.5">
-                      <Globe size={11} className="text-blue-500" /> Global Nodes
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span>US-East</span>
-                        <span className="text-green-600 font-bold">12ms</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>EU-Central</span>
-                        <span className="text-green-600 font-bold">18ms</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>AP-South</span>
-                        <span className="text-green-600 font-bold">22ms</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-8 space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
-                        <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Edge Latency</span>
-                        <div className="flex items-baseline gap-1 mt-1">
-                          <span className="text-2xl font-bold text-gray-900">14</span>
-                          <span className="text-[10px] text-gray-400 font-mono">ms</span>
-                        </div>
-                      </div>
-                      <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] flex flex-col justify-between h-20">
-                        <span className="text-[9px] font-semibold text-gray-400 uppercase tracking-wider">Security SLA</span>
-                        <div className="flex items-baseline gap-1 mt-1">
-                          <span className="text-2xl font-bold text-gray-900">A+</span>
-                          <span className="text-[9px] font-bold text-green-600 font-mono">Verified</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-white border border-slate-200/70 p-4 rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.04)] space-y-3 font-mono text-[9px] text-gray-400">
-                      <div className="flex justify-between items-center text-gray-700">
-                        <span className="font-bold flex items-center gap-1.5">
-                          <Server size={11} className="text-blue-500" /> Server Throughput
-                        </span>
-                        <span className="text-blue-600 font-bold">99.9% Uptime</span>
-                      </div>
-                      <div className="flex items-end gap-1.5 h-10 mt-1">
-                        {[35, 50, 40, 75, 25, 30, 45, 60, 80].map((val, i) => (
-                          <div key={i} className="flex-1 flex flex-col justify-end h-full">
-                            <motion.div
-                              initial={{ height: 0 }}
-                              animate={{ height: `${val}%` }}
-                              className={`w-full rounded-t-sm ${i === 8 ? 'bg-blue-500' : 'bg-gray-200 hover:bg-blue-200 transition-colors'}`}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              <p className="text-xs font-medium text-slate-600">
+                Let's build something that works — for you and your users.
+              </p>
             </div>
-
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/4 to-indigo-500/4 rounded-3xl -z-10 transform rotate-1 pointer-events-none" />
           </div>
+
+          {/* Right Column: Premium Image Mockup */}
+          <div 
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="lg:col-span-6"
+          >
+            <div className="relative overflow-hidden rounded-none shadow-xl shadow-slate-100/90 border border-slate-200 bg-white p-2">
+              <img
+                src="/nxt_workspace.png"
+                alt="Minimalist design agency workspace"
+                className="w-full aspect-[4/3] object-cover rounded-none"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -1,118 +1,86 @@
-import { motion } from 'framer-motion';
-import { Layers, ShoppingBag, LayoutGrid, Code2, Database, Briefcase, ArrowUpRight } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, Code2, LayoutDashboard, ShoppingBag, Monitor, Smartphone, ShoppingCart } from 'lucide-react';
 
 const services = [
   {
-    title: 'Headless E-commerce',
-    description: 'Blazing fast storefronts using Next.js, Tailwind CSS, and the Shopify Storefront API.',
-    icon: ShoppingBag,
-    accent: 'from-amber-500/10 to-transparent',
-    iconBg: 'bg-amber-50 text-amber-600 border-amber-100',
-    tag: 'Commerce',
+    title: 'Website development',
+    description: 'Clean responsive websites for service businesses, portfolios, agencies, and product pages.',
+    points: ['Landing pages', 'Company websites', 'Responsive UI'],
+    icon: Monitor,
   },
   {
-    title: 'Custom SaaS Platforms',
-    description: 'Subscription-based software products built on a robust MERN stack architecture.',
-    icon: Layers,
-    accent: 'from-blue-500/10 to-transparent',
-    iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
-    tag: 'SaaS',
-  },
-  {
-    title: 'Shopify Theme Customization',
-    description: 'Transforming ordinary themes into highly interactive stores using Shopify Liquid & JS.',
-    icon: LayoutGrid,
-    accent: 'from-green-500/10 to-transparent',
-    iconBg: 'bg-green-50 text-green-600 border-green-100',
-    tag: 'Shopify',
-  },
-  {
-    title: 'Full-Stack Web Applications',
-    description: 'Scalable and secure web apps using React, Node.js, Express, and MongoDB.',
+    title: 'Full-stack applications',
+    description: 'Custom React and Node.js applications with authentication, APIs, database, and deployment.',
+    points: ['React frontends', 'Node APIs', 'MongoDB setup'],
     icon: Code2,
-    accent: 'from-violet-500/10 to-transparent',
-    iconBg: 'bg-violet-50 text-violet-600 border-violet-100',
-    tag: 'Full-Stack',
   },
   {
-    title: 'Shopify Private Apps',
-    description: 'Custom Node.js and REST API integrations to handle specific e-commerce business logic.',
-    icon: Briefcase,
-    accent: 'from-rose-500/10 to-transparent',
-    iconBg: 'bg-rose-50 text-rose-600 border-rose-100',
-    tag: 'API',
+    title: 'Shopify stores',
+    description: 'Theme customization, storefront sections, product pages, and store experience improvements.',
+    points: ['Theme edits', 'Custom sections', 'Store polish'],
+    icon: ShoppingBag,
   },
   {
-    title: 'Advanced Admin Dashboards',
-    description: 'Internal business tools for managing complex data securely with modern React interfaces.',
-    icon: Database,
-    accent: 'from-cyan-500/10 to-transparent',
-    iconBg: 'bg-cyan-50 text-cyan-600 border-cyan-100',
-    tag: 'Dashboards',
+    title: 'Admin dashboards',
+    description: 'Internal panels for orders, customers, reports, content, and day-to-day business operations.',
+    points: ['Data views', 'Role access', 'Business tools'],
+    icon: LayoutDashboard,
+  },
+  {
+    title: 'Mobile apps development',
+    description: 'Cross-platform iOS and Android mobile applications built with React Native for smooth performance.',
+    points: ['iOS & Android', 'App Store deploy', 'Native features'],
+    icon: Smartphone,
+  },
+  {
+    title: 'Ecommerce websites',
+    description: 'Custom online stores, cart systems, payment gateways, and checkout flows optimized for sales.',
+    points: ['Payment gateway', 'Inventory management', 'High conversion'],
+    icon: ShoppingCart,
   },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-16 md:py-24 bg-white border-b border-[#E2E8F0] relative overflow-hidden">
-      {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
-          <div>
-            <span className="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-4">
-              Capabilities
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#0F172A] tracking-tight">
-              Comprehensive Technical<br />Solutions
-            </h2>
-          </div>
-          <p className="text-sm text-[#475569] max-w-xs leading-relaxed md:text-right">
-            Every service is delivered with clean, scalable code and a focus on long-term maintainability.
-          </p>
+    <section id="services" className="border-b border-rn-border bg-rn-surface py-10 md:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div 
+          data-aos="fade-up"
+          className="mb-7 max-w-2xl"
+        >
+          <p className="text-sm font-semibold text-rn-blue">Services</p>
+          <h2 className="mt-2 text-3xl font-bold leading-tight text-rn-text md:text-4xl">What we can build for you</h2>
+          <p className="mt-3 text-sm leading-6 text-rn-text-muted">Pick one service or combine them into a complete product build.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid gap-4 lg:grid-cols-2">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.07 }}
-                className="group relative p-7 rounded-2xl bg-white border border-[#E2E8F0] hover:border-[#CBD5E1] hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 overflow-hidden cursor-pointer"
+              <article
+                key={service.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+                className="rounded-lg border border-rn-border bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
               >
-                {/* Gradient accent top-right */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${service.accent} pointer-events-none rounded-bl-full`} />
-
-                <div className="relative z-10">
-                  {/* Top row: icon + tag */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className={`w-11 h-11 rounded-xl border ${service.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-5 h-5 stroke-[1.5]" />
-                    </div>
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400 bg-gray-50 border border-gray-100 px-2 py-0.5 rounded-md">
-                      {service.tag}
-                    </span>
+                <div className="flex gap-4">
+                  <div className="flex h-10 w-10 flex-none items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
+                    <Icon size={19} strokeWidth={1.8} />
                   </div>
-
-                  <h3 className="text-base font-semibold text-[#0F172A] mb-2 leading-snug group-hover:text-blue-600 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Hover arrow */}
-                  <div className="mt-5 flex items-center gap-1 text-xs font-semibold text-gray-300 group-hover:text-blue-500 transition-colors duration-300">
-                    <span>Learn more</span>
-                    <ArrowUpRight size={13} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-semibold text-rn-text">{service.title}</h3>
+                      <ArrowUpRight size={16} className="mt-1 flex-none text-rn-text-muted" />
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-rn-text-muted">{service.description}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {service.points.map((point) => (
+                        <span key={point} className="rounded-md bg-rn-blue/5 px-2.5 py-1 text-xs font-medium text-rn-blue">{point}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </article>
             );
           })}
         </div>

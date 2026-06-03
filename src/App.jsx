@@ -7,6 +7,8 @@ import Projects from './pages/Projects';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import WhatsAppButton from './components/WhatsAppButton';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -33,10 +35,19 @@ function ScrollToTop() {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
+      <div className="min-h-screen bg-rn-bg font-sans flex flex-col">
         <Navbar />
         <main className="flex-grow pt-16">
           <Routes>
