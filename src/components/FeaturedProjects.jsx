@@ -191,7 +191,7 @@ const FeaturedProjects = () => {
               <div className="p-6 space-y-6 flex-grow overflow-y-auto">
                 {/* Visual Slide Viewer Area */}
                 <div className="space-y-4">
-                  <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-rn-surface">
+                  <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-white">
                     <SlideVisual type={selectedProject.slides[activeSlideIdx]} />
                   </div>
                   

@@ -1,45 +1,46 @@
 export const projects = [
   {
-    title: 'Fintech Analytics Platform',
-    category: 'SaaS / Data Viz',
-    placeholderType: 'analytics',
-    description: 'A high-performance transaction dashboard containing real-time asset charts, currency converter modules, and ledger streams.',
-    liveUrl: 'https://fintech-analytics.nxtwebworks.com',
-    slides: ['analytics_dashboard', 'analytics_transactions', 'analytics_settings'],
-    tags: ['React', 'Node.js', 'Framer Motion', 'MongoDB']
+    title: 'Seed Processing',
+    category: 'Seed Processing',
+    description: 'Rajesh Seeds offers premier seed processing solutions, adhering to stringent quality standards worldwide.',
+    slides: [
+      '/project_image/seeds-processing/1.jpg',
+      '/project_image/seeds-processing/2.jpg',
+      '/project_image/seeds-processing/3.jpg',
+      '/project_image/seeds-processing/4.jpg',
+      '/project_image/seeds-processing/5.jpg'
+    ]
   },
   {
-    title: 'Enterprise CRM System',
-    category: 'Internal Tools',
-    placeholderType: 'crm',
-    description: 'An internal lead pipeline management console designed for automated operational logging and lead status updates.',
-    slides: ['crm_pipeline', 'crm_contacts', 'crm_activities'],
-    tags: ['React', 'Express', 'TailwindCSS', 'PostgreSQL']
+    title: 'Seed To Seed',
+    category: 'Seed to Seed',
+    description: 'We provide IP-protected infrastructure for seed-to-seed services, delivering high-quality solutions on a global scale.',
+    slides: [
+      '/project_image/seeds-processing/2.jpg'
+    ]
   },
   {
-    title: 'Global E-commerce Store',
-    category: 'Headless Commerce',
-    placeholderType: 'ecommerce',
-    description: 'Headless Shopify implementation with customized collection views, responsive filter components, and checkout hooks.',
-    liveUrl: 'https://shop.nxtwebworks.com',
-    slides: ['ecommerce_storefront', 'ecommerce_cart', 'ecommerce_checkout'],
-    tags: ['Shopify', 'React', 'TailwindCSS', 'GraphQL']
+    title: 'Food Processing',
+    category: 'Food Processing',
+    description: 'Rajesh Seeds delivers comprehensive food processing solutions, including round-the-clock packing, shipping, and processing services.',
+    slides: [
+      '/project_image/seeds-processing/3.jpg'
+    ]
   },
   {
-    title: 'Healthcare Portal',
-    category: 'Web Application',
-    placeholderType: 'app',
-    description: 'A HIPAA-compliant patient communication portal providing clinical appointment logs and prescription updates.',
-    slides: ['app_dashboard', 'app_calendar', 'app_prescriptions'],
-    tags: ['Next.js', 'TailwindCSS', 'HIPAA APIs', 'Node.js']
+    title: 'RSPL Feeds',
+    category: 'RSPL Feeds',
+    description: 'Our animal feed options, such as corn silage, are high-quality and nutritious, with a shelf life of up to 1.5 years.',
+    slides: [
+      '/project_image/seeds-processing/4.jpg'
+    ]
   },
   {
-    title: 'Logistics Dashboard',
-    category: 'Admin Panel',
-    placeholderType: 'dashboard',
-    description: 'Fleet location management interface featuring real-time geographic markers and inventory alerts.',
-    liveUrl: 'https://logistics-admin.nxtwebworks.com',
-    slides: ['dashboard_overview', 'dashboard_inventory', 'dashboard_metrics'],
-    tags: ['React', 'Google Maps API', 'TailwindCSS', 'Express']
-  },
+    title: 'Agro Chemicals',
+    category: 'Agro Chemicals',
+    description: 'We offer advanced chemical production with state-of-the-art facilities, providing high-throughput solutions for enterprises.',
+    slides: [
+      '/project_image/seeds-processing/5.jpg'
+    ]
+  }
 ];

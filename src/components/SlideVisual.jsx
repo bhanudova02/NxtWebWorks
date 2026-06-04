@@ -7,7 +7,7 @@ export const SlideVisual = ({ type }) => {
       <img 
         src={type} 
         alt="Project Screenshot" 
-        className="w-full h-full object-cover object-top"
+        className="w-full h-full object-contain"
       />
     );
   }

@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowUpRight, X, Globe, Eye, Sparkles, Layou
 import { projects } from '../data/projects';
 import { SlideVisual } from '../components/SlideVisual';
 
-const categories = ['All', 'SaaS / Data Viz', 'Internal Tools', 'Headless Commerce', 'Web Application', 'Admin Panel'];
+const categories = ['All', 'Seed Processing', 'Seed to Seed', 'Food Processing', 'RSPL Feeds', 'Agro Chemicals'];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -140,42 +140,14 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  {/* Tech stack badges */}
-                  <div className="mt-4 pt-4 border-t border-rn-border/50">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="text-[9px] font-semibold text-rn-text-muted bg-rn-surface border border-rn-border px-2 py-0.5 rounded-md">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Actions button layout */}
-                    <div className="mt-5 flex gap-2.5">
-                      <button
-                        onClick={() => setSelectedProject(project)}
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2 border border-rn-border hover:bg-rn-surface text-rn-text-muted text-xs font-semibold rounded-lg shadow-sm transition-colors cursor-pointer"
-                      >
-                        <LayoutGrid size={12} />
-                        <span>View Info</span>
-                      </button>
-
-                      {project.liveUrl ? (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-rn-text hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors cursor-pointer"
-                        >
-                          <span>Live Site</span>
-                          <ArrowUpRight size={12} />
-                        </a>
-                      ) : (
-                        <div className="flex-1 inline-flex items-center justify-center px-4 py-2 bg-rn-surface border border-dashed border-rn-border text-rn-text-muted/50 text-xs font-medium rounded-lg select-none">
-                          No Live Link
-                        </div>
-                      )}
-                    </div>
+                  <div className="mt-5 pt-4 border-t border-rn-border/50">
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 border border-rn-border hover:bg-rn-surface text-rn-text-muted text-xs font-semibold rounded-lg shadow-sm transition-colors cursor-pointer"
+                    >
+                      <LayoutGrid size={12} />
+                      <span>View Info</span>
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -227,7 +199,7 @@ const Projects = () => {
               <div className="p-6 space-y-6 flex-grow overflow-y-auto hide-scrollbar">
                 {/* Visual Slide Viewer Area */}
                 <div className="space-y-4">
-                  <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-rn-surface">
+                  <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-white">
                     <SlideVisual type={selectedProject.slides[activeSlideIdx]} />
                   </div>
                   
