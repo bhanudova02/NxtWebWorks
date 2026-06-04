@@ -21,7 +21,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section id="process" className="border-b border-rn-border bg-white py-10 md:py-12">
+    <section id="process" className="border-b border-rn-border bg-white py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-2xl">
           <p className="text-sm font-semibold text-rn-blue">Process</p>

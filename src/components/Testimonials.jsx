@@ -71,7 +71,7 @@ const TestimonialCard = ({ testimonial }) => (
 
 const Testimonials = () => {
   return (
-    <section className="py-10 md:py-14 bg-white border-b border-rn-border overflow-hidden">
+    <section className="py-12 md:py-16 bg-rn-surface border-b border-rn-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -97,8 +97,8 @@ const Testimonials = () => {
       {/* Scrolling ticker */}
       <div className="relative w-full overflow-hidden">
         {/* Gradient edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-rn-surface to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-rn-surface to-transparent z-10 pointer-events-none" />
 
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           <div className="flex gap-4 pr-5">

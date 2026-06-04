@@ -6,7 +6,7 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
   --color-rn-bg: #FFFFFF;
-  --color-rn-surface: #F8FAFC;
+  --color-rn-surface: #F1F5F9;
   --color-rn-blue-soft: #DBEAFE;
   --color-rn-blue: #1E40AF;
   --color-rn-text: #0F172A;
@@ -15,9 +15,9 @@
   
   --color-section-hero: #FFFFFF;
   --color-section-trust: #0F172A;
-  --color-section-services: #F8FAFC;
+  --color-section-services: #F1F5F9;
   --color-section-projects: #FFFFFF;
-  --color-section-why: #F8FAFC;
+  --color-section-why: #F1F5F9;
   --color-section-process: #FFFFFF;
   --color-section-cta: #1E40AF;
 }

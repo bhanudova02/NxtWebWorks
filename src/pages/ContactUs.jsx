@@ -258,14 +258,14 @@ const ContactUs = () => {
       <section className="py-16 bg-rn-text relative overflow-hidden text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.06),transparent_50%)]" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-4">
-          <h2 className="text-2xl font-semibold tracking-tight">Ready to start your project?</h2>
+          <h2 className="text-2xl font-semibold tracking-tight text-white">Ready to start your project?</h2>
           <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
             Send the form with your requirement and we will reply with a clear next step.
           </p>
           <div>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-rn-blue hover:text-blue-400 transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group"
             >
               Fill out project inquiry form <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>

@@ -21,6 +21,18 @@ const Projects = () => {
     setActiveSlideIdx(0);
   }, [selectedProject]);
 
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject]);
+
   return (
     <div className="min-h-screen bg-rn-bg pb-20">
       {/* Hero Section */}
@@ -99,7 +111,10 @@ const Projects = () => {
                 className="bg-white rounded-2xl border border-rn-border overflow-hidden hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.06)] transition-all group flex flex-col justify-between"
               >
                 {/* Visual Mockup Container */}
-                <div className="aspect-[16/10] bg-rn-surface border-b border-rn-border overflow-hidden relative flex items-center justify-center p-4">
+                <div 
+                  onClick={() => setSelectedProject(project)}
+                  className="aspect-[16/10] bg-rn-surface border-b border-rn-border overflow-hidden relative flex items-center justify-center p-4 cursor-pointer"
+                >
                   <div className="w-full h-full border border-rn-border rounded-lg overflow-hidden shadow-inner bg-white transform group-hover:scale-[1.02] transition-transform duration-500">
                     <SlideVisual type={project.slides[0]} />
                   </div>
@@ -194,27 +209,22 @@ const Projects = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden z-10 border border-rn-border flex flex-col"
+              className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden z-10 border border-rn-border flex flex-col max-h-[90vh]"
             >
               {/* Header */}
-              <div className="px-6 py-4 border-b border-rn-border flex justify-between items-center bg-rn-surface">
-                <div>
-                  <span className="text-[9px] font-bold text-rn-blue bg-rn-blue/5 px-2 py-0.5 rounded uppercase tracking-wider">
-                    {selectedProject.category}
-                  </span>
-                  <h3 className="text-base font-semibold text-rn-text mt-1">{selectedProject.title}</h3>
-                </div>
+              <div className="px-6 py-4 border-b border-rn-border flex justify-between items-center bg-white flex-shrink-0">
+                <h3 className="text-lg font-semibold text-rn-text">{selectedProject.title}</h3>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="p-1.5 rounded-lg border border-rn-border bg-white text-rn-text-muted hover:text-rn-text transition-colors cursor-pointer"
+                  className="w-8 h-8 rounded-full border border-rn-border bg-white flex items-center justify-center text-rn-text-muted hover:text-rn-text transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X size={16} />
                 </button>
               </div>
 
-              {/* Modal Content */}
-              <div className="p-6 space-y-6 flex-grow overflow-y-auto max-h-[75vh] hide-scrollbar">
+              {/* Modal Content - Scrollable */}
+              <div className="p-6 space-y-6 flex-grow overflow-y-auto hide-scrollbar">
                 {/* Visual Slide Viewer Area */}
                 <div className="space-y-4">
                   <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-rn-surface">
@@ -253,23 +263,29 @@ const Projects = () => {
                     <h4 className="text-xs font-bold text-rn-text-muted uppercase tracking-widest mb-1.5">Project Overview</h4>
                     <p className="text-sm text-rn-text-muted leading-relaxed">{selectedProject.description}</p>
                   </div>
-
-                  {/* Live URL Button (Only shown if liveUrl exists) */}
-                  {selectedProject.liveUrl && (
-                    <div className="pt-2 flex justify-start">
-                      <a 
-                        href={selectedProject.liveUrl}
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="premium-button"
-                      >
-                        <Globe size={13} />
-                        <span>Visit Live Platform</span>
-                        <ArrowUpRight size={13} />
-                      </a>
-                    </div>
-                  )}
                 </div>
+              </div>
+
+              {/* Modal Footer - Fixed */}
+              <div className="p-4 sm:p-6 border-t border-rn-border flex justify-end gap-3 flex-shrink-0 bg-rn-surface/40">
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="px-4 py-2 rounded-lg border border-rn-border bg-white text-xs font-semibold text-[#475569] hover:bg-gray-50 transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+                {selectedProject.liveUrl && (
+                  <a 
+                    href={selectedProject.liveUrl}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#0F172A] hover:bg-[#1E293B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                  >
+                    <Globe size={13} />
+                    <span>Visit Live Platform</span>
+                    <ArrowUpRight size={13} />
+                  </a>
+                )}
               </div>
             </motion.div>
           </div>
