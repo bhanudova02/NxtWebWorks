@@ -11,7 +11,7 @@ const FeaturedProjects = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  
+
   // State for handling the modal/popup details
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeSlideIdx, setActiveSlideIdx] = useState(0);
@@ -77,24 +77,24 @@ const FeaturedProjects = () => {
   return (
     <section id="projects" className="py-12 md:py-16 bg-white border-b border-rn-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="mb-12">
           <div className="max-w-2xl">
             <span className="inline-block py-1 px-3.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-              Featured Builds
+              Client Projects
             </span>
             <h2 className="text-2xl md:text-3xl font-semibold text-[#0F172A] tracking-tight mb-3">
-              Technical Case Studies
+              Client Projects We've Done
             </h2>
             <p className="text-sm text-gray-500 leading-relaxed">
-              Explore our recent custom platforms, dashboards, and integrations.
+              Explore the websites, web apps, and digital platforms we have successfully built and delivered for our clients.
             </p>
           </div>
         </div>
 
         <div>
           {/* Scroll List container */}
-          <div 
+          <div
             ref={scrollRef}
             onScroll={checkScroll}
             onMouseDown={handleMouseDown}
@@ -141,22 +141,20 @@ const FeaturedProjects = () => {
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
-              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${
-                canScrollLeft 
-                  ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer' 
+              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${canScrollLeft
+                  ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer'
                   : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
-              }`}
+                }`}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
-              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${
-                canScrollRight 
-                  ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer' 
+              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${canScrollRight
+                  ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer'
                   : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
-              }`}
+                }`}
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -194,7 +192,7 @@ const FeaturedProjects = () => {
                   <div className="aspect-[16/10] sm:aspect-[21/9] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-white">
                     <SlideVisual type={selectedProject.slides[activeSlideIdx]} />
                   </div>
-                  
+
                   {/* Slider Pagination Controls */}
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-bold text-gray-400 font-mono">
@@ -239,10 +237,10 @@ const FeaturedProjects = () => {
                   Close
                 </button>
                 {selectedProject.liveUrl && (
-                  <a 
+                  <a
                     href={selectedProject.liveUrl}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#0F172A] hover:bg-[#1E293B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
                   >
                     <Globe size={13} />
@@ -256,7 +254,8 @@ const FeaturedProjects = () => {
         )}
       </AnimatePresence>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }

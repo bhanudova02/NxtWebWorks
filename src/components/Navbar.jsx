@@ -81,7 +81,7 @@ const Navbar = () => {
                 <div className="space-y-8">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                     <img
-                      src="/logo/black_logo.webp"
+                      src="/logo/logo.png"
                       alt="NxtWebWorks"
                       className="h-7 w-auto object-contain"
                     />

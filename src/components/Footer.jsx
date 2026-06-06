@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="md:col-span-5">
             <Link to="/" className="inline-flex items-center">
               <img
-                src="/logo/black_logo.webp"
+                src="/logo/logo.png"
                 alt="NxtWebWorks"
                 className="h-7 w-auto object-contain"
               />

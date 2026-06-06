@@ -1,31 +1,5 @@
 export const projects = [
   {
-    title: 'Seed Processing',
-    category: 'Seed Processing',
-    description: 'Rajesh Seeds offers premier seed processing solutions, adhering to stringent quality standards worldwide. The platform covers seed-to-seed services, food processing, animal feed, and agro chemicals — all under one digital presence.',
-    liveUrl: 'https://rajesh-seeds.vercel.app/',
-    slides: [
-      '/project_image/seeds-processing/1.jpg',
-      '/project_image/seeds-processing/2.jpg',
-      '/project_image/seeds-processing/3.jpg',
-      '/project_image/seeds-processing/4.jpg',
-      '/project_image/seeds-processing/5.jpg'
-    ]
-  },
-  {
-    title: 'PVR Cabs',
-    category: 'Corporate Transport Platform',
-    description: 'PVR Cabs is a Hyderabad-based premium transport service established in 2007, operating a fleet of 600+ vehicles. We built their full web platform covering IT employee transportation, corporate car services, and airport transfers — with a clean service-focused UI, route methodology section, and direct inquiry flow for corporate clients across Telangana.',
-    liveUrl: 'https://pvrcabs.com/',
-    slides: [
-      '/project_image/pvr-cabs/1.jpg',
-      '/project_image/pvr-cabs/2.jpg',
-      '/project_image/pvr-cabs/3.jpg',
-      '/project_image/pvr-cabs/4.jpg',
-      '/project_image/pvr-cabs/5.jpg'
-    ]
-  },
-  {
     title: 'Dazzle Sportswear',
     category: 'E-commerce / Sportswear',
     description: 'Contributed as a UI/Frontend Developer at my previous company. Worked on building the frontend interface for Dazzle Sportswear — a premium sports apparel e-commerce brand. My role covered UI development, component building, and responsive design implementation using modern frontend technologies.',
@@ -51,6 +25,32 @@ export const projects = [
       '/project_image/magicwish/3.jpg',
       '/project_image/magicwish/4.jpg',
       '/project_image/magicwish/5.jpg'
+    ]
+  },
+  {
+    title: 'Seed Processing',
+    category: 'Seed Processing',
+    description: 'Rajesh Seeds offers premier seed processing solutions, adhering to stringent quality standards worldwide. The platform covers seed-to-seed services, food processing, animal feed, and agro chemicals — all under one digital presence.',
+    liveUrl: 'https://rajesh-seeds.vercel.app/',
+    slides: [
+      '/project_image/seeds-processing/1.jpg',
+      '/project_image/seeds-processing/2.jpg',
+      '/project_image/seeds-processing/3.jpg',
+      '/project_image/seeds-processing/4.jpg',
+      '/project_image/seeds-processing/5.jpg'
+    ]
+  },
+  {
+    title: 'PVR Cabs',
+    category: 'Corporate Transport Platform',
+    description: 'PVR Cabs is a Hyderabad-based premium transport service established in 2007, operating a fleet of 600+ vehicles. We built their full web platform covering IT employee transportation, corporate car services, and airport transfers — with a clean service-focused UI, route methodology section, and direct inquiry flow for corporate clients across Telangana.',
+    liveUrl: 'https://pvrcabs.com/',
+    slides: [
+      '/project_image/pvr-cabs/1.jpg',
+      '/project_image/pvr-cabs/2.jpg',
+      '/project_image/pvr-cabs/3.jpg',
+      '/project_image/pvr-cabs/4.jpg',
+      '/project_image/pvr-cabs/5.jpg'
     ]
   }
 ];
