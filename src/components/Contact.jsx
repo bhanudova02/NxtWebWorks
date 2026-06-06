@@ -125,7 +125,7 @@ const Contact = () => {
             <form
               ref={form}
               onSubmit={sendEmail}
-              className="rounded-xl border border-rn-border bg-white p-6 md:p-8 shadow-sm space-y-5 h-full flex flex-col justify-between"
+              className="rounded-md border border-rn-border bg-white p-6 md:p-10 shadow-md space-y-5 h-full flex flex-col justify-between"
             >
               {/* Full Name */}
               <div>
