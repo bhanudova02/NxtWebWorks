@@ -157,55 +157,53 @@ const AboutUs = () => {
       {/* 2. COMPANY STORY SECTION */}
       <section className="py-12 md:py-16 bg-rn-surface border-b border-rn-border relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="rounded-md border border-rn-border/80 bg-white p-6 sm:p-10 lg:p-12 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* Image Side */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full aspect-[4/3] rounded-md overflow-hidden border border-rn-border shadow-sm"
+            >
+              <img 
+                src="/AboutStory.jpeg" 
+                alt="NxtWebWorks Team and Workflow" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            {/* Text Side */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="space-y-6"
+            >
+              <motion.span variants={fadeInUp} className="section-kicker">
+                Who we are
+              </motion.span>
+              <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-rn-text tracking-tight leading-[1.15]">
+                We build digital products that <span className="text-blue-600">actually work.</span>
+              </motion.h2>
+              <div className="space-y-4 pt-2">
+                <motion.p variants={fadeInUp} className="text-base text-rn-text-muted leading-relaxed">
+                  Our mission is simple: to help businesses grow by delivering high-quality websites and applications. We focus on clean design, fast load times, and reliable code.
+                </motion.p>
+                <motion.p variants={fadeInUp} className="text-base text-rn-text-muted leading-relaxed">
+                  We combine beautiful interfaces with solid backend systems to create digital experiences that your users will easily understand and love to use.
+                </motion.p>
+              </div>
               
-              {/* Image Side */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full aspect-[4/3] rounded-md overflow-hidden border border-rn-border shadow-sm"
-              >
-                <img 
-                  src="/AboutStory.jpeg" 
-                  alt="NxtWebWorks Team and Workflow" 
-                  className="w-full h-full object-cover"
-                />
+              <motion.div variants={fadeInUp} className="pt-4">
+                <Link to="/contact" className="premium-button shadow-sm">
+                  Start a project
+                </Link>
               </motion.div>
+            </motion.div>
 
-              {/* Text Side */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-                className="space-y-6"
-              >
-                <motion.span variants={fadeInUp} className="section-kicker">
-                  Who we are
-                </motion.span>
-                <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-rn-text tracking-tight leading-[1.15]">
-                  We build digital products that <span className="text-blue-600">actually work.</span>
-                </motion.h2>
-                <div className="space-y-4 pt-2">
-                  <motion.p variants={fadeInUp} className="text-base text-rn-text-muted leading-relaxed">
-                    Our mission is simple: to help businesses grow by delivering high-quality websites and applications. We focus on clean design, fast load times, and reliable code.
-                  </motion.p>
-                  <motion.p variants={fadeInUp} className="text-base text-rn-text-muted leading-relaxed">
-                    We combine beautiful interfaces with solid backend systems to create digital experiences that your users will easily understand and love to use.
-                  </motion.p>
-                </div>
-                
-                <motion.div variants={fadeInUp} className="pt-4">
-                  <Link to="/contact" className="premium-button shadow-sm">
-                    Start a project
-                  </Link>
-                </motion.div>
-              </motion.div>
-
-            </div>
           </div>
         </div>
       </section>
@@ -285,17 +283,17 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: Zap,
+                iconImg: "/icon_fast_delivery.png",
                 title: "Fast Delivery",
                 desc: "We respect your time. We deliver projects on schedule without compromising on quality."
               },
               {
-                icon: FileCode,
+                iconImg: "/icon_clean_code.png",
                 title: "Clean Code",
                 desc: "We write simple, maintainable code so your product can easily scale in the future."
               },
               {
-                icon: Users,
+                iconImg: "/icon_reliable_support.png",
                 title: "Reliable Support",
                 desc: "We provide clear communication and ongoing support even after your project is launched."
               }
@@ -308,8 +306,8 @@ const AboutUs = () => {
                 key={idx}
                 className="flex flex-col items-center text-center p-4"
               >
-                <div className="w-12 h-12 rounded-md bg-white border border-rn-border shadow-sm flex items-center justify-center text-rn-text mb-4">
-                  <feature.icon size={20} />
+                <div className="w-16 h-16 rounded-md bg-white border border-rn-border shadow-sm flex items-center justify-center mb-5 p-2.5 overflow-hidden">
+                  <img src={feature.iconImg} alt={feature.title} className="w-full h-full object-contain mix-blend-multiply" />
                 </div>
                 <h3 className="text-base font-bold text-rn-text mb-2">{feature.title}</h3>
                 <p className="text-sm text-rn-text-muted leading-relaxed">{feature.desc}</p>
