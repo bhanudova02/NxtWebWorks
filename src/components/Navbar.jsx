@@ -18,7 +18,7 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 w-full border-b-2 border-slate-200 bg-white">
+    <nav className="fixed left-0 right-0 top-0 z-50 w-full border-b-2 border-slate-200/60 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-15 items-center justify-between md:h-16">
           <Link to="/" onClick={closeMenu} className="flex items-center">
