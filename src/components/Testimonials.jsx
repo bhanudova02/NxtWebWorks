@@ -2,35 +2,31 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: "The team at NxtWebWorks delivered an exceptional enterprise application that transformed our internal operations. Their engineering standards are world-class.",
-    author: "Sarah Jenkins",
-    role: "CTO",
-    company: "Acumen Tech",
-    initials: "SJ",
+    quote: "NxtWebWorks and team built our logistics platform with high quality and excellent speed. Our operations are completely automated now. Very happy with their support.",
+    author: "Kalyan Kumar",
+    company: "Rajesh Seeds · Guntur, AP",
+    initials: "KK",
     color: "",
   },
   {
-    quote: "We needed a scalable architecture for our growing SaaS product. They provided a robust React/Node solution that handles our traffic effortlessly.",
-    author: "Marcus Chen",
-    role: "Founder",
-    company: "Nexus Platform",
-    initials: "MC",
+    quote: "We needed a fast and responsive web platform for our corporate cab fleet. They delivered a highly professional site that runs smoothly on all mobile devices.",
+    author: "Srinivas Rao",
+    company: "PVR Cabs · Hyderabad, TG",
+    initials: "SR",
     color: "",
   },
   {
-    quote: "Professional, communicative, and technically proficient. A rare agency that truly understands both business logic and deep technical architecture.",
-    author: "David Alroy",
-    role: "VP Engineering",
-    company: "Vertex Systems",
-    initials: "DA",
+    quote: "Highly professional and easy to work with. They took our simple wireframes and built a beautifully functional portal that our users love using every single day.",
+    author: "Anjali Sharma",
+    company: "V-Care Tech · Vijayawada, AP",
+    initials: "AS",
     color: "",
   },
   {
-    quote: "Delivered ahead of schedule with zero bugs at launch. The codebase is clean, well-documented, and our in-house team can maintain it with ease.",
-    author: "Priya Menon",
-    role: "Product Lead",
-    company: "FlowStack",
-    initials: "PM",
+    quote: "Delivered our custom dealer management system right on time with absolutely zero issues. The code is very clean and our internal team learned it instantly.",
+    author: "Ravi Teja",
+    company: "Sri Balaji Motors · Warangal, TG",
+    initials: "RT",
     color: "",
   },
 ];
@@ -62,7 +58,6 @@ const TestimonialCard = ({ testimonial }) => (
         </div>
         <div>
           <p className="text-xs font-semibold text-rn-text leading-tight">{testimonial.author}</p>
-          <p className="text-[11px] text-rn-text-muted">{testimonial.role} · {testimonial.company}</p>
         </div>
       </div>
     </div>

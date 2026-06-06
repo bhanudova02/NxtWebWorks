@@ -21,7 +21,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-base sm:text-lg text-rn-text-muted leading-relaxed max-w-xl">
-              We build websites, full-stack apps, Shopify stores, and internal tools with simple UX and reliable code.
+              We build custom websites, mobile apps, Shopify stores, and tools that help businesses grow and succeed online in competitive markets.
             </p>
             
             <div className="flex flex-row items-center justify-start gap-2 pt-2 w-full max-w-[280px] sm:max-w-sm lg:max-w-none">
