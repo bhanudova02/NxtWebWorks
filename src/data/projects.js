@@ -39,5 +39,18 @@ export const projects = [
       '/project_image/dazzle-sportswear/5.jpg',
       '/project_image/dazzle-sportswear/6.jpg'
     ]
+  },
+  {
+    title: 'MagicWish',
+    category: 'E-commerce / EdTech',
+    description: 'MagicWish is a personalised children\'s storybook platform where every child becomes the hero of their own magical adventure. The platform lets parents upload their child\'s photo, pick a storybook theme, preview the personalised book, and order a premium printed copy delivered to their door. Features include a books catalog with age and gender filters, a bag/cart system, personalisation flow with photo upload, and review sections — all built with a warm, child-friendly UI.',
+    liveUrl: 'https://www.magicwish.shop/',
+    slides: [
+      '/project_image/magicwish/1.jpg',
+      '/project_image/magicwish/2.jpg',
+      '/project_image/magicwish/3.jpg',
+      '/project_image/magicwish/4.jpg',
+      '/project_image/magicwish/5.jpg'
+    ]
   }
 ];

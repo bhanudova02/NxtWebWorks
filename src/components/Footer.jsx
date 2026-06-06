@@ -6,8 +6,12 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link to="/" className="text-lg font-bold tracking-normal text-rn-text">
-              NXTWEBWORKS
+            <Link to="/" className="inline-flex items-center">
+              <img
+                src="/logo/black_logo.webp"
+                alt="NxtWebWorks"
+                className="h-7 w-auto object-contain"
+              />
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-6 text-rn-text-muted">
               Websites, full-stack applications, Shopify stores, and admin dashboards for businesses that need clean digital products.

@@ -21,8 +21,12 @@ const Navbar = () => {
     <nav className="fixed left-0 right-0 top-0 z-50 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between md:h-16">
-          <Link to="/" onClick={closeMenu} className="text-xl font-extrabold tracking-normal text-slate-900">
-            NXTWEBWORKS
+          <Link to="/" onClick={closeMenu} className="flex items-center">
+            <img
+              src="/logo/black_logo.webp"
+              alt="NxtWebWorks"
+              className="h-8 w-auto object-contain"
+            />
           </Link>
 
           <div className="hidden items-center space-x-8 md:flex">
@@ -76,7 +80,11 @@ const Navbar = () => {
               >
                 <div className="space-y-8">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <span className="text-lg font-extrabold tracking-normal text-slate-900">NXTWEBWORKS</span>
+                    <img
+                      src="/logo/black_logo.webp"
+                      alt="NxtWebWorks"
+                      className="h-7 w-auto object-contain"
+                    />
                     <button
                       onClick={closeMenu}
                       className="-mr-2 rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-900"
