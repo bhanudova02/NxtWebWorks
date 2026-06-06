@@ -1,12 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Send, CheckCircle, X, Mail, Phone, MessageCircle } from 'lucide-react';
 
-const contactItems = [
-  { label: 'Email', value: 'teamnxtwebworks@gmail.com', icon: Mail },
-  { label: 'Phone', value: '+91 7660952680', icon: Phone },
-  { label: 'WhatsApp', value: 'Chat with us', icon: MessageCircle },
-];
-
 const Contact = () => {
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,11 +27,9 @@ const Contact = () => {
         setSubmitStatus('success');
         if (form.current) form.current.reset();
       } else {
-        console.error('Web3Forms Error:', data);
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error('Fetch Error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -45,50 +37,119 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="border-b border-rn-border bg-rn-bg py-12 md:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="text-sm font-semibold text-rn-blue">Contact</p>
-            <h2 className="mt-2 text-3xl font-bold leading-tight text-rn-text md:text-4xl">Tell us what you need</h2>
-            <p className="mt-3 max-w-lg text-sm leading-6 text-rn-text-muted">
-              Send the project type, required pages or features, and any reference website you like. We will reply with the next step.
-            </p>
+    <section id="contact" className="min-h-screen flex items-center border-b border-rn-border bg-rn-bg py-12 md:py-20">
+      <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch">
 
-            <div className="mt-6 space-y-3">
-              {contactItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.label} className="flex items-center gap-3 rounded-lg border border-rn-border bg-rn-surface p-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-white text-rn-blue shadow-sm">
-                      <Icon size={18} />
-                    </div>
-                    <div>
-                      <p className="text-xs text-rn-text-muted">{item.label}</p>
-                      <p className="text-sm font-semibold text-rn-text">{item.value}</p>
-                    </div>
-                  </div>
-                );
-              })}
+          {/* ── LEFT: Info ── */}
+          <div className="flex flex-col justify-between h-full space-y-8">
+
+            {/* Heading */}
+            <div>
+              <h1 className="text-2xl font-bold leading-tight text-rn-text md:text-3xl lg:text-4xl">
+                Let's build your website, fullstack app, or Shopify store
+              </h1>
+              <p className="mt-4 text-sm leading-6 text-rn-text-muted max-w-md">
+                Share your requirement and we will help you with website development, fullstack application development, custom Shopify theme work, and Shopify store customization.
+              </p>
+            </div>
+
+            {/* How it works */}
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-rn-text-muted mb-4">
+                How it works
+              </p>
+              <ol className="space-y-3">
+                {[
+                  'Tell us your project idea.',
+                  'Share your goals and required features.',
+                  'Get a clear development plan and timeline.'
+                ].map((step, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-rn-blue/10 text-rn-blue text-xs font-bold">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-rn-text-muted leading-6">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Contact links */}
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href="mailto:teamnxtwebworks@gmail.com"
+                className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+              >
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
+                  <Mail size={17} strokeWidth={1.8} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">Email us</p>
+                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors leading-tight">teamnxtwebworks@gmail.com</p>
+                </div>
+              </a>
+
+              <a
+                href="tel:+917660952680"
+                className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+              >
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
+                  <Phone size={17} strokeWidth={1.8} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">Call us</p>
+                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors">+91 7660952680</p>
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/917660952680"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+              >
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
+                  <MessageCircle size={17} strokeWidth={1.8} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">WhatsApp</p>
+                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors">Chat with us</p>
+                </div>
+              </a>
             </div>
           </div>
 
-          <div className="lg:col-span-7">
-            <form ref={form} onSubmit={sendEmail} className="rounded-lg border border-rn-border bg-rn-surface p-5 md:p-6 shadow-sm">
-              <div className="grid gap-5 sm:grid-cols-2">
+          {/* ── RIGHT: Form ── */}
+          <div className="h-full">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="rounded-xl border border-rn-border bg-white p-6 md:p-8 shadow-sm space-y-5 h-full flex flex-col justify-between"
+            >
+              {/* Full Name */}
+              <div>
+                <label htmlFor="contact-name" className="mb-2 block text-sm font-semibold text-rn-text">
+                  Full Name
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="user_name"
+                  required
+                  placeholder="Enter your full name"
+                  className="w-full rounded-md border border-rn-border bg-white px-4 py-3 text-sm text-rn-text outline-none transition-colors placeholder:text-slate-400 focus:border-rn-blue"
+                />
+              </div>
+
+              {/* Email + Phone row */}
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-rn-text">Name</label>
+                  <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-rn-text">
+                    Email Address
+                  </label>
                   <input
-                    type="text"
-                    name="user_name"
-                    required
-                    placeholder="Your name"
-                    className="w-full rounded-md border border-rn-border bg-white px-4 py-3 text-sm text-rn-text outline-none transition-colors placeholder:text-slate-400 focus:border-rn-blue"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-rn-text">Email</label>
-                  <input
+                    id="contact-email"
                     type="email"
                     name="user_email"
                     required
@@ -96,53 +157,73 @@ const Contact = () => {
                     className="w-full rounded-md border border-rn-border bg-white px-4 py-3 text-sm text-rn-text outline-none transition-colors placeholder:text-slate-400 focus:border-rn-blue"
                   />
                 </div>
+                <div>
+                  <label htmlFor="contact-phone" className="mb-2 block text-sm font-semibold text-rn-text">
+                    Phone Number
+                  </label>
+                  <input
+                    id="contact-phone"
+                    type="tel"
+                    name="phone_number"
+                    placeholder="+91 00000 00000"
+                    className="w-full rounded-md border border-rn-border bg-white px-4 py-3 text-sm text-rn-text outline-none transition-colors placeholder:text-slate-400 focus:border-rn-blue"
+                  />
+                </div>
               </div>
 
-              <div className="mt-5">
-                <label className="mb-2 block text-sm font-semibold text-rn-text">Phone</label>
-                <input
-                  type="tel"
-                  name="phone_number"
-                  placeholder="+91 00000 00000"
-                  className="w-full rounded-md border border-rn-border bg-white px-4 py-3 text-sm text-rn-text outline-none transition-colors placeholder:text-slate-400 focus:border-rn-blue"
-                />
-              </div>
-
-              <div className="mt-5">
-                <label className="mb-2 block text-sm font-semibold text-rn-text">Project details</label>
+              {/* Requirement */}
+              <div>
+                <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-rn-text">
+                  Your Requirement
+                </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   required
-                  rows={4}
-                  placeholder="Website, full-stack app, Shopify store, dashboard, timeline, budget range..."
+                  rows={5}
+                  placeholder="Tell us about your website, fullstack app, or Shopify requirement..."
                   className="w-full resize-none rounded-md border border-rn-border bg-white px-4 py-3 text-sm text-rn-text outline-none transition-colors placeholder:text-slate-400 focus:border-rn-blue"
                 />
               </div>
 
+              {/* Submit */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="premium-button mt-5 w-full sm:w-auto"
+                className="premium-button w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Sending...' : 'Send message'}
-                {!isSubmitting && <Send size={15} />}
+                {isSubmitting ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send size={15} />
+                  </>
+                )}
               </button>
 
               {submitStatus === 'error' && (
-                <p className="mt-3 text-sm font-medium text-red-600">Message failed. Please check your connection and try again.</p>
+                <p className="text-sm font-medium text-red-600">
+                  Message failed. Please check your connection and try again.
+                </p>
               )}
             </form>
           </div>
+
         </div>
       </div>
 
+      {/* ── SUCCESS MODAL ── */}
       {submitStatus === 'success' && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-rn-text/35 p-4 backdrop-blur-sm">
           <div className="relative w-full max-w-sm rounded-lg bg-white p-7 text-center shadow-2xl">
             <button
               onClick={() => setSubmitStatus(null)}
-              className="absolute right-4 top-4 text-rn-text-muted hover:text-rn-text"
-              aria-label="Close success message"
+              className="absolute right-4 top-4 text-rn-text-muted hover:text-rn-text transition-colors"
+              aria-label="Close"
             >
               <X size={18} />
             </button>
@@ -150,7 +231,9 @@ const Contact = () => {
               <CheckCircle size={24} />
             </div>
             <h3 className="text-xl font-semibold text-rn-text">Message received</h3>
-            <p className="mt-2 text-sm leading-6 text-rn-text-muted">We will review your project details and reply soon.</p>
+            <p className="mt-2 text-sm leading-6 text-rn-text-muted">
+              We will review your requirement and reply with the next step.
+            </p>
             <button
               onClick={() => setSubmitStatus(null)}
               className="premium-button mt-5 w-full"

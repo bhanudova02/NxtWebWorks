@@ -2,7 +2,8 @@ export const projects = [
   {
     title: 'Seed Processing',
     category: 'Seed Processing',
-    description: 'Rajesh Seeds offers premier seed processing solutions, adhering to stringent quality standards worldwide.',
+    description: 'Rajesh Seeds offers premier seed processing solutions, adhering to stringent quality standards worldwide. The platform covers seed-to-seed services, food processing, animal feed, and agro chemicals — all under one digital presence.',
+    liveUrl: 'https://rajesh-seeds.vercel.app/',
     slides: [
       '/project_image/seeds-processing/1.jpg',
       '/project_image/seeds-processing/2.jpg',
@@ -12,35 +13,31 @@ export const projects = [
     ]
   },
   {
-    title: 'Seed To Seed',
-    category: 'Seed to Seed',
-    description: 'We provide IP-protected infrastructure for seed-to-seed services, delivering high-quality solutions on a global scale.',
+    title: 'PVR Cabs',
+    category: 'Corporate Transport Platform',
+    description: 'PVR Cabs is a Hyderabad-based premium transport service established in 2007, operating a fleet of 600+ vehicles. We built their full web platform covering IT employee transportation, corporate car services, and airport transfers — with a clean service-focused UI, route methodology section, and direct inquiry flow for corporate clients across Telangana.',
+    liveUrl: 'https://pvrcabs.com/',
     slides: [
-      '/project_image/seeds-processing/2.jpg'
+      '/project_image/pvr-cabs/1.jpg',
+      '/project_image/pvr-cabs/2.jpg',
+      '/project_image/pvr-cabs/3.jpg',
+      '/project_image/pvr-cabs/4.jpg',
+      '/project_image/pvr-cabs/5.jpg'
     ]
   },
   {
-    title: 'Food Processing',
-    category: 'Food Processing',
-    description: 'Rajesh Seeds delivers comprehensive food processing solutions, including round-the-clock packing, shipping, and processing services.',
+    title: 'Dazzle Sportswear',
+    category: 'E-commerce / Sportswear',
+    description: 'Contributed as a UI/Frontend Developer at my previous company. Worked on building the frontend interface for Dazzle Sportswear — a premium sports apparel e-commerce brand. My role covered UI development, component building, and responsive design implementation using modern frontend technologies.',
+    role: 'UI / Frontend Developer',
+    liveUrl: 'https://www.dazzlesportswear.com/',
     slides: [
-      '/project_image/seeds-processing/3.jpg'
-    ]
-  },
-  {
-    title: 'RSPL Feeds',
-    category: 'RSPL Feeds',
-    description: 'Our animal feed options, such as corn silage, are high-quality and nutritious, with a shelf life of up to 1.5 years.',
-    slides: [
-      '/project_image/seeds-processing/4.jpg'
-    ]
-  },
-  {
-    title: 'Agro Chemicals',
-    category: 'Agro Chemicals',
-    description: 'We offer advanced chemical production with state-of-the-art facilities, providing high-throughput solutions for enterprises.',
-    slides: [
-      '/project_image/seeds-processing/5.jpg'
+      '/project_image/dazzle-sportswear/1.jpg',
+      '/project_image/dazzle-sportswear/2.jpg',
+      '/project_image/dazzle-sportswear/3.jpg',
+      '/project_image/dazzle-sportswear/4.jpg',
+      '/project_image/dazzle-sportswear/5.jpg',
+      '/project_image/dazzle-sportswear/6.jpg'
     ]
   }
 ];

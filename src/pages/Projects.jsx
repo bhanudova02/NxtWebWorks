@@ -4,7 +4,8 @@ import { ChevronLeft, ChevronRight, ArrowUpRight, X, Globe, Eye, Sparkles, Layou
 import { projects } from '../data/projects';
 import { SlideVisual } from '../components/SlideVisual';
 
-const categories = ['All', 'Seed Processing', 'Seed to Seed', 'Food Processing', 'RSPL Feeds', 'Agro Chemicals'];
+const categories = ['All', ...projects.map(p => p.category)];
+
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -235,6 +236,14 @@ const Projects = () => {
                     <h4 className="text-xs font-bold text-rn-text-muted uppercase tracking-widest mb-1.5">Project Overview</h4>
                     <p className="text-sm text-rn-text-muted leading-relaxed">{selectedProject.description}</p>
                   </div>
+                  {selectedProject.role && (
+                    <div className="flex items-center gap-2 pt-1">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-rn-text-muted">My Role</span>
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-rn-blue/10 border border-rn-blue/15 text-rn-blue text-xs font-semibold">
+                        {selectedProject.role}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
