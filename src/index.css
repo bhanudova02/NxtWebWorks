@@ -77,4 +77,19 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  @keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  .animate-marquee-left {
+    animation: marqueeLeft 50s linear infinite;
+  }
+  .animate-marquee-right {
+    animation: marqueeRight 50s linear infinite;
+  }
 }
