@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="flex h-14 items-center justify-between md:h-16">
           <Link to="/" onClick={closeMenu} className="flex items-center">
             <img
-              src="/logo/black_logo.webp"
+              src="/logo/logo.png"
               alt="NxtWebWorks"
               className="h-8 w-auto object-contain"
             />
