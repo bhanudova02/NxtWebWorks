@@ -3,6 +3,11 @@ import { ArrowUpRight } from 'lucide-react';
 const Hero = () => {
   return (
     <section className="relative overflow-hidden border-b border-rn-border bg-white py-14 md:py-24">
+      {/* Fine grid pattern & radial gradients for ambient light */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
+      
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:gap-12 lg:grid-cols-12 lg:items-center">
           
