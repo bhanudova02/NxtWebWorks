@@ -79,14 +79,14 @@ const Contact = () => {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href="mailto:teamnxtwebworks@gmail.com"
-                className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+                className="col-span-2 sm:col-span-1 w-fit sm:w-full flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
               >
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
                   <Mail size={17} strokeWidth={1.8} />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">Email us</p>
-                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors leading-tight">teamnxtwebworks@gmail.com</p>
+                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors leading-tight break-all">teamnxtwebworks@gmail.com</p>
                 </div>
               </a>
 

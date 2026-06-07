@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="flex h-15 items-center justify-between md:h-16">
           <Link to="/" onClick={closeMenu} className="flex items-center">
             <img
-              src="/logo/logo.png"
+              src="/logo/blue_logo.png"
               alt="NxtWebWorks"
               className="h-8 w-auto object-contain"
             />
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <div className="space-y-8">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                     <img
-                      src="/logo/logo.png"
+                      src="/logo/blue_logo.png"
                       alt="NxtWebWorks"
                       className="h-7 w-auto object-contain"
                     />

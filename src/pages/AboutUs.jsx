@@ -50,7 +50,7 @@ const staggerContainer = {
 
 const AboutUs = () => {
   return (
-    <div className="bg-rn-bg min-h-screen text-rn-text antialiased">
+    <div className="bg-rn-bg min-h-screen text-rn-text antialiased overflow-x-hidden">
       
       {/* 1. ABOUT HERO SECTION */}
       <section className="relative pt-16 md:pt-20 pb-24 bg-gradient-to-b from-rn-surface via-white to-rn-bg border-b border-rn-border overflow-hidden">
