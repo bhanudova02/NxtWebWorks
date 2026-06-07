@@ -1,13 +1,13 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
-export const SlideVisual = ({ type }) => {
+export const SlideVisual = ({ type, className = "" }) => {
   if (type && (type.startsWith('/') || type.includes('.') || type.startsWith('http'))) {
     return (
       <img 
         src={type} 
         alt="Project Screenshot" 
-        className="w-full h-full object-contain"
+        className={`w-full h-full object-contain ${className}`}
       />
     );
   }
