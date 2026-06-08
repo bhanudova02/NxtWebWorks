@@ -116,7 +116,7 @@ const FeaturedProjects = () => {
                 className="w-[78vw] sm:w-[60vw] md:w-[45vw] lg:w-[38%] flex-shrink-0 snap-start group cursor-pointer"
               >
                 <div className="h-[280px] sm:h-[320px] md:h-auto md:aspect-[16/10] bg-white rounded-xl border border-[#E2E8F0] overflow-hidden mb-6 relative shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200">
-                  <SlideVisual type={project.slides[0]} className="scale-[1.15]" />
+                  <SlideVisual type={project.slides[0]} className={project.title === 'TheoVerse' ? '' : 'scale-[1.15]'} />
                   <div className="absolute inset-0 bg-black/[0.01] hover:bg-transparent transition-colors duration-300" />
                 </div>
                 <div className="flex justify-between items-start">
@@ -190,7 +190,7 @@ const FeaturedProjects = () => {
                 {/* Visual Slide Viewer Area */}
                 <div className="space-y-4">
                   <div className="aspect-[16/10] w-full border border-rn-border rounded-xl overflow-hidden shadow-inner bg-white">
-                    <SlideVisual type={selectedProject.slides[activeSlideIdx]} className="scale-[1.02]" />
+                    <SlideVisual type={selectedProject.slides[activeSlideIdx]} className={selectedProject.title === 'TheoVerse' ? '' : 'scale-[1.02]'} />
                   </div>
 
                   {/* Slider Pagination Controls */}
