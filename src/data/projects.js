@@ -1,5 +1,20 @@
 export const projects = [
   {
+    title: 'TheoVerse',
+    category: 'E-commerce / Digital Products',
+    description: 'TheoVerse is a digital platform offering structured Bible study guides to help users understand Scripture clearly and follow a logical reading order. The platform provides a streamlined e-commerce experience to purchase translation-agnostic digital resources, comprehensive bundles, and reading plans aimed at building foundational biblical literacy.',
+    liveUrl: 'https://theoverse.vercel.app/',
+    slides: [
+      '/project_image/theoverse/1.jpg',
+      '/project_image/theoverse/2.jpg',
+      '/project_image/theoverse/3.jpg',
+      '/project_image/theoverse/4.jpg',
+      '/project_image/theoverse/5.jpg',
+      '/project_image/theoverse/6.jpg',
+      '/project_image/theoverse/7.jpg'
+    ]
+  },
+  {
     title: 'Dazzle Sportswear',
     category: 'E-commerce / Sportswear',
     description: 'Contributed as a UI/Frontend Developer at my previous company. Worked on building the frontend interface for Dazzle Sportswear — a premium sports apparel e-commerce brand. My role covered UI development, component building, and responsive design implementation using modern frontend technologies.',
