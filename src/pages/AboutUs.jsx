@@ -209,109 +209,142 @@ const AboutUs = () => {
       </section>
 
       {/* 3. WHAT WE DO SECTION */}
-      <section className="py-12 md:py-16 bg-white border-b border-rn-border relative overflow-hidden">
+      <section className="py-14 md:py-20 bg-white border-b border-rn-border relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="section-kicker">What we do</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-rn-text tracking-tight mt-4">
-              Our core services
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div className="max-w-xl">
+              <span className="section-kicker">What we do</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-rn-text tracking-tight mt-4">
+                Our core services
+              </h2>
+            </div>
+            <p className="text-sm text-rn-text-muted leading-relaxed max-w-sm md:text-right">
+              Websites, apps, stores, and internal tools — scoped clearly and shipped as one product.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 icon: Layout,
                 title: "Website Development",
-                desc: "Beautiful, fast-loading, and responsive websites designed to help your business stand out."
+                desc: "Fast, responsive sites that look sharp on every screen and make the next step obvious.",
+                points: ["Landing pages", "Company sites", "Responsive UI"]
               },
               {
                 icon: Database,
                 title: "Fullstack Applications",
-                desc: "Powerful web applications with secure backend systems and reliable databases."
+                desc: "Web apps with secure APIs, authentication, and a database you can actually grow on.",
+                points: ["React frontends", "Node APIs", "Databases"]
               },
               {
                 icon: LineChart,
                 title: "Admin Dashboards",
-                desc: "Custom analytics and management dashboards for internal tools and business operations."
+                desc: "Internal panels for orders, customers, reports, and the work your team does every day.",
+                points: ["Data views", "Role access", "Operations"]
               },
               {
                 icon: Layers,
                 title: "App Development",
-                desc: "Cross-platform and native mobile applications built for seamless user experiences."
+                desc: "Cross-platform mobile apps built for a smooth experience on iOS and Android.",
+                points: ["iOS & Android", "App stores", "Native feel"]
               },
               {
                 icon: ShoppingBag,
                 title: "Custom Shopify Themes",
-                desc: "Unique Shopify theme designs built from scratch to match your exact brand vision."
+                desc: "Storefronts designed from scratch so the shop matches your brand, not a template.",
+                points: ["Theme design", "Product pages", "Brand fit"]
               },
               {
                 icon: Code,
                 title: "Shopify Customization",
-                desc: "Expert modifications, app integrations, and performance optimization for existing stores."
+                desc: "Sections, apps, and speed work on an existing store without a full rebuild.",
+                points: ["Theme edits", "App setup", "Performance"]
               }
             ].map((service, idx) => (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+              <motion.article
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                key={idx}
-                className="bg-rn-surface border border-rn-border p-6 md:p-8 rounded-md hover:bg-white hover:border-rn-blue/30 hover:shadow-sm transition-all duration-300"
+                transition={{ duration: 0.45, delay: idx * 0.06 }}
+                key={service.title}
+                className="group flex flex-col bg-white border border-rn-border rounded-xl p-5 md:p-6 shadow-sm hover:border-rn-blue/30 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-md bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-5">
-                  <service.icon size={20} />
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center">
+                    <service.icon size={18} strokeWidth={1.8} />
+                  </div>
+                  <span className="text-[11px] font-semibold tracking-widest text-rn-text-muted/70">
+                    0{idx + 1}
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-rn-text mb-2">{service.title}</h3>
-                <p className="text-sm text-rn-text-muted leading-relaxed">{service.desc}</p>
-              </motion.div>
+                <h3 className="text-base font-semibold text-rn-text mb-2">{service.title}</h3>
+                <p className="text-sm text-rn-text-muted leading-relaxed flex-1">{service.desc}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {service.points.map((point) => (
+                    <span
+                      key={point}
+                      className="rounded-md bg-rn-surface border border-rn-border px-2 py-1 text-[11px] font-medium text-rn-text-muted"
+                    >
+                      {point}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
       {/* 4. WHY CHOOSE US */}
-      <section className="py-12 md:py-16 bg-rn-surface border-b border-rn-border relative">
+      <section className="py-14 md:py-20 bg-rn-surface border-b border-rn-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="max-w-2xl mb-10">
             <span className="section-kicker">Why choose us</span>
             <h2 className="text-2xl md:text-3xl font-bold text-rn-text tracking-tight mt-4">
               Built for reliability
             </h2>
+            <p className="mt-3 text-sm text-rn-text-muted leading-relaxed max-w-lg">
+              Schedule, code quality, and support stay in place after the first launch — not only during the build.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
-                iconImg: "/icon_fast_delivery.png",
+                icon: Zap,
                 title: "Fast Delivery",
-                desc: "We respect your time. We deliver projects on schedule without compromising on quality."
+                desc: "We respect your time. Projects ship on the agreed schedule without cutting corners on quality."
               },
               {
-                iconImg: "/icon_clean_code.png",
+                icon: FileCode,
                 title: "Clean Code",
-                desc: "We write simple, maintainable code so your product can easily scale in the future."
+                desc: "Simple, maintainable code so the product stays easy to update and ready to scale."
               },
               {
-                iconImg: "/icon_reliable_support.png",
+                icon: Shield,
                 title: "Reliable Support",
-                desc: "We provide clear communication and ongoing support even after your project is launched."
+                desc: "Clear communication during the build, and help that continues after your project goes live."
               }
             ].map((feature, idx) => (
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
+              <motion.article
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                key={idx}
-                className="flex flex-col items-center text-center p-4"
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                key={feature.title}
+                className="relative bg-white border border-rn-border rounded-xl p-6 shadow-sm"
               >
-                <div className="w-16 h-16 rounded-md bg-white border border-rn-border shadow-sm flex items-center justify-center mb-5 p-2.5 overflow-hidden">
-                  <img src={feature.iconImg} alt={feature.title} className="w-full h-full object-contain mix-blend-multiply" />
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-11 h-11 rounded-lg bg-rn-text text-white flex items-center justify-center">
+                    <feature.icon size={18} strokeWidth={1.8} />
+                  </div>
+                  <span className="text-3xl font-semibold tracking-tight text-rn-border">0{idx + 1}</span>
                 </div>
-                <h3 className="text-base font-bold text-rn-text mb-2">{feature.title}</h3>
+                <h3 className="text-base font-semibold text-rn-text mb-2">{feature.title}</h3>
                 <p className="text-sm text-rn-text-muted leading-relaxed">{feature.desc}</p>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
