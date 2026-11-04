@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import Reveal from './Reveal';
 import { 
   Rocket, 
   Smile, 
@@ -24,27 +25,29 @@ const CountUp = ({ value }) => {
   const ref = useRef(null);
 
   const numericMatch = value.match(/[\d.]+/);
-  if (!numericMatch) {
-    return <span>{value}</span>;
-  }
-
-  const targetNumber = parseFloat(numericMatch[0]);
-  const suffix = value.replace(/[\d.]+/, '');
+  const targetNumber = numericMatch ? parseFloat(numericMatch[0]) : 0;
+  const suffix = numericMatch ? value.replace(/[\d.]+/, '') : '';
 
   useEffect(() => {
+    if (!numericMatch) return;
+
     let observer;
     let animationFrameId;
 
     const startAnimation = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setCount(value.includes('.') ? targetNumber : Math.round(targetNumber));
+        return;
+      }
+
       const startTime = performance.now();
-      const duration = 2000; // 2 seconds
+      const duration = 1100;
 
       const updateCount = (now) => {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
-        // Ease out quad
-        const easeProgress = progress * (2 - progress);
+
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
         const currentVal = easeProgress * targetNumber;
 
         if (value.includes('.')) {
@@ -79,6 +82,10 @@ const CountUp = ({ value }) => {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [targetNumber, value]);
+
+  if (!numericMatch) {
+    return <span>{value}</span>;
+  }
 
   return <span ref={ref}>{count}{suffix}</span>;
 };
@@ -129,7 +136,7 @@ const workTypes = [
 
 const TrustStats = () => {
   return (
-    <section className="bg-[#050814] py-10 md:py-14 text-white relative overflow-hidden border-b border-slate-900">
+    <section className="bg-[#050814] py-16 md:py-20 text-white relative overflow-hidden border-b border-slate-900">
       {/* Decorative background glows */}
       <div className="absolute top-20 left-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -141,13 +148,12 @@ const TrustStats = () => {
           {topStats.map((stat, i) => {
             const IconComponent = stat.icon;
             return (
-              <div
+              <Reveal
                 key={stat.label}
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-                className="bg-[#0B1224]/50 border border-slate-800/80 rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-5 hover:border-slate-700/80 transition-all duration-300 group shadow-[0_8px_30px_rgb(0,0,0,0.15)]"
+                delay={i * 50}
+                className="bg-[#0B1224]/50 border border-slate-800/80 rounded-xl p-4 sm:p-6 flex items-center gap-3 sm:gap-5 shadow-[0_8px_30px_rgb(0,0,0,0.15)]"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 text-slate-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300 border border-slate-800 shadow-inner">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 text-slate-300 rounded-lg flex items-center justify-center flex-shrink-0 border border-slate-800 shadow-inner">
                   <IconComponent size={18} className="stroke-[2]" />
                 </div>
                 <div>
@@ -156,7 +162,7 @@ const TrustStats = () => {
                   </p>
                   <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">{stat.label}</p>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -165,27 +171,23 @@ const TrustStats = () => {
         <div className="space-y-6 md:space-y-8">
           {/* Header */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-900 overflow-hidden">
-            <div
-              data-aos="fade-up"
-              className="px-1.5 sm:px-3 lg:px-0"
-            >
+            <Reveal className="px-1.5 sm:px-3 lg:px-0">
               <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest block mb-2">
                 TECH STACK
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
                 Technologies We Master
               </h2>
-            </div>
-            
-            <div 
-              data-aos="fade-up"
-              data-aos-delay="100"
+            </Reveal>
+
+            <Reveal
+              delay={50}
               className="flex items-center lg:justify-end px-1.5 sm:px-3 lg:px-0"
             >
               <div className="border-l-2 border-blue-500 pl-4 py-1 text-slate-400 text-xs md:text-sm max-w-[280px] leading-relaxed">
                 Production-grade tooling used across every project we ship.
               </div>
-            </div>
+            </Reveal>
           </div>
 
           {/* Cards Grid */}
@@ -193,13 +195,12 @@ const TrustStats = () => {
             {techCategories.map((cat, i) => {
               const IconComponent = cat.icon;
               return (
-                <div
+                <Reveal
                   key={cat.title}
-                  data-aos="fade-up"
-                  data-aos-delay={i * 100}
-                  className="bg-[#080E1C] border border-[#1E293B]/60 rounded-xl p-4 sm:p-7 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] transition-all duration-300 group flex flex-col"
+                  delay={i * 50}
+                  className="bg-[#080E1C] border border-[#1E293B]/60 rounded-xl p-4 sm:p-7 flex flex-col"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900 text-slate-300 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 border border-slate-800">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900 text-slate-300 flex items-center justify-center mb-4 border border-slate-800">
                     <IconComponent size={18} className="stroke-[2]" />
                   </div>
                   <h3 className="text-sm sm:text-base font-bold text-white tracking-tight">
@@ -220,17 +221,14 @@ const TrustStats = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Reveal>
               );
             })}
           </div>
         </div>
 
         {/* 3. BOTTOM SUMMARY BLOCK */}
-        <div
-          data-aos="fade-up"
-          className="bg-[#080E1C] border border-[#1E293B]/50 rounded-2xl p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative overflow-hidden"
-        >
+        <Reveal className="bg-[#080E1C] border border-[#1E293B]/50 rounded-2xl p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
           {/* Subtle glow inside card */}
           <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -252,7 +250,7 @@ const TrustStats = () => {
                 return (
                   <span
                     key={type.label}
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-slate-800 bg-[#0F172A]/50 text-[10px] md:text-xs font-semibold text-slate-300 hover:border-slate-700 hover:text-white transition-all cursor-default"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-slate-800 bg-[#0F172A]/50 text-[10px] md:text-xs font-semibold text-slate-300"
                   >
                     <PillIcon size={12} className="text-slate-400" />
                     <span>{type.label}</span>
@@ -286,7 +284,7 @@ const TrustStats = () => {
               );
             })}
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </section>

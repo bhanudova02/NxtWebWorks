@@ -1,0 +1,583 @@
+{
+ "version": 1,
+ "at": "2026-11-04T13:41:53.249Z",
+ "seed": 1095513890,
+ "redraws": 0,
+ "input": {
+  "brief": "",
+  "sector": "studio-portfolio",
+  "tone": null,
+  "have": [],
+  "keep": [],
+  "avoid": [],
+  "sections": [
+   "work",
+   "intro",
+   "features",
+   "about",
+   "cta",
+   "footer"
+  ],
+  "direction": null
+ },
+ "imagery": "atmosphere",
+ "allow": [],
+ "direction": {
+  "id": "dense-tiles",
+  "name": "The well-kept board",
+  "sectors": [
+   "agency",
+   "studio-portfolio",
+   "saas",
+   "dev-tool",
+   "ai-product",
+   "culture",
+   "music",
+   "other"
+  ],
+  "tones": [
+   "technical",
+   "bold"
+  ],
+  "needs": [],
+  "idea": "The whole page is a board of tiles fitted edge to edge with narrow gaps, like a tidy desk seen from above. Each tile is one thing: the name, a statement, a photograph, a number, a link, a short list. There is no hero and no sequence of bands; the page is one continuous composition that the eye roams. It suits subjects with many small true things to show (a studio with work, writing, clients and news; a product with several distinct capabilities) and it replaces the generic bento by having real content in every tile and a strict system for sizes.",
+  "composition": "A 12-column grid with 8px gaps and 8–12px outer margins, filled completely, no empty cells. Tiles use only four sizes (for example 6×4, 6×2, 3×2, 3×4 in column × row units of about 90px). Every tile is a flat filled rectangle: ground colour one step from the page, or a palette colour, or a photograph covering it. One radius everywhere (0, or 6–10px). The first screen contains: a name tile (the name at display size, the largest type on the page) with the wordmark set large, a statement tile with the description at 28–40px, two or three image tiles and one action tile in the accent colour. Text inside tiles is top-left aligned with 20–24px padding and never centred. Below the first screen the board continues with the same sizes; the last row is the footer made of tiles.",
+  "typography": "One grotesk in two weights. Inside tiles: a large size for single statements, a small size for lists. No uppercase labels in tile corners.",
+  "typeClasses": [
+   "grotesk-tight",
+   "geometric"
+  ],
+  "colour": "Page ground, tile ground one step lighter or darker, and one or two palette colours on selected tiles. Photographs supply the rest.",
+  "paletteTags": [
+   "dark-neutral",
+   "light-neutral",
+   "mono-accent"
+  ],
+  "imagery": "Photographs fill whole tiles with `object-fit: cover`; choose images that crop well to both wide and tall tiles.",
+  "sectionTags": [
+   "dense",
+   "colour-field",
+   "photo-led"
+  ],
+  "motion": "stillness",
+  "richness": "The fit. A full board with consistent gaps and varied tile contents is satisfying in the way a packed suitcase is.",
+  "pitfalls": "Tiles are filled, never outlined, and never carry shadows. Do not put an icon and a two-line feature blurb in every tile; vary what tiles hold. Decide the phone layout as its own board: two columns, tiles re-ordered so the name and statement lead.",
+  "seenIn": [
+   "aww-oimachi",
+   "aww-aspen-search",
+   "aww-realevate",
+   "opl-justin-lerner"
+  ],
+  "allow": []
+ },
+ "hero": {
+  "id": "name-band-and-rails",
+  "name": "Name band and rails",
+  "archetype": "tiles",
+  "directions": [
+   "dense-tiles",
+   "name-as-monument"
+  ],
+  "needs": [],
+  "blueprint": "One viewport filled completely with tiles on 8px gaps and 8px margins. Across the top, a band tile 170px tall holds the name on one line at clamp(140px, 14.4vw, 220px), heavy, tracking -0.04em, centred and deliberately wider than the band so both ends are cropped by the tile's edges (overflow: hidden, white-space: nowrap). Under it a row of four equal tiles, 64px tall, each holding one text link at 16px, top-left aligned. The remaining 62% of the height is three columns. Left rail (columns 1-2): two stacked tiles, a portrait photograph above and a short list of five facts below. Centre (columns 3-10): one large photograph tile, object-fit: cover, with a statement tile in the ground tone laid along its bottom third holding one sentence at clamp(24px, 2.4vw, 36px), top-left aligned on 24px padding. Right rail (columns 11-12): a full-height stack of five flat colour tiles, a light-to-dark run from the palette; the lowest takes the accent colour and holds the single action, the others each carry one short fact at 15px.",
+  "mobile": "Tiles restack in two columns with 6px gaps. The name band stays full width: 26vw type cropped at both sides in a 110px band. The four link tiles become a two-by-two block. The large photograph tile follows at full width, 4:3, with the statement tile under it at 6vw. The colour rail becomes a horizontal row of five short tiles, the action tile last and twice as wide.",
+  "headline": "The name on one cropped line, any length, plus one sentence of up to 60 characters in the statement tile.",
+  "motion": "edge-marquee",
+  "seenIn": [
+   "opl-shawn-golden",
+   "aww-seasats"
+  ]
+ },
+ "type": {
+  "id": "albert-sans-semibold",
+  "name": "Albert Sans",
+  "class": "geometric",
+  "display": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    600
+   ],
+   "italic": false,
+   "settings": "weight 600 · tracking -0.035em · leading 1.0 · sentence case",
+   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap\" rel=\"stylesheet\">"
+  },
+  "text": {
+   "family": "Albert Sans",
+   "source": "google",
+   "weights": [
+    400,
+    500
+   ],
+   "italic": false,
+   "settings": "400 for body, 500 for emphasis · leading 1.5 · tracking 0",
+   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap\" rel=\"stylesheet\">"
+  },
+  "standsInFor": [
+   "BT Steinhart",
+   "TT Norms Pro",
+   "Objektiv"
+  ],
+  "note": "A geometric grotesque with Scandinavian restraint: round letters, even colour, nothing decorative. Suits logistics, health, property and corporate sites that need to look clear and dependable.",
+  "seenIn": [
+   "aww-united-carriers",
+   "aww-likova"
+  ],
+  "links": [
+   "https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap"
+  ],
+  "scale": {
+   "step-small": "clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem)",
+   "step-body": "clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem)",
+   "step-lead": "clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem)",
+   "step-head": "clamp(2rem, 1.3rem + 3.2vw, 4rem)"
+  }
+ },
+ "palette": {
+  "id": "graphite-safety-orange",
+  "name": "Graphite and orange",
+  "tags": [
+   "mono-accent",
+   "dark-neutral"
+  ],
+  "bg": "#18191b",
+  "surface": "#222427",
+  "ink": "#eff0f1",
+  "muted": "#9c9ea3",
+  "accent": "#ff4a1f",
+  "accentInk": "#18191b",
+  "fields": [
+   {
+    "bg": "#eff0f1",
+    "ink": "#18191b"
+   }
+  ],
+  "note": "Graphite and cool light-grey sections alternate, graphite taking about two thirds, and photographs are desaturated so nothing competes. Safety orange marks the buttons, one thick solid bar across the top of the page and the highlighted item in a list or chart.",
+  "seenIn": [
+   "aww-sstr-friction-reduction",
+   "aww-boc-studio",
+   "aww-dragonfly-redux"
+  ]
+ },
+ "photos": {
+  "set": "fog-and-quiet",
+  "title": "Fog and quiet",
+  "note": "misty, muted, minimal landscapes and empty horizons; calm areas for text",
+  "treatment": null,
+  "others": [
+   "architecture",
+   "texture"
+  ],
+  "photos": [
+   {
+    "id": 194,
+    "alt": "Wooden deck and a single rock disappearing into thick fog",
+    "tone": "mid",
+    "colours": [
+     "cool grey",
+     "weathered brown"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.51,
+    "by": "Aleksi Tappura",
+    "page": "https://unsplash.com/photos/hVOv8me9ue8"
+   },
+   {
+    "id": 269,
+    "alt": "Gulls perched on a concrete wall beside a pale still sea",
+    "tone": "light",
+    "colours": [
+     "white",
+     "pale blue",
+     "grey"
+    ],
+    "mono": false,
+    "calm": "left",
+    "quality": 5,
+    "ratio": 1.5,
+    "by": "Jill Heyer",
+    "page": "https://unsplash.com/photos/bbV7QzDUJus"
+   },
+   {
+    "id": 353,
+    "alt": "Low cloud drifting over dark green forested hills",
+    "tone": "dark",
+    "colours": [
+     "deep green",
+     "grey"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.78,
+    "by": "Forrest Cavale",
+    "page": "https://unsplash.com/photos/qfmd9bu7IgA"
+   },
+   {
+    "id": 922,
+    "alt": "Dark treeline dissolving upward into pale fog, black and white",
+    "tone": "mid",
+    "colours": [
+     "charcoal",
+     "grey",
+     "white"
+    ],
+    "mono": true,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.8,
+    "by": "Patrick Hendry",
+    "page": "https://unsplash.com/photos/37ZuGYD3JOk"
+   },
+   {
+    "id": 465,
+    "alt": "Dark rocky peak emerging from thick white cloud",
+    "tone": "light",
+    "colours": [
+     "white",
+     "charcoal",
+     "pale grey"
+    ],
+    "mono": false,
+    "calm": "left",
+    "quality": 5,
+    "ratio": 1.51,
+    "by": "Paula Vermeulen",
+    "page": "https://unsplash.com/photos/_f2m3mEkaaU"
+   },
+   {
+    "id": 842,
+    "alt": "Wooden steps with railings descending into pale pink fog",
+    "tone": "light",
+    "colours": [
+     "blush pink",
+     "pale grey",
+     "slate"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 0.75,
+    "by": "Joe Beck",
+    "page": "https://unsplash.com/photos/NbUokuw0BQI"
+   },
+   {
+    "id": 266,
+    "alt": "Three ships on a distant horizon across a calm blue sea",
+    "tone": "mid",
+    "colours": [
+     "pale blue",
+     "deep blue"
+    ],
+    "mono": false,
+    "calm": "all",
+    "quality": 5,
+    "ratio": 1.78,
+    "by": "John Maravelakis",
+    "page": "https://unsplash.com/photos/Vosp2wlY3Bs"
+   },
+   {
+    "id": 989,
+    "alt": "Low cloud covering a forested lakeshore under a pale sky",
+    "tone": "light",
+    "colours": [
+     "pale grey",
+     "dark teal",
+     "soft blue"
+    ],
+    "mono": false,
+    "calm": "top",
+    "quality": 5,
+    "ratio": 1.5,
+    "by": "Paul Jarvis",
+    "page": "https://unsplash.com/photos/eBDdgbM5dSo"
+   }
+  ]
+ },
+ "motion": {
+  "id": "edge-marquee",
+  "name": "Edge-to-edge marquee",
+  "description": "One line of very large type travels sideways across the full width at a slow constant speed, as a band between two sections or as the closing statement. Linear timing, duplicated content for a seamless loop, paused on hover and under reduced motion. One marquee per page, carrying real words (the name, the claim), never a list of buzzwords."
+ },
+ "sections": [
+  {
+   "id": "work-giant-title-uneven-wall",
+   "role": "work",
+   "name": "Giant title, uneven wall",
+   "shape": "mosaic",
+   "tags": [
+    "poster",
+    "photo-led",
+    "dense"
+   ],
+   "directions": [
+    "loud-flat-poster",
+    "dense-tiles",
+    "name-as-monument",
+    "colour-chapters"
+   ],
+   "needs": [],
+   "blueprint": "A one- or two-word title in capitals at clamp(72px, 9vw, 136px), leading 0.9, sits flush left at the 16px margin; on its baseline at the far right, one underlined link at 15px to the full archive. 32px below, thumbnails pack into an uneven wall with 8px gaps: a flex-wrap layout in which each row has a different fixed height (cycle 240, 360, 200, 300px) and each tile's width follows its image ratio, so widths range from one-sixth to one-half of the page and tile edges do not line up between rows. Rows are justified to both margins with `flex-grow`. Under each image, one caption line at 12px: project name left, year in the soft ink right. Square corners; no hover overlay beyond a slight dimming of the other tiles. Holds 9–16 projects. The section ground is one flat colour, dark or saturated, edge to edge.",
+   "mobile": "Title at 17vw on one line. The wall becomes rows of alternating composition: one full-width tile, then two tiles splitting the width 62/38, then 38/62, with 6px gaps and fixed row heights of 220 and 150px. Captions stay as one line under each tile.",
+   "seenIn": [
+    "aww-warm-fuzzy",
+    "aww-oimachi"
+   ]
+  },
+  {
+   "id": "intro-lead-over-four-columns",
+   "role": "intro",
+   "name": "Lead line over four columns",
+   "shape": "grid",
+   "tags": [
+    "type-led",
+    "dense",
+    "quiet"
+   ],
+   "directions": [
+    "contact-sheet",
+    "quiet-instrument",
+    "editorial-report",
+    "type-only-statement",
+    "product-performs",
+    "dense-tiles"
+   ],
+   "needs": [],
+   "blueprint": "Two parts on one 12-column grid with 20px margins. First, a lead paragraph of 30–40 words spans all 12 columns at clamp(22px, 2.2vw, 32px), regular weight, leading 1.2: three lines that read as the opening of a text, with no heading before it. 72px below, four equal columns (three grid columns each, 24px gutters) carry small text at 14–15px with leading 1.45. Each column is one paragraph of 40–70 words that opens with a bold run-in phrase of two or three words in full ink, the rest continuing on the same line in the soft ink. Columns top-align and end ragged at different depths. No cards, icons or dividers; the bold run-ins are the only markers. The four columns answer four plain questions: who, what, where, how to reach them. Padding is modest, 96px top and bottom, so a sheet of images can start straight after.",
+   "mobile": "The lead paragraph at 20px, full width. The four columns become a two-by-two grid with a 20px gutter and 40px row gap at 14px; if any paragraph exceeds 60 words, switch to one column with 32px between paragraphs. Run-in phrases stay bold.",
+   "seenIn": [
+    "opl-april-leihuanani-evangelista",
+    "aww-2xa-studio",
+    "opl-wild-as"
+   ]
+  },
+  {
+   "id": "features-mosaic-of-unlike-tiles",
+   "role": "features",
+   "name": "Mosaic of unlike tiles",
+   "shape": "mosaic",
+   "tags": [
+    "dense",
+    "colour-field"
+   ],
+   "directions": [
+    "dense-tiles",
+    "editorial-report",
+    "colour-chapters",
+    "specimen-catalogue",
+    "loud-flat-poster"
+   ],
+   "needs": [],
+   "blueprint": "A 12-column grid with 8px gaps and rows of 96px, filled with no empty cells and no outlines. Six to eight filled tiles in four sizes only: 6×5, 6×3, 3×3 and 3×2 (columns × rows). The rule that keeps it from being a card grid: no two neighbouring tiles hold the same kind of thing. One tile is the heading alone, two to four words at 4vw, top-left. One is a photograph covering its tile. One is a single figure at 6vw with a caption. One is a short list of four lines at 20px. The others are a single sentence each at 28–32px. Text sits top-left with 24px padding; tiles holding one sentence leave their lower half empty. Tile fills: the ground one tone darker, two palette colours, and photographs. One corner radius everywhere, either 0 or 8px.",
+   "mobile": "Two columns with 6px gaps. The heading tile and the photograph tile span both columns; sentence tiles span both at their natural height; the figure and list tiles sit side by side as a pair of squares. Order: heading, photograph, pair, sentence, sentence.",
+   "seenIn": [
+    "opl-sand-studio",
+    "opl-builders-table",
+    "aww-cominvi",
+    "opl-uglycash"
+   ]
+  },
+  {
+   "id": "about-team-colour-tiles",
+   "role": "about",
+   "name": "Team on colour tiles",
+   "shape": "grid",
+   "tags": [
+    "photo-led",
+    "colour-field",
+    "dense"
+   ],
+   "directions": [
+    "specimen-catalogue",
+    "contact-sheet",
+    "colour-chapters",
+    "dense-tiles",
+    "loud-flat-poster"
+   ],
+   "needs": [],
+   "blueprint": "A one-line heading of two or three words at 28–36px sits top-left; nothing sits to its right. 40px below, a grid of portrait tiles: six columns with 12px gaps across the full content width for 12 or more people, four columns for 4–8. Every tile is a 4:5 photograph treated identically so mixed-quality headshots look like one set: `filter: grayscale(1) contrast(1.15)` with `mix-blend-mode: multiply` over a flat tint, the tints rotating through four palette colours in a fixed order. Square corners or one small radius. Under each tile, left-aligned to its edge with 10px of space: the name at 15px in full ink and the role at 13px in the soft ink, up to two lines. Rows are 36px apart. A leftover tile in the last row stays at the left; it is not centred. No hover lift and no social icons.",
+   "mobile": "Two columns with 8px gaps; tiles stay 4:5 with names at 14px beneath. For more than ten people, switch to three columns and show the name only. The heading sits above at 24px. Tints keep their rotation, so the grid reads as a checkerboard of colours.",
+   "seenIn": [
+    "opl-compile",
+    "opl-select26",
+    "opl-alterg-resources"
+   ]
+  },
+  {
+   "id": "cta-action-tile-row",
+   "role": "cta",
+   "name": "The action tile",
+   "shape": "grid",
+   "tags": [
+    "dense",
+    "colour-field"
+   ],
+   "directions": [
+    "dense-tiles",
+    "colour-chapters",
+    "specimen-catalogue",
+    "one-motif",
+    "product-performs"
+   ],
+   "needs": [],
+   "blueprint": "The close is one row of the board. Three filled tiles sit side by side with 8–14px gaps, all 360px tall and sharing one radius: a wide centre tile spanning columns 3–10 in the accent colour, flanked by two narrow tiles (columns 1–2 and 11–12) that run off the left and right viewport edges, as if the row had been cropped from a longer one. The centre tile holds, left-aligned and vertically centred with 40px padding: a heading of three to five words at 40px, two lines at 17px, and the action. The action is either one rectangular button or an email field 420px wide in the paper colour with the submit button nested inside its right end. The flanking tiles hold no text: one is a photograph covering the tile, the other a flat palette colour. No shadows, no outlines.",
+   "mobile": "The accent tile runs full width, about 300px tall, heading at 28px, field and button stacked at full width. The two flanking tiles follow beneath as a pair, each half width and 120px tall, with the same gap and the same radius.",
+   "seenIn": [
+    "opl-shelf"
+   ]
+  },
+  {
+   "id": "footer-mark-built-from-shapes",
+   "role": "footer",
+   "name": "The mark, built large",
+   "shape": "band",
+   "tags": [
+    "colour-field",
+    "object-led"
+   ],
+   "directions": [
+    "one-motif",
+    "specimen-catalogue",
+    "colour-chapters",
+    "loud-flat-poster",
+    "dense-tiles",
+    "borrowed-category"
+   ],
+   "needs": [],
+   "blueprint": "On a flat colour field, the brand closes the page as a construction rather than as set type. Across the full content width and about 34svh tall, the wordmark is built from blocks: each letter is knocked out of its own solid rectangle in a palette colour, the rectangles differ in height (60–100% of the band) and butt together with 4px gaps, bottoms on one line. Where the project has a simple geometric mark or motif, enlarge that instead, drawn as inline SVG from flat rectangles, circles and quarter-arcs with the same 4px gaps. Below, 56px lower: four columns of plain links at 15px across columns 1–8, and two addresses or contact lines in columns 9–12. A last row carries the copyright at the left and one small filled button at the right. Space and the block construction do all the separating.",
+   "mobile": "The block wordmark spans the full width at about 22svh tall; a long name breaks into two rows of blocks. Link columns go two across at 15px, contact lines beneath at full width, then copyright and the small button on one row.",
+   "seenIn": [
+    "aww-house-of-honey-1",
+    "opl-woblo",
+    "aww-2xa-studio",
+    "opl-uglycash"
+   ]
+  }
+ ],
+ "references": [
+  {
+   "id": "opl-justin-lerner",
+   "name": "Justin Lerner",
+   "url": "https://jlern.com",
+   "source": "One Page Love",
+   "kind": "personal-portfolio",
+   "score": 6.8,
+   "idea": "The portfolio is a hairline grid of square cells in which the letters of the owner's name are scattered among small animated project emblems, so name and work form one crossword-like board.",
+   "mood": [
+    "playful",
+    "spare",
+    "witty",
+    "hand-made"
+   ],
+   "archetype": "grid-index",
+   "hero": "White page divided by pale grey hairlines into five columns of exact squares (each 20vw), so three full rows and a sliver of a fourth show. No header, navigation or text block. Each cell holds one centred object about half the cell wide: either a single black slab-serif capital at 5.6vw (one in the top-left cell, one top-right, three more scattered through rows two and three) or a small project emblem such as a pixel speech bubble, a photographed bowl, a red robot arm, a wireframe figure, a logo badge or a line-drawn building. One cell holds only a soft blurred cloud. About 90% of the area is white.",
+   "type": "Museo Slab is the only face on desktop: weight-500 capitals at 80px used as grid letters, with no body copy at all (eleven words on the page). Mobile adds light italic slab project names and small sans year tabs.",
+   "colour": "#ffffff #e9eae8 #111111 #fff200 #f0563a #4fd0c8 — White ground, grey hairlines, black letters. Colour arrives only in the emblems, each in its own one- or two-colour scheme (yellow, coral, teal, purple). Mobile adds two solid yellow icon tiles.",
+   "imagery": "Small spot illustrations and logos in deliberately mixed styles (pixel art, line drawing, isometric, wireframe mesh, one cut-out photo), each centred in a square cell with no frame or background, and animated.",
+   "layout": "A single edge-to-edge grid of 20vw squares with hairline dividers and no outer margin; the whole site is about 1.3 screens. Mobile switches to two columns and adds a year tab in each cell's top-right corner and an italic name under each emblem.",
+   "sections": [
+    {
+     "role": "work",
+     "description": "The grid continues for one more row below the fold with five cells holding only emblems. Across frames the emblems are caught in different states: a logo badge collapsing to a small monogram, a scan line moving down the wireframe figure, a pencil travelling across a drawn face, a coin appearing and disappearing. Each cell is a tiny looping or hover-driven animation, with no captions on desktop."
+    },
+    {
+     "role": "other",
+     "description": "Mobile header built from the same cells: a small square with the initial on crosshair lines at left, an empty cell, then two solid-yellow square tiles carrying a document icon and a paper-plane icon. Below, the two-column grid gives each project a boxed year tab notched into the top-right corner of its cell and an italic slab project name near the bottom, sometimes overlapping the emblem."
+    }
+   ],
+   "steal": [
+    "Spell the name by dropping its letters into scattered cells of a hairline grid and fill the remaining cells with project marks, so identity and index share one structure.",
+    "Give each project a single small animated emblem centred in a large empty square instead of a screenshot thumbnail.",
+    "On mobile, notch a small boxed year tab into the corner of each grid cell and label the cell with an italic name at its base."
+   ]
+  },
+  {
+   "id": "aww-aspen-search",
+   "name": "Aspen Search",
+   "url": "https://www.aspensearch.com/",
+   "source": "Awwwards Site of the Day",
+   "kind": "other",
+   "score": 8.2,
+   "idea": "The page is a ruled tile system with no margins: the two-word name is split across cells that alternate type, dithered canvas, black and one mint green.",
+   "mood": [
+    "brutalist",
+    "precise",
+    "technical",
+    "stark",
+    "confident"
+   ],
+   "archetype": "giant-wordmark",
+   "hero": "A 60px top bar ruled into cells: black logo square, local time, nav links starting at the centre line, a theme toggle and a black contact cell flush right. Below, the viewport is a two-by-two grid divided by 1px black lines, no outer margin. Top-left is white with the first word of the name at 12.5vw, weight 450, sitting bottom-left. Top-right and bottom-left cells hold a black-and-white dithered canvas crossed by large pale-grey blade shapes that ignore cell borders. The bottom-right quadrant splits into a black cell (24px white summary, mono caps action row at its base) and a mint cell (second statement, client-logo marquee along the bottom).",
+   "type": "Suisse Intl at weight 450 for everything, tracking about -0.02em; Suisse Intl Mono in small caps for actions, bullet lists and footer. Wordmark 180px against 24px statements and 16px body. Later headings switch to all caps at about 9vw with leading near 0.9.",
+   "colour": "#ffffff #232323 #d9d9d9 #a1ffcb #969797 — White, near-black and two greys fill the cells; a single mint green floods whole tiles (a statement, a stat, the closing call to action) as the only colour. Cool and flat.",
+   "imagery": "A canvas of 1-bit ordered-dither dots with soft tonal blobs, overlaid with flat pale-grey shards taken from the logo; services get white wireframe line drawings of spheres. No photography anywhere.",
+   "layout": "Zero page margin: everything is edge-to-edge cells on a two-column grid with halves subdivided, separated by 1px rules. Sections differ only by cell fill and cell height. Type always sits top-left or bottom-left in its cell with about 20px padding; some cells are left deliberately empty.",
+   "sections": [
+    {
+     "role": "intro",
+     "description": "The second screen continues the hero grid: a black cell carries a two-line all-caps slogan at about 9vw set hard against its left edge; a light grey cell top-right holds the second word of the name at the same giant size as the first, bottom-aligned; dither canvas fills the rest. Then a white row where the left half is empty and a 24px long-form text runs only in the right column."
+    },
+    {
+     "role": "stats",
+     "description": "Stair-stepped tiles instead of a row. A tall mint cell fills the left half with one figure at about 5vw in its top-left corner and nothing else. On the right, a shorter black tile starts higher with a white figure top-left and a small caption at its bottom edge; a grey tile sits to its right, stepped down, same internal layout. The tiles' unequal heights leave white notches."
+    },
+    {
+     "role": "features",
+     "description": "Left half: a light grey cell with a three-line all-caps heading whose middle line is pushed to the right edge, a small paragraph low in the cell and a black mono-caps button bottom-right. Right half: black, split by hairlines into stacked rows; each row has a tiny mono index, a 28px title, a short paragraph in a second column, a white wireframe drawing and a mono caps list with small mint square bullets."
+    },
+    {
+     "role": "footer",
+     "description": "A grid of cells: white cell with a short statement top-left; a cell with a plain nav list; a cell with two small analogue clock icons and city times; a hairline row with email left and a social link right. Below, a black cell with the logo and lowercase wordmark centred large, beside a mint cell with a heading top-left and a thin diagonal arrow drawn into its bottom-right corner."
+    }
+   ],
+   "steal": [
+    "Rule the whole viewport into cells with 1px lines and no page margin, then give the nav, the headline, the summary and the proof each its own cell with a flat fill.",
+    "Split a two-word brand name across two cells on consecutive screens at the same giant size, so scrolling completes the name.",
+    "Use a 1-bit ordered-dither texture as the picture in otherwise empty cells and let large flat logo fragments cross the cell borders to tie the grid together."
+   ],
+   "media": "One halftone canvas of the brand mark is seen only through chosen cells of the tile grid, about half the hero area, and returns in sticky half panels and as a full-bleed canvas behind knockout words. Portraits are high-key black and white in a staggered row with offset heights, client logos keep their brand colours inside their own tiles, and there is no video and no rounded corner anywhere.",
+   "motion": "A dark screen gives way at about 1.2s to a small mark on a 20s coin spin, the white grid arrives by 2.5s with the name rising through a mask, and the dither resolves by 4.5s. Lenis drives CSS sticky stacking (12 sticky elements, no pins): hero rows slide over each other and stat tiles lock under the header one by one; text fades in by line over 1000ms cubic-bezier(0.23,1,0.32,1) in 100ms steps (193 WAAPI calls), and a theme toggle wipes the page with a 1.2s clip-path sweep."
+  },
+  {
+   "id": "aww-obys-r-experiment-space",
+   "name": "Obys® Experiment Space",
+   "url": "https://experiment.obys.agency/",
+   "source": "Awwwards Site of the Day",
+   "kind": "studio-portfolio",
+   "score": 7.5,
+   "idea": "An archive of experiments as a 3D object the visitor can reshape, framed by an almost empty ruled white sheet.",
+   "mood": [
+    "austere",
+    "experimental",
+    "precise",
+    "spatial"
+   ],
+   "archetype": "immersive-webgl",
+   "hero": "White field. One line of 13px text at the top with 10px margins: two view links far left, a theme pair at 9%, a clock at 83%, Contact far right. Three full-width hairlines at 9%, 18% and 27% height form an empty ruled band; on the third sit a short phrase flush left and its completion flush right. The middle 55% is a WebGL ring of about twenty flat rectangular cards seen in perspective — project screenshots, desaturated to grey except one in colour, far-side cards mirrored and faded. Bottom line: two tiny swatches left, four layout-mode words centred with the active one underlined, grey copyright right.",
+   "type": "One custom grotesk (OTF Obys NG), one weight, two sizes only: 13px for every label and 94px (6.5vw) uppercase at -0.055em for the three-line stacked title and the bottom caption. Hierarchy comes entirely from that seven-to-one jump.",
+   "colour": "#ffffff #000000 #686868 #dadada #b08d6a — White field, black text, hairlines in light grey. Thumbnails are desaturated and faded; only the focused card shows its real colours. A swatch toggle inverts to black.",
+   "imagery": "Screenshots of the studio's experiments mapped onto flat planes in 3D, portrait rectangles of mixed sizes, square corners, greyscale and partly transparent until focused; back faces appear mirrored.",
+   "layout": "A fixed frame — text nav at the top, three hairlines, controls on the bottom line — surrounds one interactive canvas. No scrolling page; scroll drives the carousel. Corners hold the small text, the centre axis holds title, thumbnails and caption.",
+   "sections": [
+    {
+     "role": "work",
+     "description": "On scroll the ring flattens into one horizontal row of small thumbnails, about 95px wide and 230px apart, at mid-height. All are grey except the centred one, which grows 1.4× and takes full contrast. The title sits in three stacked centred uppercase lines at 94px, clipped by the top edge and sliced by the hairlines. Bottom-centre, a 94px caption with a category code and year changes with the focused item."
+    },
+    {
+     "role": "other",
+     "description": "Layout switcher: a comma-separated list of four arrangement names on the bottom line re-flows the same cards into a ring, flower, sphere or cylinder; the active name is underlined. Two small rectangles bottom-left toggle a black or white theme. On phones the site shows only a centred two-line notice framed by four corner squares on black."
+    }
+   ],
+   "steal": [
+    "Limit the type system to two sizes — 13px for every label and one 6.5vw size for title and caption — so scale contrast does all the hierarchy.",
+    "Keep every thumbnail greyscale and faded except the focused one, so colour itself is the selection state.",
+    "Offer the gallery's arrangement as a user choice through a plain comma-separated text list rather than fixing one layout."
+   ],
+   "media": "One fullscreen canvas holds every project cover as a texture: in the opening state a 3D ring of covers fills a full-width band about 43% of the height, fogged at the far side; after the first wheel step it unrolls into a thin horizontal strip of seven small greyscale covers on only 5-6% of the screen, the one nearest the centre scaling to 1.5x and regaining its colour, with its caption docked at the bottom centre. No video.",
+   "motion": "A black screen with a progress hairline across the middle splits open like a letterbox at about 2.5s, and the masthead lines rise into their bands after 4.5s. The wheel drives the canvas, with no document scroll: the ring unrolls, then the strip slides about one item per step with no snapping, and captions change letter by letter, outgoing letters dropping and turning grey while incoming ones rise, on transform 0.3s cubic-bezier(0.16,1,0.3,1) across 3441 pre-split characters; no reduced-motion rule."
+  }
+ ],
+ "scenes": []
+}

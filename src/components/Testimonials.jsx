@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const testimonials = [
   {
@@ -33,7 +33,7 @@ const testimonials = [
 
 const TestimonialCard = ({ testimonial }) => (
   <div className="w-[84vw] sm:w-[340px] md:w-[360px] flex-shrink-0 whitespace-normal">
-    <div className="h-full bg-white border border-rn-border rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-4">
+    <div className="h-full bg-white border border-rn-border rounded-xl p-5 shadow-sm flex flex-col justify-between gap-4">
       {/* Stars */}
       <div className="flex gap-0.5">
         {[...Array(5)].map((_, i) => (
@@ -65,14 +65,16 @@ const TestimonialCard = ({ testimonial }) => (
 );
 
 const Testimonials = () => {
+  const reduce = useReducedMotion();
+
   return (
-    <section className="py-12 md:py-16 bg-rn-surface border-b border-rn-border overflow-hidden">
+    <section className="py-16 md:py-20 bg-rn-surface border-b border-rn-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: reduce ? 0 : 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-64px' }}
+          transition={{ duration: reduce ? 0.2 : 0.42, ease: [0.23, 1, 0.32, 1] }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8"
         >
           <div>

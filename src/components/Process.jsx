@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const steps = [
   {
@@ -20,8 +20,10 @@ const steps = [
 ];
 
 const Process = () => {
+  const reduce = useReducedMotion();
+
   return (
-    <section id="process" className="border-b border-rn-border bg-white py-12 md:py-16">
+    <section id="process" className="border-b border-rn-border bg-white py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-2xl">
           <p className="text-sm font-semibold text-rn-blue">Process</p>
@@ -32,10 +34,10 @@ const Process = () => {
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: reduce ? 0 : 8 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.05 }}
+              viewport={{ once: true, margin: '-64px' }}
+              transition={{ duration: reduce ? 0.2 : 0.42, delay: reduce ? 0 : index * 0.05, ease: [0.23, 1, 0.32, 1] }}
               className="bg-white p-5"
             >
               <p className="font-mono text-xs font-bold text-rn-blue">0{index + 1}</p>

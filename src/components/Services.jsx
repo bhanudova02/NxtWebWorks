@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Code2, LayoutDashboard, ShoppingBag, Monitor, Smartphone, ShoppingCart } from 'lucide-react';
 import ContactFormModal from './ContactFormModal';
+import Reveal from './Reveal';
 
 const services = [
   {
@@ -51,27 +52,24 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="border-b border-rn-border bg-rn-surface py-12 md:py-16">
+    <section id="services" className="border-b border-rn-border bg-rn-surface py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div 
-          data-aos="fade-up"
-          className="mb-7 max-w-2xl"
-        >
+        <Reveal className="mb-8 max-w-2xl">
           <p className="text-sm font-semibold text-rn-blue">Services</p>
           <h2 className="mt-2 text-3xl font-bold leading-tight text-rn-text md:text-4xl">What we can build for you</h2>
           <p className="mt-3 text-sm leading-6 text-rn-text-muted">Pick one service or combine them into a complete product build.</p>
-        </div>
+        </Reveal>
 
         <div className="grid gap-4 lg:grid-cols-2">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <article
+              <Reveal
+                as="article"
                 key={service.title}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
+                delay={index * 45}
                 onClick={() => handleCardClick(service.title)}
-                className="cursor-pointer rounded-lg border border-rn-border bg-white p-5 shadow-sm transition-all hover:shadow-md hover:border-rn-blue/30 active:scale-[0.98]"
+                className="group surface-card cursor-pointer rounded-xl border border-rn-border bg-white p-5 shadow-sm"
               >
                 <div className="flex gap-4">
                   <div className="flex h-10 w-10 flex-none items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
@@ -80,7 +78,7 @@ const Services = () => {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-lg font-semibold text-rn-text">{service.title}</h3>
-                      <ArrowUpRight size={16} className="mt-1 flex-none text-rn-text-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ArrowUpRight size={16} className="nudge-icon mt-1 flex-none text-rn-text-muted" />
                     </div>
                     <p className="mt-2 text-sm leading-6 text-rn-text-muted">{service.description}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -90,7 +88,7 @@ const Services = () => {
                     </div>
                   </div>
                 </div>
-              </article>
+              </Reveal>
             );
           })}
         </div>

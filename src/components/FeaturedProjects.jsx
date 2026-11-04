@@ -82,7 +82,7 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section id="projects" className="py-12 md:py-16 bg-white border-b border-rn-border overflow-hidden">
+    <section id="projects" className="py-16 md:py-20 bg-white border-b border-rn-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="mb-12">
@@ -122,8 +122,10 @@ const FeaturedProjects = () => {
                 }}
                 className="w-[78vw] sm:w-[60vw] md:w-[45vw] lg:w-[38%] flex-shrink-0 snap-start group cursor-pointer"
               >
-                <div className="h-[280px] sm:h-[320px] md:h-auto md:aspect-[16/10] bg-white rounded-xl border border-[#E2E8F0] overflow-hidden mb-6 relative shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-200">
-                  <SlideVisual type={project.slides[0]} className={previewImageClass(project.title, 'card')} />
+                <div className="group/media h-[280px] sm:h-[320px] md:h-auto md:aspect-[16/10] bg-white rounded-xl border border-[#E2E8F0] overflow-hidden mb-6 relative shadow-sm">
+                  <div className="media-zoom h-full w-full">
+                    <SlideVisual type={project.slides[0]} className={previewImageClass(project.title, 'card')} />
+                  </div>
                   <div className="absolute inset-0 bg-black/[0.01] hover:bg-transparent transition-colors duration-300" />
                 </div>
                 <div className="flex justify-between items-start">
@@ -131,11 +133,11 @@ const FeaturedProjects = () => {
                     <p className="text-[10px] md:text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">
                       {project.category}
                     </p>
-                    <h3 className="text-base md:text-lg font-semibold text-[#0F172A] group-hover:text-blue-600 transition-colors">
+                    <h3 className="link-tone text-base md:text-lg font-semibold text-[#0F172A]">
                       {project.title}
                     </h3>
                   </div>
-                  <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-xs font-semibold text-[#475569] group-hover:bg-[#0F172A] group-hover:text-white group-hover:border-[#0F172A] transition-all duration-300 mr-2 mt-1 cursor-pointer">
+                  <button className="project-chip flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-xs font-semibold text-[#475569] mr-2 mt-1 cursor-pointer">
                     <span>View Info</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </button>
@@ -148,7 +150,7 @@ const FeaturedProjects = () => {
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
-              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${canScrollLeft
+              className={`pressable w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center shadow-sm ${canScrollLeft
                   ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer'
                   : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
                 }`}
@@ -158,7 +160,7 @@ const FeaturedProjects = () => {
             <button
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
-              className={`w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center transition-colors shadow-sm ${canScrollRight
+              className={`pressable w-10 h-10 rounded-lg border border-[#CBD5E1] flex items-center justify-center shadow-sm ${canScrollRight
                   ? 'bg-white text-[#0F172A] hover:bg-gray-50 cursor-pointer'
                   : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
                 }`}
@@ -174,10 +176,10 @@ const FeaturedProjects = () => {
         {selectedProject && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.16, ease: [0.23, 1, 0.32, 1] } }}
+              transition={{ duration: 0.26, ease: [0.23, 1, 0.32, 1] }}
               className="bg-white rounded-2xl border border-rn-border shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col outline-none relative overflow-hidden"
             >
               {/* Modal Header */}
@@ -185,7 +187,7 @@ const FeaturedProjects = () => {
                 <h3 className="text-lg font-semibold text-[#0F172A]">{selectedProject.title}</h3>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-8 h-8 rounded-full border border-rn-border bg-white flex items-center justify-center text-gray-400 hover:text-gray-900 transition-colors shadow-sm cursor-pointer"
+                  className="pressable w-8 h-8 rounded-full border border-rn-border bg-white flex items-center justify-center text-gray-400 hover:text-gray-900 shadow-sm cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X size={16} />
@@ -248,7 +250,7 @@ const FeaturedProjects = () => {
                     href={selectedProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#0F172A] hover:bg-[#1E293B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                    className="pressable inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#0F172A] text-white text-xs font-semibold shadow-sm cursor-pointer"
                   >
                     <Globe size={13} />
                     <span>Visit Live Platform</span>

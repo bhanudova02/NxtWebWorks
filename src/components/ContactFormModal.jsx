@@ -71,25 +71,15 @@ const ContactFormModal = ({ isOpen, onClose, selectedService }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-rn-text/40 backdrop-blur-sm p-0 sm:p-4 transition-all"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-rn-text/40 p-4 backdrop-blur-sm"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div
-        className={`relative w-full sm:max-w-lg bg-white sm:rounded-xl rounded-t-2xl shadow-2xl transform transition-all duration-300 ease-out ${
-          isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}
-        style={{ maxHeight: '95dvh' }}
-      >
+      <div className="modal-pop relative flex w-full max-w-lg max-h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-2xl">
         {/* ── HEADER ── */}
-        <div className="flex items-center justify-between border-b border-rn-border px-5 py-4 sm:px-6">
-          {/* Mobile drag handle */}
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 sm:hidden">
-            <div className="h-1 w-10 rounded-full bg-slate-300" />
-          </div>
-
-          <div className="pt-2 sm:pt-0">
+        <div className="flex shrink-0 items-center justify-between border-b border-rn-border px-5 py-4 sm:px-6">
+          <div>
             <h3 className="text-lg font-bold text-rn-text">Get a free quote</h3>
             {selectedService && (
               <p className="mt-0.5 text-xs text-rn-blue font-medium">
@@ -99,7 +89,7 @@ const ContactFormModal = ({ isOpen, onClose, selectedService }) => {
           </div>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-rn-surface text-rn-text-muted hover:text-rn-text transition-colors"
+            className="pressable flex h-8 w-8 items-center justify-center rounded-full text-rn-text-muted hover:bg-rn-surface hover:text-rn-text"
             aria-label="Close"
           >
             <X size={18} />
@@ -107,7 +97,7 @@ const ContactFormModal = ({ isOpen, onClose, selectedService }) => {
         </div>
 
         {/* ── FORM BODY ── */}
-        <div className="overflow-y-auto px-5 py-5 sm:px-6" style={{ maxHeight: 'calc(95dvh - 72px)' }}>
+        <div className="overflow-y-auto px-5 py-5 sm:px-6">
           {submitStatus === 'success' ? (
             /* ── SUCCESS STATE ── */
             <div className="flex flex-col items-center text-center py-8">

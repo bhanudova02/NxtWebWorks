@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center border-b border-rn-border bg-rn-bg py-12 md:py-20">
+    <section id="contact" className="min-h-screen flex items-center border-b border-rn-border bg-rn-bg py-16 md:py-24">
       <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch">
 
@@ -79,27 +79,27 @@ const Contact = () => {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href="mailto:teamnxtwebworks@gmail.com"
-                className="col-span-2 sm:col-span-1 w-fit sm:w-full flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+                className="surface-card col-span-2 sm:col-span-1 w-fit sm:w-full flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 group"
               >
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
                   <Mail size={17} strokeWidth={1.8} />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">Email us</p>
-                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors leading-tight break-all">teamnxtwebworks@gmail.com</p>
+                  <p className="link-tone text-xs font-semibold text-rn-text leading-tight break-all">teamnxtwebworks@gmail.com</p>
                 </div>
               </a>
 
               <a
                 href="tel:+916302715653"
-                className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+                className="surface-card flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 group"
               >
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
                   <Phone size={17} strokeWidth={1.8} />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">Call us</p>
-                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors">+91 6302715653</p>
+                  <p className="link-tone text-xs font-semibold text-rn-text">+91 6302715653</p>
                 </div>
               </a>
 
@@ -107,14 +107,14 @@ const Contact = () => {
                 href="https://wa.me/916302715653"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
+                className="surface-card flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 group"
               >
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
                   <MessageCircle size={17} strokeWidth={1.8} />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">WhatsApp</p>
-                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors">Chat with us</p>
+                  <p className="link-tone text-xs font-semibold text-rn-text">Chat with us</p>
                 </div>
               </a>
             </div>
@@ -219,10 +219,10 @@ const Contact = () => {
       {/* ── SUCCESS MODAL ── */}
       {submitStatus === 'success' && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-rn-text/35 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-sm rounded-lg bg-white p-7 text-center shadow-2xl">
+          <div className="modal-pop relative w-full max-w-sm rounded-lg bg-white p-7 text-center shadow-2xl">
             <button
               onClick={() => setSubmitStatus(null)}
-              className="absolute right-4 top-4 text-rn-text-muted hover:text-rn-text transition-colors"
+              className="pressable absolute right-4 top-4 text-rn-text-muted hover:text-rn-text"
               aria-label="Close"
             >
               <X size={18} />
