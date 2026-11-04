@@ -1,5 +1,17 @@
 export const projects = [
   {
+    title: '9ine Electronics',
+    category: 'E-commerce / Electronics',
+    description: '9ine Electronics is an electronics and ambient-IoT brand selling development boards, sensors, modules, and tools, and launching MIRVEX — an edge-computing smart mirror for hospitality, homes, and commercial spaces. We built a full commerce site with product search, category browsing, sale pricing, and buy-now flows, plus a MIRVEX product story, company overview, and contact paths so component buyers and partners can shop and learn about the brand.',
+    liveUrl: 'https://9ineelectronics.com/',
+    slides: [
+      '/project_image/9ine-electronics/4.png',
+      '/project_image/9ine-electronics/3.png',
+      '/project_image/9ine-electronics/1.png',
+      '/project_image/9ine-electronics/2.png'
+    ]
+  },
+  {
     title: 'Dazzle Sportswear',
     category: 'E-commerce / Sportswear',
     description: 'Contributed as a UI/Frontend Developer at my previous company. Worked on building the frontend interface for Dazzle Sportswear — a premium sports apparel e-commerce brand. My role covered UI development, component building, and responsive design implementation using modern frontend technologies.',

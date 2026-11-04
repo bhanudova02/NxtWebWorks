@@ -56,7 +56,7 @@ const Projects = () => {
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mt-12 pt-8 border-t border-rn-border text-center">
             <div>
-              <p className="text-3xl font-bold text-rn-text">8+</p>
+              <p className="text-3xl font-bold text-rn-text">9+</p>
               <p className="text-xs text-rn-text-muted font-medium uppercase mt-1 tracking-wider">Enterprise Systems</p>
             </div>
             <div>

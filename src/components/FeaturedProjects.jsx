@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
 import { SlideVisual } from './SlideVisual';
 
-const fullFramePreviewTitles = new Set(['TheoVerse', 'Puri Maternity Photography', 'Amruth Healthy Foods', 'Sanctuary Beach Estate']);
+const fullFramePreviewTitles = new Set(['TheoVerse', 'Puri Maternity Photography', 'Amruth Healthy Foods', 'Sanctuary Beach Estate', '9ine Electronics']);
 
 const previewImageClass = (title, variant = 'card') => {
   if (fullFramePreviewTitles.has(title)) return '';
