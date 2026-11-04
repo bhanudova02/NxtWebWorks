@@ -106,7 +106,7 @@ const AboutUs = () => {
                 </div>
                 <div className="flex items-center gap-1.5 px-4 py-1.5 bg-white border border-rn-border rounded-lg text-[10px] text-rn-text-muted font-mono w-72 justify-center shadow-sm">
                   <Lock size={10} className="text-rn-text-muted" />
-                  <span>nxtwebworks.com/about/workspace</span>
+                  <span>nxtwebworks.com/about</span>
                 </div>
                 <div className="w-12 h-6" />
               </div>

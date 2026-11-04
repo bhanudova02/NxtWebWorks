@@ -91,7 +91,7 @@ const Contact = () => {
               </a>
 
               <a
-                href="tel:+917660952680"
+                href="tel:+916302715653"
                 className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"
               >
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-rn-blue/10 text-rn-blue">
@@ -99,12 +99,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-rn-text-muted">Call us</p>
-                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors">+91 7660952680</p>
+                  <p className="text-xs font-semibold text-rn-text group-hover:text-rn-blue transition-colors">+91 6302715653</p>
                 </div>
               </a>
 
               <a
-                href="https://wa.me/917660952680"
+                href="https://wa.me/916302715653"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-rn-border bg-white p-4 hover:shadow-sm transition-shadow group"

@@ -50,11 +50,11 @@ const Footer = () => {
                 <span className="break-all">teamnxtwebworks@gmail.com</span>
               </a>
               <a 
-                href="tel:+917660952680" 
+                href="tel:+916302715653" 
                 className="flex items-start gap-2 hover:text-rn-blue transition-colors"
               >
                 <Phone className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                <span>+91 7660952680</span>
+                <span>+91 6302715653</span>
               </a>
             </div>
           </div>

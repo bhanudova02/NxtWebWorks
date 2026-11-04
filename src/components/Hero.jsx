@@ -61,7 +61,7 @@ const Hero = () => {
                   <span className="h-2.5 w-2.5 rounded-full bg-slate-200" />
                   <span className="h-2.5 w-2.5 rounded-full bg-slate-200" />
                   <span className="h-2.5 w-2.5 rounded-full bg-slate-200" />
-                  <span className="ml-4 font-mono text-[10px] text-slate-400">nxtwebworks.com/work</span>
+                  <span className="ml-4 font-mono text-[10px] text-slate-400">nxtwebworks.com</span>
                 </div>
                 <div className="aspect-[16/10] bg-slate-50 overflow-hidden">
                   <img
